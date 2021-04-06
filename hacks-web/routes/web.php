@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+if (App::environment('production')) {
+    URL::forceScheme('https');
+}
+
 Route::get('/settings', function () {
     return view('settings.usersettings');
 });
