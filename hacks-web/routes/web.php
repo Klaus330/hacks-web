@@ -25,6 +25,10 @@ Route::get('/route',function(){
     return view('routes.index');
 });
 
+Route::get('/institution',function(){
+    return view('institution.institution');
+});
+
 Route::get('/', function () {
     return view('home');
 });
