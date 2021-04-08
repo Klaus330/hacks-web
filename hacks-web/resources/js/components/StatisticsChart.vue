@@ -4,7 +4,7 @@
 
 <script>
 
-import Bar from "./bar.js";
+import Bar from "./Bar.js";
 
 
 export default {
