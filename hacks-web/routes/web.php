@@ -21,6 +21,9 @@ Route::get('/settings', function () {
     return view('settings.usersettings');
 });
 
+Route::get('/route',function(){
+    return view('routes.index');
+});
 
 Route::get('/', function () {
     return view('home');
