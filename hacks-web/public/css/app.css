@@ -11101,6 +11101,14 @@ h6 {
   }
 }
 
+.mt-10 {
+  margin-top: 6rem;
+}
+
+.text-color-blue {
+  color: #020e43;
+}
+
 /**
   Buttons
 */
@@ -11128,6 +11136,19 @@ h6 {
 .btn-accent-primary:hover {
   color: white;
   background-color: #4642f2;
+}
+
+.dropdown .btn-primary {
+  color: #020e43;
+  background-color: #d4d4d4;
+  border: #d4d4d4;
+}
+
+.btn-route {
+  color: #fff;
+  background-color: #3d37f1;
+  border-color: #3d37f1;
+  border-radius: 20px;
 }
 
 /*
@@ -11189,6 +11210,32 @@ h6 {
 }
 
 .navbar-brand img {
+  width: 100%;
+}
+
+.map-container {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.map-container iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.dropdown-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-menu {
   width: 100%;
 }
 
@@ -11521,6 +11568,44 @@ h6 {
 
 .avatar-xl img {
   width: 200px;
+}
+
+.container-fluid-background {
+  background-color: #3d37f1;
+  color: white;
+}
+
+.align-feedback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.align-feedback h2 {
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .align-feedback {
+    flex-direction: row;
+  }
+
+  .align-feedback a {
+    margin-left: 0.7rem;
+  }
+
+  .align-feedback h2 {
+    margin-bottom: 0;
+  }
+}
+
+.document-text {
+  color: blue;
+  background-color: #d4d4d4;
+  border-radius: 26.5px;
+  text-align: center;
 }
 
 .auth-section {
