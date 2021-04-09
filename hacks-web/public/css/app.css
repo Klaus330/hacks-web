@@ -11109,6 +11109,14 @@ h6 {
   color: #020e43;
 }
 
+.text-color-black h5 {
+  color: black;
+}
+
+.pl-2rem {
+  padding-left: 2rem;
+}
+
 /**
   Buttons
 */
@@ -11711,6 +11719,21 @@ h6 {
   width: 100%;
   align-items: center;
   justify-content: center;
+}
+
+.form-docs {
+  border: 1px solid #4B647E;
+  border-radius: 20px;
+  background-color: #E2F5FF;
+  padding: 10px 10px;
+}
+
+.form-docs li {
+  color: black;
+}
+
+.form-docs ul {
+  margin-bottom: 0;
 }
 
 
