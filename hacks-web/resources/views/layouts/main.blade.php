@@ -17,8 +17,8 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
 
     <!-- Styles -->
-  
 
+    <link rel="icon" href="/images/logo.png">
    <!--  -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
