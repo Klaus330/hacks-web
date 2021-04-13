@@ -54,3 +54,27 @@
         }
     }
 }
+
+.logo-image-size{  
+    width: inherit;
+    height: 50px;
+    @include mq(large){   
+    height: 100px;
+    }
+}
+.nav-image-size{
+    width: inherit;
+    height: 30px;
+    @include mq(large){   
+    height: 80px;
+    }
+}
+
+.side-navbar{
+    background:linear-gradient( #fefeff, #6f7dfb);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
