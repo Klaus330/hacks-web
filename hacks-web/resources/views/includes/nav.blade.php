@@ -28,7 +28,7 @@
 {{--                        <a class="nav-link text-bold" href="/logout">{{json_decode(session()->get('user'))->name}}</a>--}}
                         <div class="dropdown">
                             <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{json_decode(session()->get('user'))->name}}
+                                {{session()->get('user')->name}}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="/settings">Settings</a>

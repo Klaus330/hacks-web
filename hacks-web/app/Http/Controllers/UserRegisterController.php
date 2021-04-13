@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use App\Http\Trait\ApiCommunication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 
 class UserRegisterController extends Controller
 {
+    use ApiCommunication;
+
     /**
      * Create a new controller instance.
      *
@@ -41,15 +44,15 @@ class UserRegisterController extends Controller
             "password_confirmation"=>'required'
         ]);
 
-        $response = Http::post('https://bureaucracyhackshostat.herokuapp.com/registration', $request->request->all())->body();
-        $response = json_decode($response);
-        if($response->statusCode == 200){
+        $response = Http::post(url("registration"), $request->request->all());
+        $body = json_decode($response);
+        if($response->status() == 200){
 
 //            $request->session()->put('user', $response->user);
             redirect(route('home'));
         }
 
-        return back()->withErrors([$response->message]);
+        return back()->withErrors([$body->message]);
 
     }
 }

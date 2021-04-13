@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Trait\ApiCommunication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use MongoDB\Driver\Session;
 
 class UserLoginController extends Controller
 {
-
+    use ApiCommunication;
     /**
      * Create a new controller instance.
      *
@@ -32,12 +33,10 @@ class UserLoginController extends Controller
             'password' => 'required|min:5'
         ]);
 
-
-        $response = Http::post('https://bureaucracyhackshostat.herokuapp.com/login', $request->request->all())->body();
-        $response = json_decode($response);
-        if($response->statusCode == 200){
-
-            $request->session()->put('user', $response->user);
+        $response = Http::post(url("login"), $request->request->all());
+        $body = json_decode($response->body());
+        if($response->status() == 200){
+            $request->session()->put('user', json_decode($body->user));
             return redirect('/');
         }
         return back()->withErrors([$response->message]);
