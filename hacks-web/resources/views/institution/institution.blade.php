@@ -29,56 +29,11 @@
                 <div class="row mt-3">
                     <div class="col-12 col-md-10">
                         <div class="docs-info-container">
-                            <div class="dropdown show mb-2">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Eliberare buletin
 
-                                </a>
-                                <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
-                                    <li>Luni: 09-17</li>
-                                    <li>Marti: 09-17</li>
-                                    <li>Miercuri: 09-17</li>
-                                    <li>Joi: 09-17</li>
-                                    <li>Vineri: 09-17</li>
-                                    <li>Sambata: 09-17</li>
-                                    <li>Duminica: inchis</li>
+                            <dep-schedule>
 
-                                </ol>
-                            </div>
-                            <div class="dropdown show mb-2">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Plata amenzi
+                            </dep-schedule>
 
-                                </a>
-
-                                <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
-                                    <li>Luni: 09-17</li>
-                                    <li>Marti: 09-17</li>
-                                    <li>Miercuri: 09-17</li>
-                                    <li>Joi: 09-17</li>
-                                    <li>Vineri: 09-17</li>
-                                    <li>Sambata: 09-17</li>
-                                    <li>Duminica: inchis</li>
-
-                                </ol>
-                            </div>
-                            <div class="dropdown show mb-2">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Eliberare pasaport
-
-                                </a>
-
-                                <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
-                                    <li>Luni: 09-17</li>
-                                    <li>Marti: 09-17</li>
-                                    <li>Miercuri: 09-17</li>
-                                    <li>Joi: 09-17</li>
-                                    <li>Vineri: 09-17</li>
-                                    <li>Sambata: 09-17</li>
-                                    <li>Duminica: inchis</li>
-
-                                </ol>
-                            </div>
                         </div>
                     </div>
                 </div>

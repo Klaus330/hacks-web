@@ -33,6 +33,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/admin/documents', function () {
+    return view('admin.components.documents');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
