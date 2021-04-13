@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +34,14 @@ Route::get('/', function () {
     return view('home');
 });
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/', [\App\Http\Controllers\PagesController::class, 'index'])->name('home');
+Route::get('/logout', [App\Http\Controllers\UserLoginController::class, 'logout'])->name('logout');
+Route::get('/login', [App\Http\Controllers\UserLoginController::class, 'showLogin'])->name('showLogin');
+Route::post('/login', [App\Http\Controllers\UserLoginController::class, 'login'])->name('login');
+Route::get('/register', [App\Http\Controllers\UserRegisterController::class, 'register'])->name('register');
+Route::post('/register', [App\Http\Controllers\UserRegisterController::class, 'create'])->name('createUser');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/documents', [App\Http\Controllers\DocsController::class, 'index']);

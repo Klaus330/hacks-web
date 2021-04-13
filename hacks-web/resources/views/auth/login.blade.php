@@ -6,10 +6,20 @@
         <div class="auth-image"></div>
     </div>
     <div class="auth-content ">
-        <form class="login-form simple-form" action="/login" method=>
+        <form class="login-form simple-form" action="/login" method="post">
+            @csrf
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="auth-item mb-4 col-12 col-lg-7">
-                    <input type="text" name="username" placeholder="username" class="input-form" />
+                    <input type="email" name="email" placeholder="email" class="input-form" />
                 </div>
             </div>
 
