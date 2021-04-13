@@ -19,9 +19,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/documents">Documents</a>
                 </li>
+                @if(empty(\Illuminate\Support\Facades\Session::get('user')))
                 <li class="nav-item">
                     <a class="btn button-accent-secondary mr-0" href="/login">Log In</a>
                 </li>
+                @endif
             </ul>
         </div>
     </nav>
