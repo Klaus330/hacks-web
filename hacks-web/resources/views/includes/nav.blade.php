@@ -23,6 +23,20 @@
                 <li class="nav-item">
                     <a class="btn button-accent-secondary mr-0" href="/login">Log In</a>
                 </li>
+                @else
+                    <li class="nav-item">
+{{--                        <a class="nav-link text-bold" href="/logout">{{json_decode(session()->get('user'))->name}}</a>--}}
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{json_decode(session()->get('user'))->name}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/settings">Settings</a>
+                                <a class="dropdown-item" href="/admin/dashboard">Dashboard</a>
+                                <a class="dropdown-item" href="/logout">Logout</a>
+                            </div>
+                        </div>
+                    </li>
                 @endif
             </ul>
         </div>
