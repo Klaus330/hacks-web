@@ -8,7 +8,17 @@
         <div class="auth-content ">
             <form class="login-form simple-form" action="/register" method="post">
                 @csrf
-
+                @if ($errors->any())
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="alert alert-danger col-12 col-lg-7">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                @endif
                 <div class="row d-flex justify-content-center align-items-center">
                     <div class="auth-item mb-4 col-12 col-lg-7">
                         <input type="text" name="name" placeholder="Name" class="input-form" required/>
