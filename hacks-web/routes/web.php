@@ -18,9 +18,7 @@ if (App::environment('production')) {
     URL::forceScheme('https');
 }
 
-Route::get('/settings', function () {
-    return view('settings.usersettings');
-});
+Route::get('/user/settings',[\App\Http\Controllers\UserController::class, 'settings']);
 
 Route::get('/route',function(){
     return view('routes.index');
@@ -42,6 +40,5 @@ Route::get('/login', [App\Http\Controllers\UserLoginController::class, 'showLogi
 Route::post('/login', [App\Http\Controllers\UserLoginController::class, 'login'])->name('login');
 Route::get('/register', [App\Http\Controllers\UserRegisterController::class, 'register'])->name('register');
 Route::post('/register', [App\Http\Controllers\UserRegisterController::class, 'create'])->name('createUser');
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/documents', [App\Http\Controllers\DocsController::class, 'index']);
