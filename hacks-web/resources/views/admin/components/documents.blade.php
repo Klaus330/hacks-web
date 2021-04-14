@@ -1,4 +1,3 @@
-
 @extends('layouts.auth')
 
 @section('content')
@@ -13,7 +12,7 @@
                 </select>
             </div>
 
-            <div class="col-8 mt-3">
+            <div class="col-8 mt-4">
                 <select class="form-select">
                     <option selected>Documente</option>
                     <option value="1">Buletin</option>
@@ -22,9 +21,17 @@
                 </select>
             </div>
 
-            <div class="col-12 mt-3 align-items-center justify-content-center">
-            <button class="btn btn-primary">Modifica!</button>
-            </div>
+            <form class="col-8 mt-10">
+                <div class="form-group">
+                    <textarea class="form-control" id="textarea-docs"></textarea>
+                </div>
+
+                <div class="col-12 mt-3 p-0">
+                    <button type="submit" class="btn btn-primary">Modifica!</button>
+                </div>
+            </form>
+
         </div>
+
     </div>
 @endsection
