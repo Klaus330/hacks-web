@@ -25,7 +25,8 @@
 <body>
 
 <div id="app">
-    <main>
+    <main class="container-fluid p-0">
+        @include('admin.components.navbar')
         @yield('content')
     </main>
 </div>

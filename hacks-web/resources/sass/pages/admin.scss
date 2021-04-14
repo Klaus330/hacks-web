@@ -1,0 +1,41 @@
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #CEE7FF;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  .sidebar a.active {
+    background-color: #3d9940;
+    color: white;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 95%;
+    padding-top: 2%;
+    padding-bottom: 3%;
+    overflow: hidden;
+  }
+
+  .btn-toolbox {
+    height: 19%;
+    float: top;
+  }
