@@ -37,6 +37,10 @@ Route::get('/admin/documents', function () {
     return view('admin.components.documents');
 });
 
+Route::get('/admin/institutions', function () {
+    return view('admin.components.institutions');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
