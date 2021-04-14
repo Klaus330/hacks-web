@@ -22,7 +22,13 @@
             </div>
 
             <form class="col-8 mt-10">
+                <div class="form-group col-12 p-0">
+                    <label for="title">Title:</label>
+                    <input id="title" class="form-control" type="text" name="title" placeholder="Title">
+
+                </div>
                 <div class="form-group">
+                    <label for="textarea-docs">Informations:</label>
                     <textarea class="form-control" id="textarea-docs"></textarea>
                 </div>
 

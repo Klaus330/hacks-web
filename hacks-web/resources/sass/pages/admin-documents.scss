@@ -6,6 +6,11 @@
     height: 40px;
     display: flex;
     align-items: center;
+    outline: none;
+    padding:0 20px;
+    &::after{
+       padding: 0 20px;
+    }
 }
 
 .form-group{
@@ -15,3 +20,5 @@
         height: 200px;
     }
 }
+
+
