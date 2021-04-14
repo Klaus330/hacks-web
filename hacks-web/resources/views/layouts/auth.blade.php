@@ -20,14 +20,16 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!--  -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
 <div id="app">
     <main class="container-fluid p-0">
-        @include('admin.components.navbar')
-        @yield('content')
+        <div class="row">
+            @include('admin.components.navbar')
+            @yield('content')
+        </div>
     </main>
 </div>
 </body>
