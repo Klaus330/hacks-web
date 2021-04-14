@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Trait\ApiCommunication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use MongoDB\Driver\Session;
 
 class UserLoginController extends Controller
 {
@@ -33,10 +32,12 @@ class UserLoginController extends Controller
             'password' => 'required|min:5'
         ]);
 
-        $response = Http::post(url("login"), $request->request->all());
+
+        $response = Http::post($this->apiURL("login"), $request->request->all());
         $body = json_decode($response->body());
         if($response->status() == 200){
             $request->session()->put('user', json_decode($body->user));
+            session()->flash('success', $body->message);
             return redirect('/');
         }
         return back()->withErrors([$response->message]);

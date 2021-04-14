@@ -41,15 +41,16 @@ class UserRegisterController extends Controller
             'email'=>'required|email',
             'username' => 'required',
             'password'=>'required|min:5|confirmed',
-            "password_confirmation"=>'required'
+            "password_confirmation"=>'required',
+            'terms' => 'required'
         ]);
 
-        $response = Http::post(url("registration"), $request->request->all());
+        $response = Http::post($this->apiURL("registration"), $request->request->all());
         $body = json_decode($response);
-        if($response->status() == 200){
 
-//            $request->session()->put('user', $response->user);
-            redirect(route('home'));
+        if($response->status() == 200){
+            session()->flash('success', $body->message);
+            return redirect(route('home'));
         }
 
         return back()->withErrors([$body->message]);
