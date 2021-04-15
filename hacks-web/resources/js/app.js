@@ -22,6 +22,7 @@ window.Vue = require('vue').default;
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('statistics', require('./components/StatisticsChart.vue').default);
 Vue.component('login-form', require('./components/LoginForm.vue').default);
+Vue.component('register-form', require('./components/RegisterForm.vue').default);
 Vue.component('vue-loading-button', require('vue-loading-button').default);
 
 

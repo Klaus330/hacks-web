@@ -52,7 +52,7 @@
 import Swal from 'sweetalert2';
 
 export default {
-    name: "SubmitButton",
+    name: "LoginForm",
     components: [Swal],
     data() {
         return {

@@ -34,7 +34,6 @@ class UserLoginController extends Controller
         $body = json_decode($response->body());
         if($response->status() == 200){
             $request->session()->put('user', json_decode($body->user));
-            return ["message" => $body->message];
         }
         return ["message" => $body->message];
     }

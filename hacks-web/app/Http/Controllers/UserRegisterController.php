@@ -48,12 +48,6 @@ class UserRegisterController extends Controller
         $response = Http::post($this->apiURL("registration"), $request->request->all());
         $body = json_decode($response);
 
-        if($response->status() == 200){
-            session()->flash('success', $body->message);
-            return redirect(route('home'));
-        }
-
-        return back()->withErrors([$body->message]);
-
+        return ["message" => $body->message];
     }
 }
