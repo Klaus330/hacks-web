@@ -4,7 +4,7 @@
 <div class="main-box col-mr-5">
 
     <div class="row">
-        <line-chart></line-chart>
+        <views class="col-12"></views>
     </div>
     <div class="row feedback-container">
         <a class="feedback" href="#">
@@ -187,7 +187,7 @@
                 <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
             </div>
         </a>
-        
+
 
     </div>
     @endsection
