@@ -8,7 +8,11 @@
     button{
         background: transparent;
         border:none;
-        color: white;
+        padding:0;
+        color: rgb(61, 55, 241);
+        @include mq(large){
+            color: white;
+        }
     }
 }
 

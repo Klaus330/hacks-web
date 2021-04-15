@@ -20,8 +20,6 @@ class UserLoginController extends Controller
         $this->middleware('guest.api')->except('logout');
     }
 
-
-
     public function showLogin(){
         return view('auth.login');
     }
@@ -32,15 +30,12 @@ class UserLoginController extends Controller
             'password' => 'required|min:5'
         ]);
 
-
         $response = Http::post($this->apiURL("login"), $request->request->all());
         $body = json_decode($response->body());
         if($response->status() == 200){
             $request->session()->put('user', json_decode($body->user));
-            session()->flash('success', $body->message);
-            return redirect('/');
         }
-        return back()->withErrors([$response->message]);
+        return ["message" => $body->message];
     }
 
     public function logout(Request $request){
