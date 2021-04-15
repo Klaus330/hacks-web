@@ -1,6 +1,6 @@
 <template>
-  <div class="small">
-    <line-chart :chart-data="datacollection"></line-chart>
+  <div class="row">
+    <line-chart :chartdata="datacollection" class="col-12"></line-chart>
   </div>
 </template>
 
@@ -13,7 +13,20 @@
     },
     data () {
       return {
-        datacollection: null
+        datacollection:{
+            labels: [6, 60],
+            datasets: [
+                {
+                    label: 'Marti',
+                    backgroundColor: 'rgba(73,139,239,0.4)',
+                    data: [20, 50]
+                }, {
+                    label: 'Luni',
+                    backgroundColor: 'rgba(239,73,73,0.4)',
+                    data: [12, 34]
+                }
+            ]
+        }
       }
     },
     mounted () {

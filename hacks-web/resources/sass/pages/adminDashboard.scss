@@ -4,39 +4,39 @@
     box-sizing: border-box;
     width: 300px;
     float:left;
-    
+
     background-color: #CEE7FF;
-    
+
     border-radius: 10px;
     color: rgb(0, 0, 0);
-    box-shadow: 0px 3px 3px #b8b2b2; 
+    box-shadow: 0px 3px 3px #b8b2b2;
     cursor: pointer;
     margin-bottom: 1rem;
-    
+
     }
-    
+
     .feedback-name {
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         background-color: rgb(115, 49, 141);
-    
+
         text-align: center;
         padding: 15px;
         color: rgb(190, 190, 190);
     }
-    
-    
+
+
     .feedback-info {
         padding: 15px;
         color: black;
         display: flex;
         flex-direction: column;
     }
-    
+
     .feedback-text {
         text-align: left;
     }
-    
+
     .feedback-date {
         text-align: right;
         margin-bottom: 0;
@@ -47,12 +47,12 @@
             margin: 0 3rem;
         }
       }
-    
+
       .imageAdmin {
           width: 40px;
           height: 40px;
           margin-right: 1rem;
-          @include mq(large){ 
+          @include mq(large){
           width: 100px;
           height: 100px;
           padding-right: 2rem;
@@ -69,6 +69,7 @@
         align-items: center;
         justify-content: center;
         display: flex;
+          flex-wrap: wrap;
         @include mq(large){
             justify-content: space-between;
         }
