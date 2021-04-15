@@ -151,4 +151,10 @@
             </div>
         </section>
     </div>
+
+    @if(session()->has('success'))
+        <div class="position-fixed alert alert-success" style="bottom:10px; right:10px;">
+          {{session()->get('success')}}
+        </div>
+    @endif
 @endsection
