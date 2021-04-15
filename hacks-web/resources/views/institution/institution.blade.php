@@ -11,30 +11,34 @@
                 </div>
 
                 <div class="align-items-start flex-column col-12 col-md-8 text-color-black pl-2rem">
-                    <div class="row">
+                    <div class="row mb-2">
                         <img class="mr-2" src="/images/svg/location.svg" />
                         <h5>Soseaua Mihai Bravu 129, Iasi</h5>
                     </div>
-                    <div class="row">
+                    <div class="row mb-2">
                         <img class="mr-2" src="/images/svg/phone.svg" />
                         <h5>021316979</h5>
                     </div>
-                    <div class="row">
+                    <div class="row mb-2">
                         <img class="mr-2" src="/images/svg/email.svg" />
                         <h5>politia@mai.ro</h5>
                     </div>
                 </div>
 
-                <div class="align-items-start flex-column col-12 col-md-8 text-color-black mt-2 mb-2">
-                    <h5 class="mb-2 font-weight-bold">Program:</h5>
-                    <h5>Luni: 09-17</h5>
-                    <h5>Marti: 09-17</h5>
-                    <h5>Miercuri: 09-17</h5>
-                    <h5>Joi: 09-17</h5>
-                    <h5>Vineri: 09-17</h5>
-                    <h5>Sambata: 09-17</h5>
-                    <h5>Duminica: inchis</h5>
+
+                <div class="row mt-3">
+                    <div class="col-12 col-md-10">
+                        <div class="docs-info-container">
+
+                            <dep-schedule>
+
+                            </dep-schedule>
+
+                        </div>
+                    </div>
                 </div>
+
+
             </div>
 
             <div class="col-12 col-md-4 sm-hidden d-flex align-items-center justify-content-center">
