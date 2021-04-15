@@ -63,19 +63,26 @@
     }
 }
 .nav-image-size{
-    width: inherit;
+    width: 150px;
     height: 30px;
+    margin-left: 1rem;
     @include mq(large){   
     height: 80px;
+    width: inherit;
     }
 }
 
 .side-navbar{
     background:linear-gradient( #fefeff, #6f7dfb);
     min-height: 100vh;
-    display: flex;
     flex-direction: column;
     justify-content: space-around;
+    overflow-x: hidden;
+    display: none;
+  @include mq(xlarge){
+      display: flex;
+  }
+    
 
 }
 
