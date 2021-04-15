@@ -3,18 +3,18 @@
 @section('content')
     <div class="col-11 flex">
         <div class="row mt-10 align-items-center justify-content-center">
-            <div class="col-8">
-                <select class="form-select">
-                    <option selected>Institutie</option>
+            <div class="col-8 select mb-3">
+                <select name="slct" id="slct">
+                    <option selected disabled>Institutie</option>
                     <option value="1">Politie</option>
                     <option value="2">Primarie</option>
-                    <option value="3">ANAF</option>
+                    <option value="3">Anaf</option>
                 </select>
             </div>
 
-            <div class="col-8 mt-4">
-                <select class="form-select">
-                    <option selected>Documente</option>
+            <div class="col-8 select">
+                <select name="slct" id="slct">
+                    <option selected disabled>Documente</option>
                     <option value="1">Buletin</option>
                     <option value="2">Certificat de nastere</option>
                     <option value="3">Cerere tip</option>
