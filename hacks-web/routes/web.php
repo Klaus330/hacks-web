@@ -32,6 +32,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/admin/documents', function () {
+    return view('admin.components.documents');
+});
+
+Route::get('/admin/institutions', function () {
+    return view('admin.components.institutions');
+});
+
 
 
 Route::get('/', [\App\Http\Controllers\PagesController::class, 'index'])->name('home');
@@ -42,3 +50,5 @@ Route::get('/register', [App\Http\Controllers\UserRegisterController::class, 're
 Route::post('/register', [App\Http\Controllers\UserRegisterController::class, 'create'])->name('createUser');
 
 Route::get('/documents', [App\Http\Controllers\DocsController::class, 'index']);
+
+Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'index']);
