@@ -4,8 +4,11 @@
 <div class="container">
     <section class="row docs-section flex justify-content-center align-items-center">
         <div class="col-12">
-            <input type="text" name="search-doc" placeholder="Ce documente te intereseaza?"
-                class="form-control search-docs">
+            <select name="documente-ask" class="form-control search-docs">
+                <option value="" selected>Ce proces birocratic te intereseaza?</option>
+                <option value="CI">Cartea de identitate</option>
+                <option value="CEVA">Acte inmatriculari masini</option>
+            </select>
         </div>
     </section>
 
@@ -90,19 +93,22 @@
 
 </div>
 <div class="container">
-        <div>
-            <h3 class="col-sm-3 docs-section-title text-center">Pro Tips</h3>
-        </div>
-        <div class="col-12">
-            <ol class="panel ">
+    <div>
+        <h3 class="col-sm-3 docs-section-title text-center">Pro Tips</h3>
+    </div>
+    <div class="col-12">
+        <ol class="panel ">
 
-            
-                <li class="panel-item"><img style="margin-right: 10px" src="/images/svg/alert.svg"> Cerere pentru eliberarea actului de identitate
-                <li class="panel-item"><img style="margin-right: 10px" src="/images/svg/alert.svg"> Cerere pentru eliberarea actului de identitate
-                <li class="panel-item"><img style="margin-right: 10px" src="/images/svg/alert.svg"> Cerere pentru eliberarea actului de identitate
 
-            </ol>
-        </div>
+            <li class="panel-item"><img style="margin-right: 10px" src="/images/svg/alert.svg"> Cerere pentru eliberarea
+                actului de identitate
+            <li class="panel-item"><img style="margin-right: 10px" src="/images/svg/alert.svg"> Cerere pentru eliberarea
+                actului de identitate
+            <li class="panel-item"><img style="margin-right: 10px" src="/images/svg/alert.svg"> Cerere pentru eliberarea
+                actului de identitate
+
+        </ol>
+    </div>
 </div>
 
 @endsection

@@ -21,6 +21,8 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('statistics', require('./components/StatisticsChart.vue').default);
+Vue.component('my-line', require('./components/LineChart.vue').default);
+Vue.component('views', require('./components/Views.vue').default);
 Vue.component('dep-schedule', require('./components/DepartmentSchedule.vue').default);
 Vue.component('login-form', require('./components/LoginForm.vue').default);
 Vue.component('register-form', require('./components/RegisterForm.vue').default);
