@@ -65,7 +65,6 @@
 .nav-image-size{
     width: 150px;
     height: 30px;
-    margin-left: 1rem;
     @include mq(large){   
     height: 80px;
     width: inherit;
@@ -79,8 +78,10 @@
     justify-content: space-around;
     overflow-x: hidden;
     display: none;
+    padding-right: 0;
   @include mq(xlarge){
       display: flex;
+      position: fixed;
   }
     
 
