@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav justify-content-between">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/institution">Institutions</a>
@@ -19,9 +19,27 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/documents">Documents</a>
                 </li>
+                @if(empty(\Illuminate\Support\Facades\Session::get('user')))
                 <li class="nav-item">
                     <a class="btn button-accent-secondary mr-0" href="/login">Log In</a>
                 </li>
+                @else
+                    <li class="nav-item">
+{{--                        <a class="nav-link text-bold" href="/logout">{{json_decode(session()->get('user'))->name}}</a>--}}
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{session()->get('user')->name}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/user/settings">Settings</a>
+{{--                                @if(session()->get('user')->is_admin)--}}
+{{--                                    <a class="dropdown-item" href="/admin/dashboard">Dashboard</a>--}}
+{{--                                @endif--}}
+                                <a class="dropdown-item" href="/logout">Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                @endif
             </ul>
         </div>
     </nav>

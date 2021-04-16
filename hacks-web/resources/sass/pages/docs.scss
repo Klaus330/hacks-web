@@ -10,17 +10,18 @@
 }
 .search-docs{
     background-color: #f6f6f6;
-    color: rgb(226, 31, 31);
-    padding: 2rem;
-    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    font-size: 0.9rem;
     border-radius: 34px;
     position: relative;
     background: url(/images/svg/search.svg) no-repeat 92% 50%;
-    padding-left:30px;
+    background-size: 18px;
+    padding-left: 30px;
+    border: 1px solid #2b2a2a !important;
     @include mq(medium)
     {
         font-size: 1.5rem;
-        background: url(/images/svg/search.svg) no-repeat 96% 50%
+        background: url(/images/svg/search.svg) no-repeat 96% 50%;
     }
 }
 .docs-section-title{
