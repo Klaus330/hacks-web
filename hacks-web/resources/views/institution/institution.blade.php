@@ -31,7 +31,6 @@
                         <div class="docs-info-container">
 
                             <dep-schedule>
-
                             </dep-schedule>
 
                         </div>

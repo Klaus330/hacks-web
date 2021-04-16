@@ -40,6 +40,12 @@ Route::get('/admin/institutions', function () {
     return view('admin.institutions');
 });
 
+Route::get('/forgot-password', function () {
+    return view('auth.forgot-password');
+});
+
+
+
 
 
 Route::get('/', [\App\Http\Controllers\PagesController::class, 'index'])->name('home');
