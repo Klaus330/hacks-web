@@ -7,7 +7,7 @@
         </div>
 
         <div class="container padding-bottom-3x mb-2 mt-10">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center forgot-container">
                 <div class="col-lg-8 col-md-10 col-12">
                     <div class="forgot">
                         <h2>Forgot your password?</h2>
@@ -18,7 +18,7 @@
                             <li><span class="text-color-white">3. </span>Use the link to reset your password</li>
                         </ol>
                     </div>
-                    <form class="card mt-4 col-12 col-md-10 col-lg-12  pl-md-0">
+                    <form class=" card mt-4 col-12 col-md-10 col-lg-12  pl-md-0">
                         <div class="card-body">
                             <div class="form-group"><label for="email-for-pass">Enter your email address</label> <input
                                     class="input-form" placeholder="email" type="email" id="email-for-pass" required="">
@@ -26,7 +26,7 @@
                         </div>
                         <div class="card-footer">
                             <button class="btn auth-button mb-3" type="submit">Get New Password</button>
-                            <button class="btn auth-button" type="submit">Back to Login</button>
+                            <a class="btn auth-button" href="/">Back to Login</a>
                         </div>
                     </form>
                 </div>
