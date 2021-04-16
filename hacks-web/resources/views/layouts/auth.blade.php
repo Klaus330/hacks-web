@@ -28,7 +28,7 @@
 
 
 <div id="app">
-    <main class="container-fluid p-0">
+    <main class="container-fluid p-0 overflow-hidden">
         <div class="row">
             @include('admin.components.navbar')
             <div class="col-lg-11 col-12">
