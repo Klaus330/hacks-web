@@ -96,3 +96,10 @@
 .pl-2rem{
     padding-left: 2rem;
 }
+
+.md-hidden{
+  display: none;
+  @include mq(xlarge){
+      display: block;
+  }
+}

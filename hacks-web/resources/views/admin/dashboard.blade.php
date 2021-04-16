@@ -1,25 +1,194 @@
 @extends('layouts.auth')
 
 @section('content')
-<div class="main-box col-12">
+<div class="main-box col-mr-5">
 
-
-    <div id="class-123" class="class" onclick='goToClass("123")'>
-        <div class="class-name"> </div>
-        <div class="class-info">
-            <div class="class-id"> #123 </div>
-            <div class="class-supervisor"> Prof. Cosmin Varlan <br> Prof. Buraga Sabin </div>
-        </div>
+    <div class="row">
+        <views class="col-12"></views>
     </div>
+    <div class="row feedback-container">
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
+        <a class="feedback" href="#">
+            <div class="feedback-name"> <span>User1 </span></div>
+            <div class="feedback-info">
+                <p class="feedback-text" id="feedback-text"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi repellat quisquam enim voluptates aliquam deserunt officia soluta, amet, nemo tempora iure
+                    voluptatem? Fugit, ad repudiandae molestiae praesentium non corrupti quo! </p>
+                <p class="feedback-date mr-1" id="feedback-date">Ora: 18:00 </p>
+                <p class="feedback-date" id="feedback-date"> 12-05-2021 </p>
+            </div>
+        </a>
 
 
-    <div id="class-321" class="class" onclick='goToClass("321")'>
-        <div class="class-name"> SGBD </div>
-        <div class="class-info">
-            <div class="class-id"> #321 </div>
-            <div class="class-supervisor"> Prof. Cosmin Varlan</div>
-        </div>
     </div>
+    @endsection
 
-</div>
-@endsection
