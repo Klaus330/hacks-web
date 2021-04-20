@@ -20,7 +20,7 @@ class DocsController extends Controller
 
 
     public function getDocsList(){
-        $response = Http::post($this->apiURL("processeslist"));
+        $response = Http::get($this->apiURL("processeslist"));
         $body = json_decode($response->body());
 
         return $body;

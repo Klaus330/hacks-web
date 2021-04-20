@@ -73,6 +73,7 @@ export default {
 
             axios.post('/login', this.form)
                 .then((response) => {
+                    console.log(response);
                     this.isLoading = false;
                     Swal.fire({
                         title: response.data.message,
@@ -82,6 +83,7 @@ export default {
                     })
                 })
                 .catch(({response}) => {
+                    console.log(response);
                     this.errors = response.data.errors;
                     this.isLoading = false;
                 });
