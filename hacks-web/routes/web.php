@@ -46,8 +46,6 @@ Route::get('/forgot-password', function () {
 
 
 
-
-
 Route::get('/', [\App\Http\Controllers\PagesController::class, 'index'])->name('home');
 Route::get('/logout', [App\Http\Controllers\UserLoginController::class, 'logout'])->name('logout');
 Route::get('/login', [App\Http\Controllers\UserLoginController::class, 'showLogin'])->name('showLogin');
@@ -60,3 +58,4 @@ Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])
 Route::get('/get-docs', [App\Http\Controllers\DocsController::class, 'getDocsList']);
 Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'index']);
 
+Route::post('/forgot-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'store']);
