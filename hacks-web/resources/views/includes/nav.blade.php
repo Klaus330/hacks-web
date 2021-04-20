@@ -17,7 +17,7 @@
                     <a class="nav-link" href="/institution">Institutions</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/documents">Documents</a>
+                    <a class="nav-link" href="/documents">Bureaucratic Process</a>
                 </li>
                 @if(empty(\Illuminate\Support\Facades\Session::get('user')))
                 <li class="nav-item">
