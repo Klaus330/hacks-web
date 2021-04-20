@@ -35,7 +35,8 @@ export default {
             if (this.query === '') {
                 return this.items;
             }
-            return this.items.filter((item) => item.name.search(new RegExp(this.query, "i")) === 0);
+            let word = ".*"+this.query+".*";
+            return this.items.filter((item) => item.name.search(new RegExp(word, "i")) === 0);
         },
         noItems() {
             return (this.matches.length === 0);
