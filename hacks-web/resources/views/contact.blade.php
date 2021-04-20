@@ -5,26 +5,25 @@
     <div class="container">
         <section class="row feed-section flex justify-content-center align-items-center">
             <div class="col-10">
-                <form>
+                <form action="/contact" method="POST">
+                    @csrf
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Introduceti numele de utilizator:</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Username">
+                        <input type="hidden" name="username" value="{{session()->get("user")->username}}" class="form-control" id="exampleFormControlInput1" placeholder="Username">
                     </div>
-
 
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Oferă-ne un rating!</label>
                         <div class="feedback">
                             <div class="rating">
-                                <input type="radio" name="rating" id="rating-5">
+                                <input type="radio" value="5" name="rating" id="rating-5">
                                 <label for="rating-5"></label>
-                                <input type="radio" name="rating" id="rating-4">
+                                <input type="radio" value="4" name="rating" id="rating-4">
                                 <label for="rating-4"></label>
-                                <input type="radio" name="rating" id="rating-3">
+                                <input type="radio" value="3" name="rating" id="rating-3">
                                 <label for="rating-3"></label>
-                                <input type="radio" name="rating" id="rating-2">
+                                <input type="radio" value="2" name="rating" id="rating-2">
                                 <label for="rating-2"></label>
-                                <input type="radio" name="rating" id="rating-1">
+                                <input type="radio" value="1" name="rating" id="rating-1">
                                 <label for="rating-1"></label>
                                 <div class="emoji-wrapper">
                                     <div class="emoji">
@@ -198,11 +197,11 @@
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Dorim să auzim părerea ta!</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" name="comment" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                     <div class="form-group">
                         <div class="form-group">
-                            <a href="#" class="btn button-accent-secondary">Ofera feedback</a>
+                            <button class="btn button-accent-secondary">Ofera feedback</button>
                         </div>
                     </div>
                 </form>

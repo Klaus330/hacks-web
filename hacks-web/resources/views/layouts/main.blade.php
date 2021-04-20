@@ -29,6 +29,11 @@
         <div class="main-image-container container-full">
             <img src="/images/home/corner-figure.png"  class="main-image" alt="">
         </div>
+        @if(session()->has("succes"))
+        <div class="alert alert-success position-fixed" style="bottom: 10px; right: 10px;">
+            {{session()->get("succes")}}
+        </div>
+        @endif
         @include("includes/nav")
         <main class="py-4">
             @yield('content')
