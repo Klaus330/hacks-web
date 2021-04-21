@@ -15,22 +15,15 @@
             </div>
         </div>
     </div>
-
-    <section class="container-fluid bg-primary-accent mb-5">
-        <div class="row p-5 flex-column align-items-center justify-content-center ">
-            <div>
-                <h2 class="text-white text-center">Subscribe to our newsletter</h2>
+    
+    <div class="container-fluid container-fluid-background mt-5">
+        <div class="p-5">
+            <div class="align-feedback">
+                <h2>Feedback-ul tau conteaza !</h2>
+                <a href="#" class="btn button-accent-secondary">Ofera feedback</a>
             </div>
-            <form action="/newsletter" method="POST" class="col-12 d-flex justify-content-center p-4 newsletter-content">
-                <div class="col-12 col-lg-4 newsletter-input">
-                    <input type="email" name="email" placeholder="email@example.com" class="form-control">
-                </div>
-                <div class="col-12 col-lg-2 text-center">
-                    <button class="btn button-accent-secondary">Subscribe</button>
-                </div>
-            </form>
         </div>
-    </section>
+    </div>
 
     <div class="container">
         <div class="row home-section d-flex justify-content-center align-items-center mb-5">
