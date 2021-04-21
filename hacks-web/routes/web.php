@@ -56,7 +56,10 @@ Route::get('/register', [App\Http\Controllers\UserRegisterController::class, 're
 Route::post('/register', [App\Http\Controllers\UserRegisterController::class, 'create'])->name('createUser');
 
 Route::get('/documents', [App\Http\Controllers\DocsController::class, 'index']);
+
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index']);
+Route::post('/contact',[App\Http\Controllers\ContactController::class, 'store']);
+
 Route::get('/get-docs', [App\Http\Controllers\DocsController::class, 'getDocsList']);
 Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'index']);
 
