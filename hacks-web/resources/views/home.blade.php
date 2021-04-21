@@ -8,19 +8,19 @@
                 <p class="">
                     Help with bureaucratic processes and complicated paperwork
                 </p>
-                <a href="" class="btn btn-accent-primary mt-4">Get stared</a>
+                <a href="/documents" class="btn btn-accent-primary mt-4">Get stared</a>
             </div>
             <div class="col-md-6">
                 <img src="{{ asset('/images/home/ilustration.svg') }}" alt="Path" class="home-section-image">
             </div>
         </div>
     </div>
-    
+
     <div class="container-fluid container-fluid-background mt-5">
         <div class="p-5">
             <div class="align-feedback">
                 <h2>Feedback-ul tau conteaza !</h2>
-                <a href="#" class="btn button-accent-secondary">Ofera feedback</a>
+                <a href="/contact" class="btn button-accent-secondary">Ofera feedback</a>
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
                                 <p class="home-card-description">
                                     More
                                 </p>
-                                <a href="/institutions" class="home-card-link button-accent-secondary">Read More</a>
+                                <a href="/institution" class="home-card-link button-accent-secondary">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                                 <p class="home-card-description">
                                     More
                                 </p>
-                                <a href="/institutions" class="home-card-link button-accent-secondary">Read More</a>
+                                <a href="/documents" class="home-card-link button-accent-secondary">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                                 <p class="home-card-description">
                                     More
                                 </p>
-                                <a href="/institutions" class="home-card-link button-accent-secondary">Read More</a>
+                                <a href="/route" class="home-card-link button-accent-secondary">Read More</a>
                             </div>
                         </div>
                     </div>
