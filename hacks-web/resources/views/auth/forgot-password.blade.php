@@ -6,7 +6,7 @@
             <div class="auth-image"></div>
         </div>
 
-        <div class="container padding-bottom-3x mb-2 mt-10">
+        <div class="container mb-2 mt-5">
             <div class="row justify-content-center forgot-container">
                 <div class="col-lg-8 col-md-10 col-12">
                     <div class="forgot">
@@ -18,16 +18,35 @@
                             <li><span class="text-color-white">3. </span>Use the link to reset your password</li>
                         </ol>
                     </div>
-                    <form class=" card mt-4 col-12 col-md-10 col-lg-12  pl-md-0">
+
+                    @if($errors->any())
+                        {{ implode('', $errors->all('<div>:message</div>')) }}
+                    @endif
+                    <form class=" card mt-4 col-12 col-md-10 col-lg-12  pl-md-0" method="POST" action="/forgot-password">
+                        @csrf
                         <div class="card-body">
-                            <div class="form-group"><label for="email-for-pass">Enter your email address</label> <input
-                                    class="input-form" placeholder="email" type="email" id="email-for-pass" required="">
+                            <div class="form-group"><label for="email-for-pass">Introdu adresa de email</label> <input
+                                    class="input-form" name="email" placeholder="email" type="email" id="email-for-pass" required="">
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <button class="btn auth-button mb-3" type="submit">Get New Password</button>
-                            <a class="btn auth-button" href="/">Back to Login</a>
+
+                        <div class="card-body">
+                            <div class="form-group"><label for="new-pass">Noua parola</label> <input
+                                    class="input-form" name="newPassword" placeholder="parola" type="password" id="new-pass" required="">
+                            </div>
                         </div>
+
+                        <div class="card-body">
+                            <div class="form-group"><label for="confirm-new-pass">Confirma noua parola</label> <input
+                                    class="input-form" name="confirmNewPassword" placeholder="confirma parola" type="password" id="confirm-new-pass" required="">
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <button class="btn auth-button mb-3" type="submit">Schimba parola</button>
+                            <a class="btn auth-button" href="/login">Inapoi la login</a>
+                        </div>
+
                     </form>
                 </div>
             </div>
