@@ -32,8 +32,8 @@ class UserLoginController extends Controller
 
         $response = Http::post($this->apiURL("login"), $request->request->all());
         $body = json_decode($response->body());
-        if($response->status() == 200){
-            $request->session()->put('user', json_decode($body->user));
+        if($response->status() === 200){
+            session()->put('user', $body->user);
         }
         return ["message" => $body->message];
     }

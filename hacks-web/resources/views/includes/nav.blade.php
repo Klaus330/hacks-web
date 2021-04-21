@@ -32,9 +32,9 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="/user/settings">Settings</a>
-{{--                                @if(session()->get('user')->is_admin)--}}
-{{--                                    <a class="dropdown-item" href="/admin/dashboard">Dashboard</a>--}}
-{{--                                @endif--}}
+                                @if(session()->get('user')->is_admin)
+                                    <a class="dropdown-item" href="/admin/dashboard">Dashboard</a>
+                                @endif
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </div>
