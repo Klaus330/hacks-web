@@ -17,11 +17,16 @@
     background: url(/images/svg/search.svg) no-repeat 92% 50%;
     background-size: 18px;
     padding-left: 30px;
+    box-shadow: 0px 3px 3px #b8b2b2;
     @include mq(medium)
     {
         font-size: 1.5rem;
         background: url(/images/svg/search.svg) no-repeat 96% 50%;
     }
+}
+.search-docs::after{
+    border-radius: 50px;
+
 }
 .docs-section-title{
     background-color: #f6f6f6;
@@ -52,7 +57,9 @@
 }
 
 .docs-dropdown{
-    list-style-type:circle;
+    position: absolute;
+    top: 5px!important; left: 130px!important;
+    list-style-type: none;
     background-color:#e2f5ff;
     color: #4c657f;
     border-color: #4c657f;
@@ -105,4 +112,9 @@
     justify-content: space-evenly;
     display: flex;
     flex-direction: column;
+}
+
+.option
+{
+    border-radius: 20px;
 }
