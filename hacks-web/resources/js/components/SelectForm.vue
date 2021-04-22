@@ -2,7 +2,7 @@
     <div>
         <select class="form-select">
             <option value="" disabled selected>None</option>
-            <option :value="item.name" v-for="item in data" :key="item.name">{{ item.name }}</option>
+            <option :value="item.name" v-for="item in data" :key="item.name" @click="selected(item.name)">{{ item.name }}</option>
         </select>
     </div>
 </template>
@@ -19,10 +19,17 @@ export default {
     mounted() {
         axios.get(this.route)
             .then(response => {
-                console.log(response);
                 this.data = response.data;
+
             })
-        .catch();
+        .catch((error)=>{
+            console.log(error);
+        });
+    },
+    methods:{
+        selected(item){
+            this.$emit('optionSelected', item);
+        }
     }
 }
 </script>

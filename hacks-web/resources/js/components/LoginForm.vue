@@ -53,7 +53,7 @@ import Swal from 'sweetalert2';
 
 export default {
     name: "LoginForm",
-    components: [Swal],
+    components: {Swal},
     data() {
         return {
             csrfToken: '',
