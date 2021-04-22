@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <select class="form-select">
+    <div class="dashboard-select">
+        <select class="form-select round">
             <option value="" disabled selected>None</option>
             <option :value="item.name" v-for="item in data" :key="item.name" @click="selected(item.name)">{{ item.name }}</option>
         </select>
