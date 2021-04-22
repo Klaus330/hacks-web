@@ -33,6 +33,7 @@ Vue.component('edit-page', require('./components/EditPage.vue').default);
 Vue.component('autocomplete-search', require('./components/Autocomplete.vue').default);
 Vue.component('processes-page', require('./components/ProcessesPage.vue').default);
 Vue.component('tom-map', require('./components/Map.vue').default);
+Vue.component('route-page', require('./components/RoutePage.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

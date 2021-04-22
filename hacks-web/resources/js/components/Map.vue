@@ -1,31 +1,36 @@
 <template>
     <div>
-    <div id="map-div" style="height: 100vh; "></div>
-        <button @click="createRoute">CreateRoute</button>
+        <div id="map-div" style="height: 100vh; "></div>
     </div>
 </template>
 
 <script>
 export default {
     name: "Map",
+    props:['generateRoute'],
     data() {
         return {
             map: [],
             data: {},
-            routeOptions:{},
-            markers:[]
+            routeOptions: {},
+            markers: []
         };
     },
-    mounted(){
+    watch:{
+      generateRoute: function(){
+          this.createRoute();
+      }
+    },
+    mounted() {
         this.map = tt.map({
             key: '3rey3b2DT5N5ej6KQEKgYzaGwnlXjG2m',
             container: 'map-div',
             style: "tomtom://vector/1/basic-main",
             zoom: 15,
-            center: [ 27.5474205,47.1668358]
+            center: [27.5474205, 47.1668358]
         });
 
-        this.map.on('click', (event) =>{
+        this.map.on('click', (event) => {
             console.log(event.lngLat);
             this.markers.push(new tt.Marker().setLngLat(event.lngLat).addTo(this.map));
         });
@@ -38,8 +43,8 @@ export default {
                     this.data = response.data.routes[0];
 
                     let points = this.data.legs[0].points;
-                    for(let i = 0; i<points.length; i++) {
-                       this.markers.push( new tt.Marker().setLngLat([points[i].latitude,points[i].longitude]).addTo(this.map));
+                    for (let i = 0; i < points.length; i++) {
+                        this.markers.push(new tt.Marker().setLngLat([points[i].latitude, points[i].longitude]).addTo(this.map));
                     }
                 })
                 .catch((error) => {
@@ -54,7 +59,7 @@ export default {
                 travelMode: 'car'
             }
             console.log(this.markers[0].getLngLat());
-            for(let i = 0; i<this.markers.length; i++){
+            for (let i = 0; i < this.markers.length; i++) {
 
                 routeOptions.locations.push(this.markers[i].getLngLat());
             }
@@ -68,7 +73,7 @@ export default {
                 });
         },
         displayRoute(geo) {
-            this.routeOptions={
+            this.routeOptions = {
                 'id': 'route',
                 'type': 'line',
                 'source': {
