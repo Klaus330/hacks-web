@@ -14,13 +14,12 @@ class RoutesController extends \Illuminate\Routing\Controller
 
     public function getRoute(Request $request)
     {
-        $data = ['avoidVignette' => 'AUS'];
+        $data = ['avoidVignette' => ['AUS','CHE']];
 
 
-        $response = Http::send('get',$this->apiURL('generateRoute'), $data);
+        $response = Http::post($this->apiURL('generateRoute'),$data);
 
-        dd($response);
-        $body = json_decode($response->body());
+        $body = $response->json();
 
         return $body;
     }
