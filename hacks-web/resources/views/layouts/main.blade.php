@@ -22,7 +22,9 @@
    <!--  -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
+@yield('head')
 <body>
 
     <div id="app" style="overflow-x: hidden">
@@ -40,6 +42,6 @@
         </main>
         @include("includes/footer")
     </div>
-
+@yield('scripts')
 </body>
 </html>

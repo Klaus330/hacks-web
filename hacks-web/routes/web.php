@@ -66,3 +66,6 @@ Route::post('/forgot-password', [App\Http\Controllers\Auth\ForgotPasswordControl
 
 // Institutions
 Route::get('/get-institutions', [\App\Http\Controllers\InstitutionsController::class, 'getInstitutionsList']);
+
+
+Route::get('/get-route', [\App\Http\Controllers\RoutesController::class, 'getRoute']);

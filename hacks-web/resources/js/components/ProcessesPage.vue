@@ -8,7 +8,7 @@
                 </div>
             </section>
         </div>
-        <div class="container" v-if="hasOption">
+        <div class="container mb-5" v-if="hasOption">
             <div>
                 <h3 class="col-sm-3 docs-section-title text-center">Pro Tips</h3>
             </div>
@@ -32,7 +32,7 @@
                 </ol>
             </div>
         </div>
-        <div class="container-fluid container-fluid-background my-5" v-if="hasOption">
+        <div class="container-fluid container-fluid-background mb-5 mt-10" v-if="hasOption">
             <div class="p-5">
                 <div class="align-feedback">
                     <h2>Feedback-ul tau conteaza !</h2>
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container mt-10">
             <section class="docs-section" v-if="hasOption">
                 <div>
                     <h3 class="col-sm-5 docs-section-title text-center">{{ processName }}</h3>
@@ -116,6 +116,7 @@
 
                                 </ol>
                             </div>
+
                         </div>
                     </div>
                     <div class="col-md-4 sm-hidden ">
@@ -125,20 +126,45 @@
             </section>
         </div>
 
+        <div class="container-fluid container-fluid-background my-5" v-if="hasOption">
+            <div class="p-5">
+                <div class="align-feedback" >
+                    <h2>Gata de drum?</h2>
+                    <a :href="routeLink" class="btn button-accent-secondary">Genereaza traseu</a>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-10"  v-if="hasOption">
+            <div class="row">
 
+                <div class="flex align-items-center col-12 col-md-12 mt-5">
+                    <h2 class="text-center text-color-blue mb-3"> Timpul mediu de asteptare</h2>
+                </div>
+            </div>
+
+            <statistics></statistics>
+
+        </div>
     </div>
 </template>
 
 <script>
 import Autocomplete from "./Autocomplete";
-
+import Statistics from "./StatisticsChart";
 export default {
     name: "ProcessesPage",
-    components: {Autocomplete},
+    components: {Autocomplete,Statistics},
     data() {
         return {
             hasOption: false,
-            processName: ''
+            processName: '',
+        }
+    },
+    computed:{
+        routeLink(){
+            if(this.processName !== ''){
+                return `/route?p=${this.processName}`
+            }
         }
     },
     methods: {
