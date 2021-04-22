@@ -31,7 +31,6 @@
                         <div class="docs-info-container">
 
                             <dep-schedule>
-
                             </dep-schedule>
 
                         </div>
@@ -54,7 +53,7 @@
         <div class="p-5">
             <div class="align-feedback">
                 <h2>Feedback-ul tau conteaza !</h2>
-                <a href="#" class="btn button-accent-secondary">Ofera feedback</a>
+                <a href="/contact" class="btn button-accent-secondary">Ofera feedback</a>
             </div>
         </div>
 

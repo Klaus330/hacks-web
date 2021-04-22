@@ -40,6 +40,10 @@ Route::get('/admin/institutions', function () {
     return view('admin.institutions');
 });
 
+Route::get('/forgot-password', function () {
+    return view('auth.forgot-password');
+});
+
 
 
 Route::get('/', [\App\Http\Controllers\PagesController::class, 'index'])->name('home');
@@ -50,5 +54,18 @@ Route::get('/register', [App\Http\Controllers\UserRegisterController::class, 're
 Route::post('/register', [App\Http\Controllers\UserRegisterController::class, 'create'])->name('createUser');
 
 Route::get('/documents', [App\Http\Controllers\DocsController::class, 'index']);
+
+Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index']);
+Route::post('/contact',[App\Http\Controllers\ContactController::class, 'store']);
+
 Route::get('/get-docs', [App\Http\Controllers\DocsController::class, 'getDocsList']);
 Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'index']);
+
+Route::post('/forgot-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'store']);
+
+
+// Institutions
+Route::get('/get-institutions', [\App\Http\Controllers\InstitutionsController::class, 'getInstitutionsList']);
+
+
+Route::get('/get-route', [\App\Http\Controllers\RoutesController::class, 'getRoute']);

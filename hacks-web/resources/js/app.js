@@ -30,6 +30,9 @@ Vue.component('vue-loading-button', require('vue-loading-button').default);
 Vue.component('select-form', require('./components/SelectForm.vue').default);
 Vue.component('edit-form', require('./components/EditForm.vue').default);
 Vue.component('edit-page', require('./components/EditPage.vue').default);
+Vue.component('autocomplete-search', require('./components/Autocomplete.vue').default);
+Vue.component('processes-page', require('./components/ProcessesPage.vue').default);
+Vue.component('tom-map', require('./components/Map.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

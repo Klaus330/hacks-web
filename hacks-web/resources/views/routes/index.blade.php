@@ -91,6 +91,7 @@
                 <iframe src="https://maps.google.com/maps?q=Iasi&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     frameborder="0"></iframe>
             </div>
+
         </div>
     </div>
 </div>
@@ -120,4 +121,11 @@
 </div>
 
 
+@endsection
+
+
+@section('head')
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.69.1/maps/maps.css'>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.69.1/maps/maps-web.min.js"></script>
+<script  src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.69.1/services/services-web.min.js"></script>
 @endsection

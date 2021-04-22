@@ -4,9 +4,6 @@
 
 .docs-section{
     min-height: 65vh;
-    @include mq(medium){
-        min-height: 80vh;
-    }
 }
 .search-docs{
     background-color: #f6f6f6;
@@ -53,7 +50,7 @@
     @include mq(medium){
         margin-bottom: 0;
     }
-    
+
 }
 
 .docs-dropdown{

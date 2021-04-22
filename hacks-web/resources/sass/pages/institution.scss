@@ -1,17 +1,22 @@
-.form-docs{
+.form-docs {
     border: 1px solid #4B647E;
     border-radius: 20px;
     background-color: #E2F5FF;
     padding: 10px 10px;
-    li{
+
+    li {
         color: black;
     }
-    ul{
+
+    ul {
         margin-bottom: 0;
     }
 
 }
 
-.dropdown-toggle{
-    height: 20px;
+.docs-info-container {
+    .dropdown-toggle {
+        height: 20px;
+    }
+
 }

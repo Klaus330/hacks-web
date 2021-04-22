@@ -18,17 +18,17 @@
                         <h5 class="mb-2">Quick Links</h5>
                         <ul class="quick-links">
                             <li class="quick-link-item">
-                                <a href="" class="quick-link">
+                                <a href="/" class="quick-link">
                                     Home
                                 </a>
                             </li>
                             <li class="quick-link-item">
-                                <a href="" class="quick-link">
+                                <a href="/institution" class="quick-link">
                                     Institutes
                                 </a>
                             </li>
                             <li class="quick-link-item">
-                                <a href="" class="quick-link">
+                                <a href="/documents" class="quick-link">
                                     Documents
                                 </a>
                             </li>
