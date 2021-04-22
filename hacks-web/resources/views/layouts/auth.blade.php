@@ -31,11 +31,11 @@
     <main class="container-fluid p-0 overflow-hidden">
         <div class="row">
             @include('admin.components.navbar')
-            <div class="col-lg-11 col-12">
+            <div class="col-lg-11 col-12 ">
                 <div class="row">
-                    <div id="header" class="header col-12">
+                    <div id="header-admin" class="header-admin col-12">
                         <div class="logo">
-                            <a href="/">
+                            <a href="/admin/dashboard">
                                 <img src='/images/home/logo.svg' class="nav-image-size">
                             </a>
                         </div>
