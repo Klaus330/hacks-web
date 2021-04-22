@@ -8,7 +8,7 @@
                 </div>
             </section>
         </div>
-        <div class="container" v-if="hasOption">
+        <div class="container mb-5" v-if="hasOption">
             <div>
                 <h3 class="col-sm-3 docs-section-title text-center">Pro Tips</h3>
             </div>
@@ -32,7 +32,7 @@
                 </ol>
             </div>
         </div>
-        <div class="container-fluid container-fluid-background my-5" v-if="hasOption">
+        <div class="container-fluid container-fluid-background mb-5 mt-10" v-if="hasOption">
             <div class="p-5">
                 <div class="align-feedback">
                     <h2>Feedback-ul tau conteaza !</h2>
@@ -134,7 +134,7 @@
                 </div>
             </div>
         </div>
-        <div class="container"  v-if="hasOption">
+        <div class="container mt-10"  v-if="hasOption">
             <div class="row">
 
                 <div class="flex align-items-center col-12 col-md-12 mt-5">
