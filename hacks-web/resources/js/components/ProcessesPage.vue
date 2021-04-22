@@ -134,7 +134,7 @@ import Autocomplete from "./Autocomplete";
 
 export default {
     name: "ProcessesPage",
-    components: [Autocomplete],
+    components: {Autocomplete},
     data() {
         return {
             hasOption: false,

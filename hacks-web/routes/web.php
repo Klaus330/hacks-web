@@ -62,3 +62,7 @@ Route::get('/get-docs', [App\Http\Controllers\DocsController::class, 'getDocsLis
 Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'index']);
 
 Route::post('/forgot-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'store']);
+
+
+// Institutions
+Route::get('/get-institutions', [\App\Http\Controllers\InstitutionsController::class, 'getInstitutionsList']);
