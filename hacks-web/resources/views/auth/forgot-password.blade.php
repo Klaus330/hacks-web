@@ -10,12 +10,12 @@
             <div class="row justify-content-center forgot-container">
                 <div class="col-lg-8 col-md-10 col-12">
                     <div class="forgot">
-                        <h2>Forgot your password?</h2>
-                        <p>Change your password in three easy steps. This will help you to secure your password!</p>
+                        <h2>Ți-ai uitat parola?</h2>
+                        <p>Schimbă-ți parola în trei pași simpli.</p>
                         <ol class="list-unstyled">
-                            <li><span class="text-color-white">1. </span>Enter your email address below.</li>
-                            <li><span class="text-color-white">2. </span>Our system will send you a temporary link</li>
-                            <li><span class="text-color-white">3. </span>Use the link to reset your password</li>
+                            <li><span class="text-color-white">1. </span>Introdu adresa de email</li>
+                            <li><span class="text-color-white">2. </span>Vei primi un link de confirmare</li>
+                            <li><span class="text-color-white">3. </span>Accesează link-ul pentru a reseta parola</li>
                         </ol>
                     </div>
 
