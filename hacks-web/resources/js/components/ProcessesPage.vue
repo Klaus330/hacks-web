@@ -36,7 +36,7 @@
             <div class="p-5">
                 <div class="align-feedback">
                     <h2>Feedback-ul tau conteaza !</h2>
-                    <a href="/contact" class="btn button-accent-secondary">Ofera feedback</a>
+                    <a :href="feedbackLink" class="btn button-accent-secondary">Ofera feedback</a>
                 </div>
             </div>
         </div>
@@ -164,6 +164,11 @@ export default {
         routeLink(){
             if(this.processName !== ''){
                 return `/route?p=${this.processName}`
+            }
+        },
+        feedbackLink(){
+            if(this.processName !== ''){
+                return `/feedback?p=${this.processName}`
             }
         }
     },

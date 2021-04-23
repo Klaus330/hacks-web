@@ -59,6 +59,7 @@ Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])
 Route::post('/contact',[App\Http\Controllers\ContactController::class, 'store']);
 
 Route::get('/feedback', [App\Http\Controllers\FeedbackController::class, 'index']);
+Route::post('/feedback', [App\Http\Controllers\FeedbackController::class, 'store']);
 
 Route::get('/get-departments', [App\Http\Controllers\DocsController::class, 'getDocsList']);
 Route::get('/get-docs', [App\Http\Controllers\DocsController::class, 'getDocsList']);
