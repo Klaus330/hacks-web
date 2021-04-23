@@ -6,8 +6,8 @@
             <div class="col-11">
                 <form action="/feedback" method="post">
                 @csrf
-                    <div>
-                        <h2 class="font-weight-bolder text-xl display-4">{{request()->get('p')}}</h2>
+                    <div style="white-space: nowrap;">
+                        <h2 class="font-weight-bolder text-xl display-4" style="text-overflow: ellipsis;overflow: hidden;">{{request()->get('p')}}</h2>
                     </div>
                     <input type="hidden" name="process" value="{{request()->get('p')}}">
                     <div class="form-group">
