@@ -11,8 +11,8 @@
                     </div>
                     <input type="hidden" name="process" value="{{request()->get('p')}}">
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Introduceti numele de utilizator:</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Username"
+
+                        <input type="hidden" class="form-control" id="exampleFormControlInput1" placeholder="Username"
                                value="{{session()->get('user')->username}}" name="username">
                     </div>
 
