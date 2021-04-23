@@ -27,7 +27,7 @@ export default {
             container: 'map-div',
             style: "tomtom://vector/1/basic-main",
             zoom: 15,
-            center: [27.5474205, 47.1668358]
+            center: [27.58207, 47.14356]
         });
 
         this.map.on('click', (event) => {

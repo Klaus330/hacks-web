@@ -2,8 +2,8 @@
     <div>
         <div class="container" style="margin-top: 15rem">
             <section class="docs-section ">
-                <div>
-                    <h3 class="col-sm-5 docs-section-title text-center">Carte de identitate</h3>
+                <div style="white-space: nowrap;">
+                    <h3 class="col-sm-5 docs-section-title text-center" style="text-overflow: ellipsis;overflow: hidden;" :alt="processName">{{ processName }}</h3>
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-8">
@@ -87,7 +87,7 @@
             <div class="p-5">
                 <div class="align-feedback">
                     <h2>Feedback-ul tau conteaza !</h2>
-                    <a href="#" class="btn button-accent-secondary">Ofera feedback</a>
+                    <a :href="feedbackLink" class="btn button-accent-secondary">Ofera feedback</a>
                 </div>
             </div>
         </div>
@@ -116,9 +116,19 @@ export default {
             requestMade: false
         }
     },
+    computed: {
+        processName() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const myParam = urlParams.get('p');
+            return myParam;
+        },
+        feedbackLink() {
+            return `/feedback?p=${this.processName}`;
+        }
+    },
     methods: {
         submit() {
-           this.requestMade=true;
+            this.requestMade = true;
         }
     }
 }
