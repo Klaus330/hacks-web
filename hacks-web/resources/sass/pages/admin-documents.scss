@@ -16,6 +16,21 @@
             padding: 0 20px;
         }
 
+        &:focus{
+            width: 200px;
+            option{
+                max-width:200px;
+                overflow: hidden;
+            }
+        }
+
+        option{
+            max-width:200px;
+            &:focus{
+                max-width:200px;
+            }
+        }
+
 
     }
 

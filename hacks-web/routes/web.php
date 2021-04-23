@@ -60,7 +60,7 @@ Route::post('/contact',[App\Http\Controllers\ContactController::class, 'store'])
 
 Route::get('/feedback', [App\Http\Controllers\FeedbackController::class, 'index']);
 
-
+Route::get('/get-departments', [App\Http\Controllers\DocsController::class, 'getDocsList']);
 Route::get('/get-docs', [App\Http\Controllers\DocsController::class, 'getDocsList']);
 Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'index']);
 

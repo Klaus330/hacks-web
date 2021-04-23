@@ -17,4 +17,13 @@ class InstitutionsController extends Controller
 
         return $body;
     }
+
+    public function getDepartmentsList(Request $request)
+    {
+
+        $response = Http::post($this->apiURL("departmentslist"), [ "institutionName"=>"ANAF"]);
+        $body = json_decode($response->body());
+
+        return $body;
+    }
 }

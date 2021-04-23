@@ -6,8 +6,10 @@
             <edit-page
                 first-label="Institutions"
                 second-label="Departament"
-                first-url="/get-departments"
-                second-url="/get-docs"
+                first-url="/get-institutions"
+                second-url="/get-departments"
+                first-placeholder="Care Institutie?"
+                second-placeholder="Care departament?"
             ></edit-page>
         </div>
 

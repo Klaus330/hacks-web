@@ -4,7 +4,7 @@
             <section class="row docs-section flex justify-content-center align-items-center" style="min-height: 100vh;">
                 <div class="col-12">
                     <autocomplete-search url="/get-docs" filterby="name"
-                                         v-on:optionSelected="showDetails"></autocomplete-search>
+                                         v-on:optionSelected="showDetails" placeholder="Ce proces birocratic te intereseaza?"></autocomplete-search>
                 </div>
             </section>
         </div>

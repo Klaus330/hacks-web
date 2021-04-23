@@ -8,6 +8,8 @@
                 second-label="Proces birocratic"
                 first-url="/get-institutions"
                 second-url="/get-docs"
+                first-placeholder="Care Institutie?"
+                second-placeholder="Care proces?"
             ></edit-page>
         </div>
     </div>
