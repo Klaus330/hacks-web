@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Http;
 class DocsController extends Controller
 {
     use ApiCommunication;
+
     /**
      * Show the application dashboard.
      *
@@ -19,10 +20,19 @@ class DocsController extends Controller
     }
 
 
-    public function getDocsList(){
-        $response = Http::get($this->apiURL("processeslist"));
-        $body = json_decode($response->body());
+    public function getProssesList()
+    {
 
+        if (request()->has('q')) {
+            $response = Http::get($this->apiURL("processeslist/" . request()->get('q')));
+        } else {
+            $response = Http::get($this->apiURL("processeslist"));
+        }
+
+        $body = json_decode($response->body());
         return $body;
+
     }
+
+
 }
