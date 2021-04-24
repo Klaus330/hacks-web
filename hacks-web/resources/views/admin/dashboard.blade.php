@@ -4,7 +4,7 @@
 <div class="main-box-admin col-mr-5">
 
     <div class="row">
-        <views class="col-12"></views>
+        <views class="col-12" v-bind:data="{{ json_encode($views) }}"></views>
     </div>
     <div class="row feedback-container-admin">
         <a class="feedback-admin" href="#">
