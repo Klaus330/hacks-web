@@ -10,6 +10,7 @@ import Bar from "./Bar.js";
 export default {
     name: 'Views',
     components: {Bar},
+    props:['data'],
     data() {
         return {
             options: {
@@ -26,12 +27,12 @@ export default {
             },
 
             chartData: {
-                labels: ['Luni', 'Marti', 'Miercuri', 'Joi', 'Vineri', 'Sambata', 'Duminica'],
+                labels: Object.keys(this.data),
                 datasets: [
                     {
                         label:"views",
                         backgroundColor: '#4883ca',
-                        data: [3, 7, 4, 5, 6, 2, 1,0]
+                        data: Object.values(this.data)
                     }
                 ]
             }
