@@ -1,14 +1,5 @@
 <template>
     <div class="col-12 d-flex flex-column align-items-center justify-content-center">
-<!--        <div class="col-8">-->
-<!--            <label>{{firstLabel}}:</label>-->
-<!--            <select-form :route='firstUrl' v-model="firstOption" v-on:optionSelected="setFirstOption"></select-form>-->
-<!--        </div>-->
-
-<!--        <div class="col-8 mt-4">-->
-
-<!--            <select-form :route='secondUrl' v-model="secondOption" v-on:optionSelected="setSecondOption"></select-form>-->
-<!--        </div>-->
         <div class="col-8 mb-5" style="max-height: 90px;">
             <label>{{firstLabel}}:</label>
             <autocomplete :url="firstUrl" :placeholder="firstPlaceholder" v-on:optionSelected="setFirstOption"></autocomplete>
@@ -26,7 +17,7 @@ import SelectForm from "./SelectForm";
 import EditProcessForm from "./EditProcessForm";
 import Autocomplete from "./Autocomplete";
 export default {
-    name: "EditPage",
+    name: "EditProcessPage",
     components: {SelectForm, EditProcessForm, Autocomplete},
     props:['firstLabel', 'secondLabel', 'firstUrl', 'secondUrl', "firstPlaceholder","secondPlaceholder"],
     data() {
