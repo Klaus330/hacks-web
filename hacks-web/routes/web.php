@@ -65,6 +65,7 @@ Route::get('/get-departments', [App\Http\Controllers\InstitutionsController::cla
 Route::get('/get-docs', [App\Http\Controllers\DocsController::class, 'getProssesList']);
 
 Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'index']);
+Route::get('/get-reviews', [App\Http\Controllers\ReviewController::class, 'getReview']);//am adaugat
 
 Route::post('/forgot-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'store']);
 
