@@ -19,19 +19,20 @@
             <autocomplete :url="createSecondUrl" :placeholder="secondPlaceholder"
                           v-on:optionSelected="setSecondOption"></autocomplete>
         </div>
-        <edit-form :show="showForm" :first-option="firstOption" :second-option="secondOption"></edit-form>
+        <edit-process-form :show="showForm" :first-option="firstOption" :second-option="secondOption"></edit-process-form>
     </div>
 </template>
 
 <script>
 import SelectForm from "./SelectForm";
-import EditForm from "./EditForm";
+import EditProcessForm from "./EditProcessForm";
 import Autocomplete from "./Autocomplete";
 
 export default {
     name: "EditPage",
-    components: {SelectForm, EditForm, Autocomplete},
-    props: ['firstLabel', 'secondLabel', 'firstUrl', 'secondUrl', "firstPlaceholder", "secondPlaceholder"],
+
+    components: {SelectForm, EditProcessForm, Autocomplete},
+    props:['firstLabel', 'secondLabel', 'firstUrl', 'secondUrl', "firstPlaceholder","secondPlaceholder"],
     data() {
         return {
             firstOption: '',

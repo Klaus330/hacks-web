@@ -75,3 +75,6 @@ Route::get('/get-institutions', [\App\Http\Controllers\InstitutionsController::c
 
 Route::get('/get-route', [\App\Http\Controllers\RoutesController::class, 'getRoute']);
 
+Route::get('/get-process-by-institution', [App\Http\Controllers\DocsController::class, 'getProcessDetailsByInstitution']);
+Route::post('/update-process-data', [App\Http\Controllers\DocsController::class, 'updateProcessDetails']);
+
