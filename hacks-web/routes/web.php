@@ -68,10 +68,8 @@ Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'in
 
 Route::post('/forgot-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'store']);
 
-
 // Institutions
 Route::get('/get-institutions', [\App\Http\Controllers\InstitutionsController::class, 'getInstitutionsList']);
-
 
 Route::get('/get-route', [\App\Http\Controllers\RoutesController::class, 'getRoute']);
 
