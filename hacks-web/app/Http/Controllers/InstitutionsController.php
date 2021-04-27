@@ -21,9 +21,16 @@ class InstitutionsController extends Controller
     public function getDepartmentsList(Request $request)
     {
 
-        $response = Http::post($this->apiURL("departmentslist"), [ "institutionName"=>"ANAF"]);
+        if (request()->has('q')) {
+            $response = Http::post($this->apiURL("departmentslist"), [ "institutionName"=>request()->get('q')]);
+        } else {
+            return [];
+        }
+
         $body = json_decode($response->body());
 
         return $body;
     }
+
+
 }

@@ -29,6 +29,11 @@ export default {
     mounted() {
         this.getData();
     },
+    watch:{
+        url:function () {
+            this.getData();
+        }
+    },
     computed: {
         matches() {
             if (this.query === '') {

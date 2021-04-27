@@ -21,13 +21,21 @@ class DocsController extends Controller
     }
 
 
-    public function getDocsList()
+    public function getProssesList()
     {
-        $response = Http::get($this->apiURL("processeslist"));
-        $body = json_decode($response->body());
 
+        if (request()->has('q')) {
+            $response = Http::get($this->apiURL("processeslist/" . request()->get('q')));
+        } else {
+            $response = Http::get($this->apiURL("processeslist"));
+        }
+
+
+        $body = json_decode($response->body());
         return $body;
+
     }
+
 
 
     public function getProcessDetailsByInstitution(Request $request)
