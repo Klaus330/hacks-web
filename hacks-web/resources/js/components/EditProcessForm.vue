@@ -20,7 +20,7 @@
         <div class="form-group" v-if="canDisplay(generalInfo,selectedCaseId)">
             <label for="info">General info</label>
             <select name="info" id="info" class="form-control mb-2" style="border: 1px solid black !important;">
-                <option v-for="(item,index) in getGeneralInfo(selectedCaseId)" :key="item[selectedInfoId]" :value="index"
+                <option v-for="(item,index) in getGeneralInfo(selectedCaseId)" :key="index" :value="index"
                         @click="selectedInfoId=index">{{ item }}
                 </option>
             </select>
@@ -31,7 +31,7 @@
         <div class="form-group" v-if="canDisplay(forms,selectedCaseId)">
             <label for="forms">Forms</label>
             <select name="forms" id="forms" class="form-control mb-2" style="border: 1px solid black !important;">
-                <option v-for="(item,index) in getForms(selectedCaseId)" :key="item" :value="index"
+                <option v-for="(item,index) in getForms(selectedCaseId)" :key="index" :value="index"
                         @click="selectedFormId=index">{{ item }}
                 </option>
             </select>
@@ -42,7 +42,7 @@
         <div class="form-group" v-if="canDisplay(prices,selectedCaseId)">
             <label for="prices">Prices</label>
             <select name="prices" id="prices" class="form-control mb-2" style="border: 1px solid black !important;">
-                <option v-for="(item,index) in getPrices(selectedCaseId)" :key="item" :value="index"
+                <option v-for="(item,index) in getPrices(selectedCaseId)" :key="index" :value="index"
                         @click="selectedPriceId=index">{{ item }}
                 </option>
             </select>

@@ -36,6 +36,12 @@ export default {
                 return true;
             }
             return false
+        },
+        createSecondUrl() {
+            if (this.firstOption !== '') {
+                return `${this.secondUrl}?q=${this.firstOption}`;
+            }
+            return this.secondUrl;
         }
 
     },
