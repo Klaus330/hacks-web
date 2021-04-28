@@ -5,6 +5,7 @@
 .docs-section{
     min-height: 65vh;
 }
+
 .search-docs{
     background-color: #f6f6f6;
     color: rgb(0, 0, 0);
@@ -33,7 +34,6 @@
     border-radius: 60px;
     margin-bottom: 2rem;
     @include mq(medium){
-        padding: 1rem 1rem;
         font-size: 35px;
     }
 }
@@ -60,7 +60,7 @@
     background-color:#e2f5ff;
     color: #4c657f;
     border-color: #4c657f;
-    padding: 2rem;
+    padding: 1.3rem;
     .dropdown-item{
         white-space: normal;
     }
@@ -84,19 +84,16 @@
     background-color:#e2f5ff;
     color: #4c657f;
     border: 1px solid  #4c657f;
-    padding: 2rem 2rem;
-    border-radius: 20px;
+    padding: 1rem 1rem;
+    border-radius: 25px;
     .panel-item{
         white-space: normal;
-        font-size: 0.5rem;
         vertical-align:middle;
         display: flex;
         flex-direction: column;
-        margin-bottom: 10px;
-        @include mq(medium){
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
+        font-size: 18px;
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 .docs-img{
