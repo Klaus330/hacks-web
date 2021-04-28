@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Trait\ApiCommunication;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class ForgotPasswordController extends Controller
 {
@@ -17,6 +20,26 @@ class ForgotPasswordController extends Controller
     | your application to your users. Feel free to explore this trait.
     |
     */
+    use ApiCommunication;
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            "email" => "required|email",
+            "newPassword" => "required|min:5",
+            "confirmNewPassword" => "required|min:5"
+        ]);
+
+        $response = Http::post($this->apiURL("changepassword"), $request->request->all());
+
+        if ($response->successful()) {
+            session()->flash("succes", "Parola dumneavoastra a fost resetata!");
+            return redirect("/");
+        }
+
+        $body = json_decode($response->body());
+        return back()->withErrors($body->message);
+    }
 
     use SendsPasswordResetEmails;
 }

@@ -3,7 +3,8 @@
     background: rgba(49, 90, 216, 1);
     opacity: 1;
     overflow: hidden;
-    position: relative
+    position: relative;
+    overflow-y: scroll;
 }
 
 .auth-image-container {
@@ -29,7 +30,6 @@
     left: 0;
     top: -3px;
 }
-
 .auth-content {
     position: relative;
     min-height: 100%;
@@ -67,7 +67,7 @@
     font-size: 16px;
     opacity: 1;
     text-align: center;
-    padding: 20px 0px;
+    padding: 10px 0px;
     border: none;
     border-radius: 5px;
     cursor:pointer;

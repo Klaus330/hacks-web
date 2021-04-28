@@ -15,14 +15,16 @@
 
 @import 'components/buttons',
 'components/navbar',
+'components/autocomplete',
 'components/map',
 'components/dropdown',
 'components/cards',
 'components/footer',
-'components/forms';
+'components/forms',
+'components/select-dashboard';
 
 
-// 4. Layout-related sections
+// 4. Layout-related sectionss
 @import 'layout/main';
 
 // 5. Page-specific styles
@@ -31,17 +33,13 @@
         'pages/route',
         'pages/auth',
         'pages/docs',
-        'pages/institution';
-
-
-
-
-
-
-
-
-
-
+        'pages/contact',
+        'pages/feedback',
+        'pages/institution',
+        'pages/admin-documents',
+        'pages/adminDashboard',
+        'pages/forgot-password',
+        'pages/feedback-process';
 
 //.grid {
 //    display: grid;

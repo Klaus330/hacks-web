@@ -5,6 +5,15 @@
     display: flex;
     align-items: center;
     margin-right: 10px;
+    button{
+        background: transparent;
+        border:none;
+        padding:0;
+        color: rgb(61, 55, 241);
+        @include mq(large){
+            color: white;
+        }
+    }
 }
 
 .nav-link{
@@ -53,4 +62,36 @@
             width: 100%;
         }
     }
+}
+
+.logo-image-size{
+    width: inherit;
+    height: 50px;
+    @include mq(large){
+    height: 100px;
+    }
+}
+.nav-image-size{
+    width: 150px;
+    height: 30px;
+    @include mq(large){
+    height: 80px;
+    width: inherit;
+    }
+}
+
+.side-navbar{
+    background:linear-gradient( #fefeff, #6f7dfb);
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-around;
+    overflow-x: hidden;
+    display: none;
+    padding-right: 0;
+  @include mq(xlarge){
+      display: flex;
+      position: fixed;
+  }
+
+
 }
