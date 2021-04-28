@@ -43,7 +43,7 @@
         <div class="container mt-10">
             <section class="docs-section" v-if="hasOption">
                 <div  style="white-space: nowrap;">
-                    <h3 class="col-sm-5 docs-section-title text-center"style="text-overflow: ellipsis;overflow: hidden;" >{{ processName }}</h3>
+                    <h3 class="col-sm-5 docs-section-title text-center" :title=processName style="text-overflow: ellipsis;overflow: hidden;" >{{ processName }}</h3>
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-8">

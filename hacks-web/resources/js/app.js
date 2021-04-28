@@ -35,6 +35,7 @@ Vue.component('processes-page', require('./components/ProcessesPage.vue').defaul
 Vue.component('tom-map', require('./components/Map.vue').default);
 Vue.component('route-page', require('./components/RoutePage.vue').default);
 Vue.component('reviews-container', require('./components/ReviewsContainer.vue').default);
+Vue.component('institutions-page', require('./components/InstitutionsContainer.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -34,7 +34,8 @@ export default {
           Swal.fire({
               title:this.reviews[index].username,
               html:`<p>${this.reviews[index].comment}</p>`,
-              confirmButtonText:"gata"
+              confirmButtonText:"gata",
+              button: "delete"
           })
       }
   }
