@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Trait\ApiCommunication;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class DocsController extends Controller
@@ -29,6 +30,7 @@ class DocsController extends Controller
             $response = Http::get($this->apiURL("processeslist"));
         }
 
+
         $body = json_decode($response->body());
         return $body;
 
@@ -47,5 +49,24 @@ class DocsController extends Controller
         return $body;
     }
 
+
+
+    public function getProcessDetailsByInstitution(Request $request)
+    {
+
+        $response = Http::post($this->apiURL("admin/updateprocessesrequest"), [
+            'institution' => $request->get('i'),
+            "process" => $request->get('p')
+        ]);
+
+        return $response->json();
+    }
+
+
+    public function updateProcessDetails(Request $request)
+    {
+        $response = Http::post($this->apiURL("admin/updateprocesses"), $request->request->all());
+        return $response->body();
+    }
 
 }
