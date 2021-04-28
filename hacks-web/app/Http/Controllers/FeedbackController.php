@@ -22,6 +22,15 @@ class FeedbackController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            "username"=>'required',
+            "comment"=>'required',
+            "q1"=>'required',
+            "q2"=>'required',
+            "q3"=>'required',
+            "q4"=>'required'
+        ]);
+
         $response = Http::post($this->apiUrl("user/{$request->get('process')}/feedbacks"), $request->request->all());
         $body = json_decode($response->body());
 
@@ -30,6 +39,7 @@ class FeedbackController extends Controller
             return redirect('/');
         }
 
+        dd($body);
         return back()->withErrors($body->message);
     }
 

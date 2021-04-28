@@ -4,31 +4,34 @@
             <section class="row docs-section flex justify-content-center align-items-center" style="min-height: 100vh;">
                 <div class="col-12">
                     <autocomplete-search url="/get-docs" filterby="name"
-                                         v-on:optionSelected="showDetails" placeholder="Ce proces birocratic te intereseaza?"></autocomplete-search>
+                                         v-on:optionSelected="showDetails"
+                                         placeholder="Ce proces birocratic te intereseaza?"></autocomplete-search>
+                </div>
+
+                <div class="col-12" v-show="canDisplay(cases)">
+                    <label>
+                        Caz:
+                    </label>
+                    <select class="form-control border">
+                        <option v-for="(item,index) in cases" :key="item" :value="index" @click="selectedCaseId=index">
+                            {{ item }}
+                        </option>
+                    </select>
                 </div>
             </section>
         </div>
-        <div class="container mb-5" v-if="hasOption">
+        <div class="container mb-5" v-if="canDisplay(generalInfo[selectedCaseId])">
             <div>
-                <h3 class="col-sm-3 docs-section-title text-center">Pro Tips</h3>
+                <h3 class="col-sm-3 docs-section-title text-center"><img style="margin-right: 10px"
+                                                                         src="/images/svg/alert.svg">Pro Tips</h3>
             </div>
             <div class="col-12">
                 <ol class="panel ">
-
-
-                    <li class="panel-item"><img style="margin-right: 10px" src="/images/svg/alert.svg"> Cerere pentru
-                        eliberarea
-                        actului de identitate
+                    <li v-for="(info,index) in generalInfo[selectedCaseId]" :key="index" class="panel-item">
+                        <p v-for="(line,index) in parseInfo(index)" :key="index">
+                            {{ line }}
+                        </p>
                     </li>
-                    <li class="panel-item"><img style="margin-right: 10px" src="/images/svg/alert.svg"> Cerere pentru
-                        eliberarea
-                        actului de identitate
-                    </li>
-                    <li class="panel-item"><img style="margin-right: 10px" src="/images/svg/alert.svg"> Cerere pentru
-                        eliberarea
-                        actului de identitate
-                    </li>
-
                 </ol>
             </div>
         </div>
@@ -48,7 +51,8 @@
                 <div class="row">
                     <div class="col-12 col-md-8">
                         <div class="docs-info-container">
-                            <div class="dropdown show">
+
+                            <div v-if="canDisplay(necessary[selectedCaseId])" class="dropdown show">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                    id="dropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Documente necesare
@@ -56,62 +60,72 @@
                                 </a>
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
 
-                                    <li class="dropdown-item">- Cerere pentru eliberarea actului de identitate</li>
-                                    <li class="dropdown-item">- Certificatul de nastere(fotocopie si original)</li>
-
-                                    <li class="dropdown-item">- Documentul cu care solicitantul face dovada adresei de
-                                        domiciliu
-                                    </li>
-                                    <li class="dropdown-item">- Daca gazduitorul nu se poate prezenta la serviciul
-                                        public comunitar de evidenta a persoanelor, declaratia de primire in spatiu
-                                        poate fi
-                                        consemnata la notarul public, la misiunea diplomatica sau oficiul consular al
-                                        Romaniei
-                                        din strainatare sauu in prezenta politistului de la postul de politie pentru
-                                        mediul
-                                        rural.
+                                    <li v-for="(documents,index) in necessary[selectedCaseId]" :key="index" class="dropdown-item">
+                                        <p v-for="(document,index) in documents" :key="index">-{{document}}</p>
                                     </li>
 
                                 </ol>
                             </div>
-                            <div class="dropdown show">
+
+                            <div v-if="canDisplay(forms[selectedCaseId]) || canDisplay(departaments[selectedCaseId])" class="dropdown show">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                    id="dropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Conditii generale
 
                                 </a>
-
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
 
-                                    <li class="dropdown-item">- Cerere pentru eliberarea actului de identitate</li>
-                                    <li class="dropdown-item">- Certificatul de nastere(fotocopie si original)</li>
+                                    <li v-if="canDisplay(forms[selectedCaseId])" class="dropdown-item">- Formulare
+                                        <div>
+                                            <p v-for="(form, index) in forms[selectedCaseId]" :key="index">{{form}}</p>
+                                        </div>
+                                    </li>
+                                    <li v-if="canDisplay(departaments[selectedCaseId])" class="dropdown-item">- Departamente
+                                        <div>
+                                            <p >{{departaments[selectedCaseId]}}</p>
+                                        </div>
+                                    </li>
 
-                                    <li class="dropdown-item">- Documentul cu care solicitantul face dovada adresei de
-                                        domiciliu
-                                    </li>
-                                    <li class="dropdown-item">- Daca gazduitorul nu se poate prezenta la serviciul
-                                        public comunitar de evidenta a persoanelor, declaratia de primire in spatiu
-                                        poate fi
-                                        consemnata la notarul public, la misiunea diplomatica sau oficiul consular al
-                                        Romaniei
-                                        din strainatate sau in prezenta politistului de la postul de politie pentru
-                                        mediul
-                                        rural.
-                                    </li>
 
                                 </ol>
                             </div>
                             <div class="dropdown show">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                    id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Instiutiile care
-                                    elibereaza
-
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Instituția care
+                                    eliberează
                                 </a>
 
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
 
-                                    <li class="dropdown-item">- Serivciul public comunitar de evidenta a persoanelor.
+                                    <li class="dropdown-item">{{ processData.institution }}
+                                    </li>
+
+                                </ol>
+                            </div>
+
+                            <div v-if="canDisplay(prices[selectedCaseId])" class="dropdown show">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                   id="dropdownMenuLink"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Preturi
+                                </a>
+                                <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
+                                    <li v-for="(priceList,index) in prices[selectedCaseId]" :key="index"
+                                        class="dropdown-item">
+                                        {{ priceList }}
+                                    </li>
+                                </ol>
+                            </div>
+
+                            <div v-if="canDisplay(files[selectedCaseId])" class="dropdown show">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                   id="dropdownMenuLink"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Anexe
+                                </a>
+
+                                <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
+
+                                    <li v-for="(file,index) in files" :key="index" @click="downloadFile(file)" class="dropdown-item">{{file}}
                                     </li>
 
                                 </ol>
@@ -128,13 +142,13 @@
 
         <div class="container-fluid container-fluid-background my-5" v-if="hasOption">
             <div class="p-5">
-                <div class="align-feedback" >
+                <div class="align-feedback">
                     <h2>Gata de drum?</h2>
                     <a :href="routeLink" class="btn button-accent-secondary">Genereaza traseu</a>
                 </div>
             </div>
         </div>
-        <div class="container mt-10"  v-if="hasOption">
+        <div class="container mt-10" v-if="hasOption">
             <div class="row">
 
                 <div class="flex align-items-center col-12 col-md-12 mt-5">
@@ -151,31 +165,78 @@
 <script>
 import Autocomplete from "./Autocomplete";
 import Statistics from "./StatisticsChart";
+
 export default {
     name: "ProcessesPage",
-    components: {Autocomplete,Statistics},
+    components: {Autocomplete, Statistics},
     data() {
         return {
             hasOption: false,
             processName: '',
+            processData: [],
+            cases: "",
+            prices: "",
+            forms: "",
+            generalInfo: "",
+            necessary: "",
+            selectedCaseId: 0,
+            selectedInfoId: 0,
+            selectedFormId: 0,
+            selectedPriceId: 0,
+            selectedNecessaryId: 0,
+            departaments: "",
+            files:""
         }
     },
-    computed:{
-        routeLink(){
-            if(this.processName !== ''){
+    computed: {
+        routeLink() {
+            if (this.processName !== '') {
                 return `/route?p=${this.processName}`
             }
         },
-        feedbackLink(){
-            if(this.processName !== ''){
+        feedbackLink() {
+            if (this.processName !== '') {
                 return `/feedback?p=${this.processName}`
             }
         }
     },
     methods: {
+        parseData() {
+            this.cases = this.processData.cases;
+            this.generalInfo = this.processData.generalInfo;
+            this.forms = this.processData.forms;
+            this.prices = this.processData.prices;
+            this.necessary = this.processData.necessary;
+            this.departaments = this.processData.departaments;
+            this.files=this.processData.files;
+        },
+        canDisplay(field) {
+            if(field!==undefined && Array.isArray(field)){
+                for(let i=0 ; field.length>i ; ++i){
+                    return (field[i]!=="");
+                }
+            }
+            return (field !== "" && field !== undefined && field.length !== 0);
+        },
+        downloadFile(file){
+
+        },
+        parseInfo(index) {
+            if (this.generalInfo[this.selectedCaseId] !== undefined) {
+                return this.generalInfo[this.selectedCaseId][index].split("\n");
+            } else {
+                return [];
+            }
+        },
         showDetails(process) {
             this.processName = process;
             this.hasOption = true;
+            axios.get(`/get-process-by-name?p=${this.processName}`)
+                .then((response) => {
+                    console.log(response);
+                    this.processData = response.data;
+                    this.parseData();
+                })
         }
     }
 }

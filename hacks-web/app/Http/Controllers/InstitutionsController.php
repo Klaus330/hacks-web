@@ -32,5 +32,27 @@ class InstitutionsController extends Controller
         return $body;
     }
 
+    public function getInstitutionByName(Request $request)
+    {
+        if (request()->has('i')) {
+            $response = Http::post($this->apiURL("user/institution/{$request->get('i')}"));
+        } else {
+            return [];
+        }
+
+        return $response->json();
+    }
+
+    public function updateInstitutionDetails(Request $request)
+    {
+        $response1 = Http::post($this->apiURL("admin/updateinstitutions"), $request->request->all());
+        $response2 = Http::post($this->apiURL("admin/updatedepartments"), $request->request->all());
+        if($response1->ok() && $response2->ok())
+        {
+            return ["message"=>"Datele au fost actualizate!"];
+        }
+        return ["message"=>"Ups, a aparut o eroare!"];
+    }
+
 
 }
