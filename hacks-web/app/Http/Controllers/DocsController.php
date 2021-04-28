@@ -36,6 +36,19 @@ class DocsController extends Controller
 
     }
 
+    public function getProcessByName(){
+        if(request()->has('p')) {
+            $response = Http::get($this->apiURL("user/process/" . request()->get('p')));
+        }
+        else
+        {
+            return "No process data found";
+        }
+
+        $body = $response->json();
+        return $body;
+    }
+
 
 
     public function getProcessDetailsByInstitution(Request $request)
