@@ -2,73 +2,107 @@
   Home
 */
 
-.home-section{
+.home-section {
     min-height: 65vh;
-    @include mq(medium){
+    @include mq(medium) {
         min-height: 80vh;
     }
 }
 
-.home-section-image{
+.home-section-image {
     width: inherit;
     display: none;
-    @include mq(medium){
+    @include mq(medium) {
         display: block;
     }
 }
 
-.section-category{
+.section-category {
     text-transform: uppercase;
     color: rgb(70, 66, 242);
 }
 
-.home-mobile-section{
+.home-mobile-section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    @include mq(medium){
+    @include mq(medium) {
         flex-direction: row;
     }
 }
 
-.mobile-icon-container{
+.mobile-icon-container {
     display: flex;
     justify-content: center;
-    &:first-child{
+    &:first-child {
         margin-bottom: 0.75rem;
     }
-    @include mq(medium){
-        &:first-child{
+    @include mq(medium) {
+        &:first-child {
             align-items: center;
             justify-content: flex-end;
         }
-        &:nth-child(2){
+        &:nth-child(2) {
             align-items: center;
             justify-content: start;
         }
     }
 }
 
-.mobile-icon{
+.mobile-icon {
     width: 300px;
     height: 90px;
-    img{
+    img {
         width: inherit;
         height: inherit;
     }
 }
 
-.newsletter-content{
+.newsletter-content {
     flex-direction: column;
-    @include mq(medium){
+    @include mq(medium) {
         flex-direction: row;
     }
 
-    .newsletter-input{
+    .newsletter-input {
         margin-bottom: 1rem;
-        @include mq(medium){
+        @include mq(medium) {
             margin-bottom: 0;
         }
     }
 }
 
+.home-carousel {
+    .carousel-inner > .item > img {
+        margin: auto;
+    }
+
+    .carousel-control.right,
+    .carousel-control.left {
+        background-image: none;
+        color: #248fb3;
+    }
+
+    footer .glyphicon {
+        font-size: 25px;
+        margin-bottom: 10px;
+        color: #248fb3;
+    }
+    .card {
+        border: 0px;
+    }
+
+    .carousel-control {
+        width: 30%;
+        @include mq(medium) {
+            width: 50%;
+        }
+    }
+    .carousel-inner {
+        width: 300px;
+        margin: auto;
+        @include mq(medium) {
+            width: 400px;
+        }
+    }
+}

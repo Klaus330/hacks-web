@@ -34,10 +34,24 @@ export default {
           Swal.fire({
               title:this.reviews[index].username,
               html:`<p>${this.reviews[index].comment}</p>`,
+              showDenyButton: true,
               confirmButtonText:"gata",
-              button: "delete"
+              denyButtonText: "delete"
+          }).then((result) => {
+            if(!(result.isConfirmed)){
+              axios.post("/delete-reviews", {index: index}).then((response)=>{
+                console.log(response);
+              })
+            }
           })
-      }
+      },
+      computed: {
+        reviewsArray() {
+          return reviews.filter((review)=>{
+            return review;
+          })
+        }
+}
   }
 };
 </script>
