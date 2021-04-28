@@ -47,7 +47,11 @@ class UserRegisterController extends Controller
 
         $response = Http::post($this->apiURL("registration"), $request->request->all());
         $body = json_decode($response);
+        if($response->ok())
+        {
+            return ["message" => $body->message];
+        }
 
-        return ["message" => $body->message];
+        return response()->json(['error' => $response->json()], 500);
     }
 }
