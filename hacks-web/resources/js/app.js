@@ -37,7 +37,9 @@ Vue.component('processes-page', require('./components/ProcessesPage.vue').defaul
 Vue.component('tom-map', require('./components/Map.vue').default);
 Vue.component('route-page', require('./components/RoutePage.vue').default);
 Vue.component('reviews-container', require('./components/ReviewsContainer.vue').default);
+
 Vue.component('institutions-page', require('./components/InstitutionsContainer.vue').default);
+
 Vue.component('edit-institution-form', require('./components/EditInstitutionForm.vue').default);
 Vue.component('edit-institution-page', require('./components/EditInstitutionPage.vue').default);
 
