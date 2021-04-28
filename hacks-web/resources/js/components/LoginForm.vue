@@ -73,7 +73,6 @@ export default {
 
             axios.post('/login', this.form)
                 .then((response) => {
-                    console.log(response);
                     this.isLoading = false;
                     Swal.fire({
                         title: response.data.message,
@@ -83,13 +82,19 @@ export default {
                     })
                 })
                 .catch(({response}) => {
-                    console.log(response);
                     this.errors = response.data.errors;
                     this.isLoading = false;
+                    Swal.fire({
+                        icon: 'error',
+                        title:"Oops...",
+                        text: response.data.error.message,
+                        confirmButtonText: "Ok"
+                    });
+
                 });
         },
         hasErrors() {
-            return !(this.errors && Object.keys(this.errors).length === 0 && this.errors.constructor === Object);
+            return (this.errors !== undefined ) && !(this.errors && Object.keys(this.errors).length === 0 && this.errors.constructor === Object);
         }
     }
 }

@@ -32,10 +32,12 @@ class UserLoginController extends Controller
 
         $response = Http::post($this->apiURL("login"), $request->request->all());
         $body = json_decode($response->body());
-        if($response->status() === 200){
+        if($response->ok()){
             session()->put('user', $body->user);
+            return ["message" => $body->message];
         }
-        return ["message" => $body->message];
+
+        return response()->json(['error' => $response->json()], 500);
     }
 
     public function logout(Request $request){

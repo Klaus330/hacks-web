@@ -101,10 +101,16 @@ name: "RegisterForm",
                 .catch(({response}) => {
                     this.errors = response.data.errors;
                     this.isLoading = false;
+                    Swal.fire({
+                        icon: 'error',
+                        title:"Oops...",
+                        text: response.data.error.message,
+                        confirmButtonText: "Ok"
+                    });
                 });
         },
         hasErrors() {
-            return !(this.errors && Object.keys(this.errors).length === 0 && this.errors.constructor === Object);
+            return (this.errors !== undefined ) && !(this.errors && Object.keys(this.errors).length === 0 && this.errors.constructor === Object);
         }
     }
 }
