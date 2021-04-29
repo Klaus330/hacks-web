@@ -10,6 +10,7 @@
                 second-url="/get-docs"
                 first-placeholder="Care Institutie?"
                 second-placeholder="Care proces?"
+                :institution-admin="{{json_encode(session()->get('user')->institutions)}}"
             ></edit-process-page>
         </div>
     </div>

@@ -18,7 +18,7 @@
 <script>
 export default {
     name: "Autocomplete",
-    props: ['url', 'filterby', 'placeholder', 'options'],
+    props: ['url', 'filterby', 'placeholder', 'options', "institution"],
     data() {
         return {
             items: [],
@@ -36,6 +36,10 @@ export default {
     },
     computed: {
         matches() {
+            if(this.institution !== undefined && this.institution.length>0){
+                this.query = this.institution[0].name;
+                this.$emit("optionSelected", this.query);
+            }
             if (this.query === '') {
                 return this.items;
             }
