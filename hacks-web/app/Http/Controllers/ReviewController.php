@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Trait\ApiCommunication;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
@@ -20,6 +21,17 @@ class ReviewController extends Controller
 
         $response = Http::get($this->apiURL("user/viewreviews"));
         return $response->json();
+
+    }
+
+    public function deleteReview(Request $request)
+    {
+        $response = Http::post($this->apiURL("admine/deletecomment"), $request->request->all());
+        if($response->ok())
+        {
+             return $response->json();
+        }
+        return ["Error"=>$response->json()];
 
     }
 

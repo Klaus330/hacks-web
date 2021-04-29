@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="/">
             <img src="/images/logo.png" alt="logo" style="width: 50px; height: 60px;">
-            <img src="/images/home/logo.svg" alt="logo">
+            <img src="/images/home/logo.svg" alt="logo" class="navbar-brand-title">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

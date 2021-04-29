@@ -75,14 +75,14 @@
       <div class="row">
         <div class="flex align-items-center col-12 col-md-12 mt-5">
           <h2 class="text-center text-color-blue mb-3">
-            Documente care pot fi procurate de la aceasta institutie
+            Procese birocratice desfasurate la aceasta institutie
           </h2>
         </div>
 
         <div class="flex col-12 col-md-12">
           <div class="container form-docs">
             <ul>
-              <li v-for="(proces,index) in processes" :key="index"> {{proces.name}} </li>
+              <li v-for="(proces,index) in processes" :key="index"><a :href="`/documents?q=${proces.name}`"> {{proces.name}} </a></li>
             </ul>
           </div>
         </div>
@@ -119,7 +119,7 @@ export default {
         });
       axios.get(`/get-docs?q=${this.institutionsName}`).then((response)=>{
         this.processes = response.data;
-        
+
       })
     },
     parseData() {
