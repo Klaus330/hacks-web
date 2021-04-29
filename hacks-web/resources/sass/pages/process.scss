@@ -1,0 +1,43 @@
+.docs-section-title-warning{
+    background-color: #f6f6f6;
+    color: #4643ad;
+    padding: 1rem 1rem;
+    font-size: 20px;
+    border-radius: 60px;
+    margin-bottom: 2rem;
+    display: flex;
+    img {
+        margin-right: 5px;
+    }
+    @include mq(medium){
+        font-size: 35px;
+    }
+}
+
+.warning-container {
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.dropdown-item-docs {
+    display: block;
+    width: 100%;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    background-color: transparent;
+    border: 0;
+    font-size: medium;
+}
+
+.case-container {
+    display: flex;
+    flex-direction: column;
+
+    label{
+        margin-bottom: 0.5rem;
+        font-size: 23px;
+    }
+}

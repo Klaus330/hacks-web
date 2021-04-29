@@ -8,7 +8,7 @@
                                          placeholder="Ce proces birocratic te intereseaza?"></autocomplete-search>
                 </div>
 
-                <div class="col-12" v-show="canDisplay(cases)">
+                <div class="col-12 mt-fix-large case-container" v-show="canDisplay(cases)">
                     <label>
                         Caz:
                     </label>
@@ -20,10 +20,10 @@
                 </div>
             </section>
         </div>
-        <div class="container mb-5" v-if="canDisplay(generalInfo[selectedCaseId])">
-            <div>
-                <h3 class="col-sm-3 docs-section-title text-center"><img style="margin-right: 10px"
-                                                                         src="/images/svg/alert.svg">Pro Tips</h3>
+        <div class="container mb-5 mt-fix-medium" v-if="canDisplay(generalInfo[selectedCaseId])">
+            <div class="warning-container docs-section-title-warning text-center col-sm-4">
+                <img src="/images/svg/alert.svg" />
+                <h3>Atenție</h3>
             </div>
             <div class="col-12">
                 <ol class="panel ">
@@ -60,7 +60,7 @@
                                 </a>
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
 
-                                    <li v-for="(documents,index) in necessary[selectedCaseId]" :key="index" class="dropdown-item">
+                                    <li v-for="(documents,index) in necessary[selectedCaseId]" :key="index" class="dropdown-item-docs">
                                         <p v-for="(document,index) in documents" :key="index">-{{document}}</p>
                                     </li>
 
@@ -75,12 +75,12 @@
                                 </a>
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
 
-                                    <li v-if="canDisplay(forms[selectedCaseId])" class="dropdown-item">- Formulare
+                                    <li v-if="canDisplay(forms[selectedCaseId])" class="dropdown-item-docs">- Formulare
                                         <div>
                                             <p v-for="(form, index) in forms[selectedCaseId]" :key="index">{{form}}</p>
                                         </div>
                                     </li>
-                                    <li v-if="canDisplay(departaments[selectedCaseId])" class="dropdown-item">- Departamente
+                                    <li v-if="canDisplay(departaments[selectedCaseId])" class="dropdown-item-docs">- Departamente
                                         <div>
                                             <p >{{departaments[selectedCaseId]}}</p>
                                         </div>
@@ -98,7 +98,7 @@
 
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
 
-                                    <li class="dropdown-item">{{ processData.institution }}
+                                    <li class="dropdown-item-docs">{{ processData.institution }}
                                     </li>
 
                                 </ol>
@@ -111,7 +111,7 @@
                                 </a>
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
                                     <li v-for="(priceList,index) in prices[selectedCaseId]" :key="index"
-                                        class="dropdown-item">
+                                        class="dropdown-item-docs">
                                         {{ priceList }}
                                     </li>
                                 </ol>
@@ -125,7 +125,7 @@
 
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
 
-                                    <li v-for="(file,index) in files" :key="index" @click="downloadFile(file)" class="dropdown-item">{{file}}
+                                    <li v-for="(file,index) in files" :key="index" @click="downloadFile(file)" class="dropdown-item-docs">{{file}}
                                     </li>
 
                                 </ol>
