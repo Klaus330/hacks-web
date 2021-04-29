@@ -20,6 +20,7 @@
           v-for="(department, index) in data"
           :key="index"
           @click="showProgram(index)"
+          style="cursor: pointer;"
         >
           {{ department.name }}
         </li>
