@@ -66,6 +66,7 @@ Route::get('/get-docs', [App\Http\Controllers\DocsController::class, 'getProsses
 Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'index']);
 Route::get('/get-reviews', [App\Http\Controllers\ReviewController::class, 'getReview']);
 Route::post('/delete-reviews', [App\Http\Controllers\ReviewController::class, 'deleteReview']);
+Route::get('/refresh-info' ,[App\Http\Controllers\AdminController::class,'refresh']);
 
 Route::post('/forgot-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'store']);
 
@@ -81,5 +82,6 @@ Route::get('/get-process-by-name', [\App\Http\Controllers\DocsController::class,
 Route::get('/get-process-by-institution', [App\Http\Controllers\DocsController::class, 'getProcessDetailsByInstitution']);
 Route::post('/update-institution-data', [App\Http\Controllers\InstitutionsController::class, 'updateInstitutionDetails']);
 Route::post('/update-process-data', [App\Http\Controllers\DocsController::class, 'updateProcessDetails']);
+
 
 
