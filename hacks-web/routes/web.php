@@ -81,5 +81,4 @@ Route::get('/get-process-by-name', [\App\Http\Controllers\DocsController::class,
 Route::get('/get-process-by-institution', [App\Http\Controllers\DocsController::class, 'getProcessDetailsByInstitution']);
 Route::post('/update-institution-data', [App\Http\Controllers\InstitutionsController::class, 'updateInstitutionDetails']);
 Route::post('/update-process-data', [App\Http\Controllers\DocsController::class, 'updateProcessDetails']);
-
-
+Route::post('/get-file-link', [App\Http\Controllers\DocsController::class, 'getFileLink']);
