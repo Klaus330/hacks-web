@@ -36,6 +36,10 @@ Route::get('/admin/documents', function () {
     return view('admin.documents');
 });
 
+Route::get('/admin/departments', function () {
+    return view('admin.departments');
+});
+
 Route::get('/admin/institutions', function () {
     return view('admin.institutions');
 });
@@ -82,3 +86,7 @@ Route::get('/get-process-by-institution', [App\Http\Controllers\DocsController::
 Route::post('/update-institution-data', [App\Http\Controllers\InstitutionsController::class, 'updateInstitutionDetails']);
 Route::post('/update-process-data', [App\Http\Controllers\DocsController::class, 'updateProcessDetails']);
 Route::post('/get-file-link', [App\Http\Controllers\DocsController::class, 'getFileLink']);
+
+//Departments
+Route::get('/get-department-by-institution', [App\Http\Controllers\DepartmentsController::class, 'getDepartmentByName']);
+Route::post('/updateprograms', [App\Http\Controllers\DepartmentsController::class, 'updateDepartmentsDetails']);
