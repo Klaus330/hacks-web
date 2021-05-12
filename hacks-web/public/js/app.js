@@ -1971,6 +1971,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "DepartmentSchedule",
   props: ["data"],
@@ -1980,10 +1990,30 @@ __webpack_require__.r(__webpack_exports__);
       hasOption: false
     };
   },
+  watch: {
+    data: function data() {
+      this.hasOption = false;
+    }
+  },
+  computed: {
+    selectedDeptProgram: function selectedDeptProgram() {
+      return JSON.parse(this.selectedDepartment.program);
+    }
+  },
   methods: {
     showProgram: function showProgram(index) {
       this.selectedDepartment = this.data[index];
       this.hasOption = true;
+    },
+    canDisplayProgram: function canDisplayProgram() {
+      return this.selectedDepartment.program !== JSON.stringify({});
+    },
+    displayHour: function displayHour(hours, index) {
+      var array = hours.split(" ");
+      return array[index];
+    },
+    splitHours: function splitHours(hours) {
+      return hours.split(" ");
     }
   }
 });
@@ -81895,13 +81925,14 @@ var render = function() {
             "aria-expanded": "false"
           }
         },
-        [_vm._v("\n      Departamente\n    ")]
+        [_vm._v("\n            Departamente\n        ")]
       ),
       _vm._v(" "),
       _c(
         "ol",
         {
           staticClass: "dropdown-menu docs-dropdown col-12",
+          staticStyle: { "max-height": "500px", "overflow-y": "scroll" },
           attrs: { "aria-labelledby": "dropdownMenuLink" }
         },
         _vm._l(_vm.data, function(department, index) {
@@ -81916,7 +81947,13 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("\n        " + _vm._s(department.name) + "\n      ")]
+            [
+              _vm._v(
+                "\n                " +
+                  _vm._s(department.name) +
+                  "\n            "
+              )
+            ]
           )
         }),
         0
@@ -81924,18 +81961,47 @@ var render = function() {
     ]),
     _vm._v(" "),
     _vm.hasOption
-      ? _c("div", [_c("h5", [_vm._v("Program")]), _vm._v(" "), _vm._m(0)])
+      ? _c("div", [
+          _c("h5", { staticClass: "mb-2" }, [
+            _vm._v("Program " + _vm._s(_vm.selectedDepartment.name))
+          ]),
+          _vm._v(" "),
+          _vm.canDisplayProgram()
+            ? _c(
+                "ul",
+                _vm._l(_vm.selectedDeptProgram, function(program, index) {
+                  return _c(
+                    "li",
+                    { key: index },
+                    [
+                      _c("strong", [_vm._v(_vm._s(index))]),
+                      _vm._v(" :\n\n                "),
+                      _vm._l(_vm.splitHours(program.open), function(
+                        hour,
+                        index
+                      ) {
+                        return _c("span", [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(hour) +
+                              "-" +
+                              _vm._s(_vm.displayHour(program.close, index)) +
+                              " \n                "
+                          )
+                        ])
+                      })
+                    ],
+                    2
+                  )
+                }),
+                0
+              )
+            : _c("p", [_vm._v(" Nu avem date despre program.")])
+        ])
       : _vm._e()
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", [_c("li", [_vm._v("Liber")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -83057,6 +83123,12 @@ var render = function() {
               _c("div", { staticClass: "container form-docs" }, [
                 _c(
                   "ul",
+                  {
+                    staticStyle: {
+                      "max-height": "800px",
+                      "overflow-y": "scroll"
+                    }
+                  },
                   _vm._l(_vm.processes, function(proces, index) {
                     return _c("li", { key: index }, [
                       _c(
