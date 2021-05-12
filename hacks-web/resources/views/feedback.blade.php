@@ -66,48 +66,85 @@
                     <div class="form-group">
                         <h5>Care a fost timpul mediu de așteptare în decursul desfășurării întregului proces
                             biroctratic</h5>
-                        <div class="answers">
-                            <div class="form-check form-check-inline">
-                                <input type="radio" class="form-check-input option-input radio" id="q3-a1" name="q3" value="0-30">
-                                <label class="form-check-label" for="q3-a1">0-30 minute</label>
-                            </div>
+                        <div class="feedback-answer">
+                            <div class="answers">
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input option-input radio" id="q3-a1" name="q3" value="0-30">
+                                    <label class="form-check-label" for="q3-a1">0-30 minute</label>
+                                </div>
 
-                            <div class="form-check form-check-inline">
-                                <input type="radio" class="form-check-input option-input radio" id="q3-a2" name="q3" value="30-45">
-                                <label class="form-check-label" for="q3-a2">30-45 minute</label>
-                            </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input option-input radio" id="q3-a2" name="q3" value="30-45">
+                                    <label class="form-check-label" for="q3-a2">30-45 minute</label>
+                                </div>
 
-                            <div class="form-check form-check-inline">
-                                <input type="radio" class="form-check-input option-input radio" id="q3-a3" name="q3" value="45-60">
-                                <label class="form-check-label" for="q3-a3">45-60 minute</label>
-                            </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input option-input radio" id="q3-a3" name="q3" value="45-60">
+                                    <label class="form-check-label" for="q3-a3">45-60 minute</label>
+                                </div>
 
-                            <div class="form-check form-check-inline">
-                                <input type="radio" class="form-check-input option-input radio" id="q3-a4" name="q3" value="60-90">
-                                <label class="form-check-label" for="q3-a4">60-90 minute</label>
-                            </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input option-input radio" id="q3-a4" name="q3" value="60-90">
+                                    <label class="form-check-label" for="q3-a4">60-90 minute</label>
+                                </div>
 
-                            <div class="form-check form-check-inline">
-                                <input type="radio" class="form-check-input option-input radio" id="q3-a5" name="q3" value="90+">
-                                <label class="form-check-label" for="q3-a5">Mai mult de 90 de minute</label>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input option-input radio" id="q3-a5" name="q3" value="90+">
+                                    <label class="form-check-label" for="q3-a5">Mai mult de 90 de minute</label>
+                                </div>
                             </div>
                         </div>
 
+                    </div>
+
+                    <div class="form-group">
+                        <h5>În ce zi a săptămânii ați efectuat procesul birocratic ? </h5>
+                        <div class="answers">
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input option-input radio" id="q4-a1" name="q4" value="Luni">
+                                <label class="form-check-label" for="a4-a1">Luni</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input option-input radio" id="q4-a2" name="q4" value="Marti">
+                                <label class="form-check-label" for="q2-a2">Marți</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input option-input radio" id="q4-a3" name="q4" value="Miercuri">
+                                <label class="form-check-label" for="q2-a3">Miercuri</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input option-input radio" id="q4-a4" name="q4" value="Joi">
+                                <label class="form-check-label" for="q2-a4">Joi</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input option-input radio" id="q4-a5" name="q4" value="Vineri">
+                                <label class="form-check-label" for="q2-a5">Vineri</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input option-input radio" id="q4-a6" name="q4" value="Sambata">
+                                <label class="form-check-label" for="q2-a5">Sâmbătă</label>
+                            </div>
+                        </div>
                     </div>
 
 
                     <div class="form-group mt-5">
                         <div class="feedback-process-rating">
                             <h5>Evaluează întreaga experiență</h5>
-                            <div class="star-rating mt-5"><input type="radio" name="q4" value="5" id="5">
+                            <div class="star-rating mt-5"><input type="radio" name="q5" value="5" id="5">
                                 <label for="5"></label>
-                                <input type="radio" name="q4" value=4 id="4">
+                                <input type="radio" name="q5" value=4 id="4">
                                 <label for="4"></label>
-                                <input type="radio" name="q4" value=3 id="3">
+                                <input type="radio" name="q5" value=3 id="3">
                                 <label for="3"></label>
-                                <input type="radio" name="q4" value=2 id="2">
+                                <input type="radio" name="q5" value=2 id="2">
                                 <label for="2"></label>
-                                <input type="radio" name="q4" value=1 id="1">
+                                <input type="radio" name="q5" value=1 id="1">
                                 <label for="1"></label>
                             </div>
                         </div>
