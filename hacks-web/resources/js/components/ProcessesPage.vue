@@ -125,7 +125,8 @@
 
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
 
-                                    <li v-for="(file,index) in files" :key="index" @click="downloadFile(file)" class="dropdown-item-docs">{{file}}
+                                    <li v-for="(file,index) in files" :key="index" @click="downloadFile(file)" class="dropdown-item-docs">
+                                     {{file}}
                                     </li>
 
                                 </ol>
@@ -185,7 +186,7 @@ export default {
             selectedPriceId: 0,
             selectedNecessaryId: 0,
             departaments: "",
-            files:""
+            files:"",
         }
     },
     computed: {
@@ -219,7 +220,11 @@ export default {
             return (field !== "" && field !== undefined && field.length !== 0);
         },
         downloadFile(file){
+            axios.post("/get-file-link", {fileName:file}).then((response) => {
+                console.log("RESPOSNSE",response);
 
+              window.open(response.data, "_blank");
+            })
         },
         parseInfo(index) {
             if (this.generalInfo[this.selectedCaseId] !== undefined) {
@@ -238,6 +243,8 @@ export default {
                     this.parseData();
                 })
         }
+
+
     }
 }
 </script>

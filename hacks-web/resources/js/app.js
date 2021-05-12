@@ -31,7 +31,10 @@ Vue.component('select-form', require('./components/SelectForm.vue').default);
 Vue.component('edit-form', require('./components/EditForm.vue').default);
 Vue.component('edit-process-form', require('./components/EditProcessForm.vue').default);
 Vue.component('edit-page', require('./components/EditPage.vue').default);
+
 Vue.component('edit-process-page', require('./components/EditPage.vue').default);
+Vue.component('edit-department-page', require('./components/EditDepartment.vue').default);
+
 Vue.component('autocomplete-search', require('./components/Autocomplete.vue').default);
 Vue.component('processes-page', require('./components/ProcessesPage.vue').default);
 Vue.component('tom-map', require('./components/Map.vue').default);
