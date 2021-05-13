@@ -120,70 +120,71 @@
             <h2 class="text-dark text-center">Bureaucracy Hacks</h2>
         </div>
         <!-- Wrapper for slides -->
-        <div class="mt-4">
-            <div class="carousel-inner" role="listbox">
-                <div class='item active'>
-                    <div class="card">
-                        <div class="card-head">
-                            <img src="https://scontent.fclj1-2.fna.fbcdn.net/v/t1.6435-9/42936450_2290085721062998_6650902933988704256_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=FLlDmFAk4rcAX9lnnDn&_nc_ht=scontent.fclj1-2.fna&oh=d05bf425dbade2f1f95b6717f8f38857&oe=60AF1A00"
-                                alt="Thumbnail" class="circle-thumbnail">
-                        </div>
-                        <div class="card-body">
-                            <strong class="text-center">Web Team Lead</strong>
-                            <span>Claudiu Popa</span>
-                        </div>
-                    </div>
-                </div>
+        <team-slider></team-slider>
+{{--        <div class="mt-4">--}}
+{{--            <div class="carousel-inner" role="listbox">--}}
+{{--                <div class='item active'>--}}
+{{--                    <div class="card">--}}
+{{--                        <div class="card-head">--}}
+{{--                            <img src="https://scontent.fclj1-2.fna.fbcdn.net/v/t1.6435-9/42936450_2290085721062998_6650902933988704256_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=FLlDmFAk4rcAX9lnnDn&_nc_ht=scontent.fclj1-2.fna&oh=d05bf425dbade2f1f95b6717f8f38857&oe=60AF1A00"--}}
+{{--                                alt="Thumbnail" class="circle-thumbnail">--}}
+{{--                        </div>--}}
+{{--                        <div class="card-body">--}}
+{{--                            <strong class="text-center">Web Team Lead</strong>--}}
+{{--                            <span>Claudiu Popa</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class='item'>
-                    <div class="card">
-                        <div class="card-head">
-                            <img src="https://scontent.fclj1-2.fna.fbcdn.net/v/t1.6435-9/148577536_2390087264471406_48715920890472558_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=oVMUAJOaK94AX9ya-eG&_nc_ht=scontent.fclj1-2.fna&oh=9ab54d7cdfcebfcdd25907eb2b5034d7&oe=60AE4E3C"
-                                alt="" class="circle-thumbnail">
-                        </div>
-                        <div class="card-body">
-                            <strong class="text-center">Backend Team Lead</strong>
-                            <span>Cezar Andrei Todirișcă</span>
-                        </div>
+{{--                <div class='item'>--}}
+{{--                    <div class="card">--}}
+{{--                        <div class="card-head">--}}
+{{--                            <img src="https://scontent.fclj1-2.fna.fbcdn.net/v/t1.6435-9/148577536_2390087264471406_48715920890472558_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=oVMUAJOaK94AX9ya-eG&_nc_ht=scontent.fclj1-2.fna&oh=9ab54d7cdfcebfcdd25907eb2b5034d7&oe=60AE4E3C"--}}
+{{--                                alt="" class="circle-thumbnail">--}}
+{{--                        </div>--}}
+{{--                        <div class="card-body">--}}
+{{--                            <strong class="text-center">Backend Team Lead</strong>--}}
+{{--                            <span>Cezar Andrei Todirișcă</span>--}}
+{{--                        </div>--}}
 
-                    </div>
-                </div>
-                <div class='item'>
-                    <div class="card">
-                        <div class="card-head">
-                            <img src="https://cdn.discordapp.com/avatars/319575679907921922/2b9fbc417ee5da65ab7aeaff0a9d8195.png?size=128"
-                                alt="" class="circle-thumbnail">
-                        </div>
-                        <div class="card-body">
-                            <strong class="text-center">Mobile Team Lead</strong>
-                            <span>Eusebiu Gabriel Agachi</span>
-                        </div>
-                    </div>
-                </div>
-                <div class='item'>
-                    <div class="card">
-                        <div class="card-head">
-                            <img src="https://scontent.fclj1-2.fna.fbcdn.net/v/t1.6435-9/148654087_3545847932192399_7528511697023032777_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=Rq8VnSkqpmcAX_pj2-k&_nc_ht=scontent.fclj1-2.fna&oh=32fe33b22bd2169b591be73898856159&oe=60AEAB51"
-                                 alt="" class="circle-thumbnail">
-                        </div>
-                        <div class="card-body">
-                            <strong class="text-center">API Team Lead</strong>
-                            <span>Gabriela Murariu</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class='item'>--}}
+{{--                    <div class="card">--}}
+{{--                        <div class="card-head">--}}
+{{--                            <img src="https://cdn.discordapp.com/avatars/319575679907921922/2b9fbc417ee5da65ab7aeaff0a9d8195.png?size=128"--}}
+{{--                                alt="" class="circle-thumbnail">--}}
+{{--                        </div>--}}
+{{--                        <div class="card-body">--}}
+{{--                            <strong class="text-center">Mobile Team Lead</strong>--}}
+{{--                            <span>Eusebiu Gabriel Agachi</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class='item'>--}}
+{{--                    <div class="card">--}}
+{{--                        <div class="card-head">--}}
+{{--                            <img src="https://scontent.fclj1-2.fna.fbcdn.net/v/t1.6435-9/148654087_3545847932192399_7528511697023032777_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=Rq8VnSkqpmcAX_pj2-k&_nc_ht=scontent.fclj1-2.fna&oh=32fe33b22bd2169b591be73898856159&oe=60AEAB51"--}}
+{{--                                 alt="" class="circle-thumbnail">--}}
+{{--                        </div>--}}
+{{--                        <div class="card-body">--}}
+{{--                            <strong class="text-center">API Team Lead</strong>--}}
+{{--                            <span>Gabriela Murariu</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#carousel2" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#carousel2" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+{{--            <!-- Left and right controls -->--}}
+{{--            <a class="left carousel-control" href="#carousel2" role="button" data-slide="prev">--}}
+{{--                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>--}}
+{{--                <span class="sr-only">Previous</span>--}}
+{{--            </a>--}}
+{{--            <a class="right carousel-control" href="#carousel2" role="button" data-slide="next">--}}
+{{--                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>--}}
+{{--                <span class="sr-only">Next</span>--}}
+{{--            </a>--}}
+{{--        </div>--}}
     </div>
 </div>
 
