@@ -28,6 +28,13 @@
 
 
 <div id="app">
+
+    @if(session()->has("succes"))
+        <div class="alert alert-success position-fixed" style="bottom: 10px; right: 10px;">
+            {{session()->get("succes")}}
+        </div>
+    @endif
+
     <main class="container-fluid p-0 overflow-hidden">
         <div class="row">
             @include('admin.components.navbar')
@@ -45,13 +52,22 @@
                                 <span class="mr-3 md-hidden">Admin</span>
                                 <img src='/images/svg/user.svg' class="imageAdmin ">
                             </div>
-                            <div class="dropdown-menu mr-2" aria-labelledby="dropdownMenuButton"
-                                 aria-labelledby="dropdownMenuOffset">
-                                <a class="dropdown-item" href="/user/settings">Settings</a>
-                                <a class="dropdown-item" href="/admin/institutions">Institutii</a>
-                                <a class="dropdown-item" href="/admin/documents">Documente</a>
-                                <a class="dropdown-item" href="/logout">Logout</a>
+                            <div class="dashboard-dropdown">
+                                <div class="dropdown-menu mr-2" aria-labelledby="dropdownMenuButton"
+                                     aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">
+                                        <form action="/refresh-info">
+                                            <button class="dropdown-item p-0 text-center">Actualizează informații</button>
+                                        </form>
+
+                                    </a>
+                                    <a class="dropdown-item" href="/user/settings">Settings</a>
+                                    <a class="dropdown-item" href="/admin/institutions">Institutii</a>
+                                    <a class="dropdown-item" href="/admin/documents">Documente</a>
+                                    <a class="dropdown-item" href="/logout">Logout</a>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redis;
 
 class AdminController extends Controller
@@ -47,5 +49,11 @@ class AdminController extends Controller
         }
 
         return $views;
+    }
+
+    public function refresh(){
+        $response = Http::get('https://check-diff.herokuapp.com/refresh-info');
+        session()->flash('succes','informatii in curs de actualizare');
+        return redirect('/admin/dashboard');
     }
 }
