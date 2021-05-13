@@ -10,6 +10,18 @@ import Bar from "./Bar.js";
 export default {
     name: 'StatisticsChart',
     components: {Bar},
+    props: ["data"],
+    watch: {
+        data: function (){
+            this.parseData();
+        }
+    },
+    methods:{
+        parseData()
+        {
+
+        }
+    },
     data() {
         return {
             chartData: {

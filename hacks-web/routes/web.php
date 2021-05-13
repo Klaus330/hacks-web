@@ -90,3 +90,6 @@ Route::post('/get-file-link', [App\Http\Controllers\DocsController::class, 'getF
 //Departments
 Route::get('/get-department-by-institution', [App\Http\Controllers\DepartmentsController::class, 'getDepartmentByName']);
 Route::post('/updateprograms', [App\Http\Controllers\DepartmentsController::class, 'updateDepartmentsDetails']);
+
+
+Route::get('/get-statistics', [\App\Http\Controllers\StatisticsController::class, 'getStatistics']);

@@ -161,7 +161,7 @@
                 </div>
             </div>
 
-            <statistics></statistics>
+            <statistics :data="statisticsData"></statistics>
 
         </div>
     </div>
@@ -180,6 +180,7 @@ export default {
             hasOption: false,
             processName: '',
             processData: [],
+            statisticsData: [],
             cases: "",
             prices: "",
             forms: "",
@@ -195,6 +196,7 @@ export default {
             acceptDownloading: false
         }
     },
+
     computed: {
         routeLink() {
             if (this.processName !== '') {
@@ -259,7 +261,12 @@ export default {
                 .then((response) => {
                     this.processData = response.data;
                     this.parseData();
+                    axios.get(`/get-statistics?p=${this.processName}&i=${ this.processData.institution }`)
+                        .then((response) => {
+                            this.statisticsData = response.data;
+                        })
                 })
+
         }
 
 
