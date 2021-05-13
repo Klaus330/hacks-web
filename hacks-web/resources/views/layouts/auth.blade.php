@@ -52,20 +52,20 @@
                                 <span class="mr-3 md-hidden">Admin</span>
                                 <img src='/images/svg/user.svg' class="imageAdmin ">
                             </div>
-                            <div class="dashboard-dropdown">
-                                <div class="dropdown-menu mr-2" aria-labelledby="dropdownMenuButton"
-                                     aria-labelledby="dropdownMenuOffset">
-                                    <a class="dropdown-item" href="#">
-                                        <form action="/refresh-info">
-                                            <button class="dropdown-item p-0 text-center">Actualizează informații</button>
-                                        </form>
+                            <div class="dropdown-menu mr-2" aria-labelledby="dropdownMenuButton"
+                                 aria-labelledby="dropdownMenuOffset">
+                                
+                                <a class="dropdown-item" href="/user/settings">Settings</a>
+                                <a class="dropdown-item" href="/admin/institutions">Institutii</a>
+                                <a class="dropdown-item" href="/admin/documents">Documente</a>
+                                
+                                @if(empty(auth()->institutions))
+                                 <a class="dropdown-item" href="/admin/invite">Invite Admin</a>
+                                 <a class="dropdown-item" href="/admin/delete">Delete Admin</a>
+                                 @endif 
 
-                                    </a>
-                                    <a class="dropdown-item" href="/user/settings">Settings</a>
-                                    <a class="dropdown-item" href="/admin/institutions">Institutii</a>
-                                    <a class="dropdown-item" href="/admin/documents">Documente</a>
-                                    <a class="dropdown-item" href="/logout">Logout</a>
-                                </div>
+                                <a class="dropdown-item" href="/logout">Logout</a>
+
                             </div>
 
                         </div>

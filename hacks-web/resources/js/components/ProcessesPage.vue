@@ -12,7 +12,7 @@
                     <label>
                         Caz:
                     </label>
-                    <select class="form-control border">
+                    <select class="caz-docs border" style="padding: 10px 10px;">
                         <option v-for="(item,index) in cases" :key="item" :value="index" @click="selectedCaseId=index">
                             {{ item }}
                         </option>

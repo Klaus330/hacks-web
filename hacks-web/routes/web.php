@@ -44,6 +44,14 @@ Route::get('/admin/institutions', function () {
     return view('admin.institutions');
 });
 
+Route::get('/admin/invite', function () {
+    return view('admin.inviteAdmin');
+});
+
+Route::get('/admin/delete', function () {
+    return view('admin.deleteAdmin');
+});
+
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
 });
@@ -71,6 +79,9 @@ Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'in
 Route::get('/get-reviews', [App\Http\Controllers\ReviewController::class, 'getReview']);
 Route::post('/delete-reviews', [App\Http\Controllers\ReviewController::class, 'deleteReview']);
 Route::get('/refresh-info' ,[App\Http\Controllers\AdminController::class,'refresh']);
+
+Route::post('/invite-admin', [App\Http\Controllers\AdminController::class, 'invite']);
+Route::post('/delete-admin', [App\Http\Controllers\AdminController::class, 'deleteAdmin']);
 
 Route::post('/forgot-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'store']);
 
