@@ -14,10 +14,10 @@ class RoutesController extends \Illuminate\Routing\Controller
 
     public function getRoute(Request $request)
     {
-        $response = Http::post($this->apiURL('generateRoute'),$request->request->all());
-
-        $body = $response->json();
-
-        return $body;
+        $response = Http::post($this->apiURL('generateroute'),$request->request->all());
+        if($response->ok()){
+            return $response->json();
+        }
+        return response()->json(['error' => $response->json()], 500);
     }
 }

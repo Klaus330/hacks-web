@@ -12,27 +12,12 @@
                             <div class="dropdown show">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                    id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Documente necesare
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Documente necesare (bifeaza documentele pe care le ai deja)
 
                                 </a>
                                 <ul v-for="(documents,index) in necessary[selectedCaseId]" :key="index" class="dropdown-menu docs-dropdown" style="list-style-type: none; padding:0; max-height: 300px; overflow-y: scroll; ">
                                     <li v-for="(document,index) in documents" :key="index" class="dropdown-item-docs p-2">
                                         <input type="checkbox" @change="selectDoc($event,document)"> {{document}}
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="dropdown show">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
-                                   id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Tip Persoana
-
-                                </a>
-                                <ul class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
-                                    <li>
-                                        <input type="checkbox" @change="selectPersonType('fizic')"> Fizica
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" @change="selectPersonType('juridic')"> Juridica
                                     </li>
                                 </ul>
                             </div>
@@ -116,12 +101,11 @@ export default {
             requestMade: false,
             pageInfo: [],
             requestData: {
-                avoidVignette: ["AUS", "CHE"],
-                currentLatitude: null,
-                currentLongitude: null,
-                institutions: []
+                latitude: null,
+                longitude: null,
+                institution: '',
+                necessary:[]
             },
-            personType: null,
             selectedDocuments: [],
             generalInfo: [],
             necessary: [],
@@ -151,7 +135,6 @@ export default {
         fetchData() {
             axios.get(`/get-process-by-name?p=${this.processName}`)
                 .then((response) => {
-                    console.log(response);
                     this.pageInfo = response.data;
                     this.parseData();
                 })
@@ -160,10 +143,11 @@ export default {
         parseData() {
             this.generalInfo = this.pageInfo.generalInfo;
             this.necessary = this.pageInfo.necessary;
+            this.requestData.necessary = [...this.necessary[this.selectedCaseId][0]];
             axios
                 .get(`/get-institution-by-name?i=${this.pageInfo.institution}`)
                 .then((response) => {
-                    this.requestData.institutions.push(response.data.id);
+                    this.requestData.institution = response.data.id;
                 });
             this.show = true;
         },
@@ -173,39 +157,32 @@ export default {
         },
 
         getLocation(position) {
-            console.log(position);
-            this.requestData.currentLatitude = position.coords.latitude;
-            this.requestData.currentLongitude = position.coords.longitude;
+            this.requestData.latitude = position.coords.latitude;
+            this.requestData.longitude = position.coords.longitude;
         },
         selectInstitution(event, institutionName) {
             if (event.target.checked) {
                 axios
                     .get(`/get-institution-by-name?i=${institutionName}`)
                     .then((response) => {
-                        this.requestData.institutions.push(response.data.id);
+                        this.requestData.institution = response.data.id;
                     });
             } else {
-                axios
-                    .get(`/get-institution-by-name?i=${institutionName}`)
-                    .then((response) => {
-                        const index = this.requestData.institutions.indexOf(response.data.id);
-                        if (index > -1) {
-                            this.requestData.institutions.splice(index, 1);
-                        }
-                    });
+                this.requestData.institution = '';
             }
         },
-        selectPersonType(type) {
-            this.personType = type;
+
+        removeFromArray(array, query){
+            const index = array.indexOf(query);
+            if (index > -1) {
+                array.splice(index, 1);
+            }
         },
         selectDoc(event, doc) {
             if (event.target.checked) {
-                this.selectedDocuments.push(doc);
+                this.removeFromArray(this.requestData.necessary, doc);
             } else {
-                const index = this.selectedDocuments.indexOf(doc);
-                if (index > -1) {
-                    this.selectedDocuments.splice(index, 1);
-                }
+                this.requestData.necessary.push(doc);
             }
         }
     }
