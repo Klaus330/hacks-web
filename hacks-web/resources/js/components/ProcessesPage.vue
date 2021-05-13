@@ -22,7 +22,7 @@
         </div>
         <div class="container mb-5 mt-fix-medium" v-if="canDisplay(generalInfo[selectedCaseId])">
             <div class="warning-container docs-section-title-warning text-center col-sm-4">
-                <img src="/images/svg/alert.svg" />
+                <img src="/images/svg/alert.svg"/>
                 <h3>Atenție</h3>
             </div>
             <div class="col-12">
@@ -45,8 +45,9 @@
         </div>
         <div class="container mt-10">
             <section class="docs-section" v-if="hasOption">
-                <div  style="white-space: nowrap;">
-                    <h3 class="col-sm-5 docs-section-title text-center" :title=processName style="text-overflow: ellipsis;overflow: hidden;" >{{ processName }}</h3>
+                <div style="white-space: nowrap;">
+                    <h3 class="col-sm-5 docs-section-title text-center" :title=processName
+                        style="text-overflow: ellipsis;overflow: hidden;">{{ processName }}</h3>
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-8">
@@ -60,14 +61,16 @@
                                 </a>
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
 
-                                    <li v-for="(documents,index) in necessary[selectedCaseId]" :key="index" class="dropdown-item-docs">
+                                    <li v-for="(documents,index) in necessary[selectedCaseId]" :key="index"
+                                        class="dropdown-item-docs">
                                         <p v-for="(document,index) in documents" :key="index">-{{document}}</p>
                                     </li>
 
                                 </ol>
                             </div>
 
-                            <div v-if="canDisplay(forms[selectedCaseId]) || canDisplay(departaments[selectedCaseId])" class="dropdown show">
+                            <div v-if="canDisplay(forms[selectedCaseId]) || canDisplay(departaments[selectedCaseId])"
+                                 class="dropdown show">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                    id="dropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Conditii generale
@@ -80,9 +83,10 @@
                                             <p v-for="(form, index) in forms[selectedCaseId]" :key="index">{{form}}</p>
                                         </div>
                                     </li>
-                                    <li v-if="canDisplay(departaments[selectedCaseId])" class="dropdown-item-docs">- Departamente
+                                    <li v-if="canDisplay(departaments[selectedCaseId])" class="dropdown-item-docs">-
+                                        Departamente
                                         <div>
-                                            <p >{{departaments[selectedCaseId]}}</p>
+                                            <p>{{departaments[selectedCaseId]}}</p>
                                         </div>
                                     </li>
 
@@ -125,8 +129,8 @@
 
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
 
-                                    <li v-for="(file,index) in files" :key="index" @click="downloadFile(file)" class="dropdown-item-docs">
-                                     {{file}}
+                                    <li v-for="(file,index) in files" :key="index" class="dropdown-item-docs">
+                                        <input type="radio" @click="downloadFile(file)"> {{file}}
                                     </li>
 
                                 </ol>
@@ -166,10 +170,11 @@
 <script>
 import Autocomplete from "./Autocomplete";
 import Statistics from "./StatisticsChart";
+import Swal from 'sweetalert2';
 
 export default {
     name: "ProcessesPage",
-    components: {Autocomplete, Statistics},
+    components: {Autocomplete, Statistics, Swal},
     data() {
         return {
             hasOption: false,
@@ -186,7 +191,8 @@ export default {
             selectedPriceId: 0,
             selectedNecessaryId: 0,
             departaments: "",
-            files:"",
+            files: "",
+            acceptDownloading: false
         }
     },
     computed: {
@@ -209,21 +215,34 @@ export default {
             this.prices = this.processData.prices;
             this.necessary = this.processData.necessary;
             this.departaments = this.processData.departaments;
-            this.files=this.processData.files;
+            this.files = this.processData.files;
         },
         canDisplay(field) {
-            if(field!==undefined && Array.isArray(field)){
-                for(let i=0 ; field.length>i ; ++i){
-                    return (field[i]!=="");
+            if (field !== undefined && Array.isArray(field)) {
+                for (let i = 0; field.length > i; ++i) {
+                    return (field[i] !== "");
                 }
             }
             return (field !== "" && field !== undefined && field.length !== 0);
         },
-        downloadFile(file){
-            axios.post("/get-file-link", {fileName:file}).then((response) => {
-                console.log("RESPOSNSE",response);
-
-              window.open(response.data, "_blank");
+        downloadFile(file) {
+            axios.post("/get-file-link", {fileName: `${this.processData.institution}_${file}`}).then((response) => {
+                if (!this.acceptDownloading) {
+                    Swal.fire({
+                        title: "Atentie!",
+                        text: `Urmeaza sa descarci un fisier. Doresti sa faci asta? Trebuie sa activezi permisiunea de a deschide pop-ups.`,
+                        showDenyButton: true,
+                        confirmButtonText: "da",
+                        denyButtonText: "nu"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.open(response.data, "_blank");
+                            this.acceptDownloading = true;
+                        }
+                    })
+                } else {
+                    window.open(response.data, "_blank");
+                }
             })
         },
         parseInfo(index) {
@@ -238,7 +257,6 @@ export default {
             this.hasOption = true;
             axios.get(`/get-process-by-name?p=${this.processName}`)
                 .then((response) => {
-                    console.log(response);
                     this.processData = response.data;
                     this.parseData();
                 })
