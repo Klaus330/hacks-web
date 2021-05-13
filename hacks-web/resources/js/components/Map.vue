@@ -7,18 +7,35 @@
 <script>
 export default {
     name: "Map",
-    props:['generateRoute'],
+    props:['generateRoute','requestData'],
     data() {
         return {
             map: [],
             data: {},
             routeOptions: {},
-            markers: []
+            markers: [],
+            currentLatitude: 47.17,
+            currentLongitude: 27.57,
+            popupOffsets : {
+                top: [0, 0],
+                bottom: [0, -70],
+                'bottom-right': [0, -70],
+                'bottom-left': [0, -70],
+                left: [25, -35],
+                right: [-25, -35]
+            }
         };
     },
     watch:{
       generateRoute: function(){
           this.createRoute();
+          this.getRoute();
+          this.currentLatitude = this.requestData.currentLatitude;
+          this.currentLongitude = this.requestData.currentLongitude;
+          this.map.setCenter([this.currentLongitude, this.currentLatitude]);
+          var marker = new tt.Marker().setLngLat([this.currentLongitude,this.currentLatitude]).addTo(this.map);
+          var popup = new tt.Popup({offset: this.popupOffsets}).setHTML("<b>Pozitia ta actuala</b> ");
+          marker.setPopup(popup).togglePopup();
       }
     },
     mounted() {
@@ -27,25 +44,29 @@ export default {
             container: 'map-div',
             style: "tomtom://vector/1/basic-main",
             zoom: 15,
-            center: [27.58207, 47.14356]
+            center: [this.currentLongitude, this.currentLatitude]
         });
 
-        this.map.on('click', (event) => {
-            console.log(event.lngLat);
-            this.markers.push(new tt.Marker().setLngLat(event.lngLat).addTo(this.map));
-        });
-        this.getRoute();
+        var marker = new tt.Marker().setLngLat([this.currentLongitude,this.currentLatitude]).addTo(this.map);
+        var popup = new tt.Popup({offset: this.popupOffsets}).setHTML("<b>Iasi</b> ");
+        marker.setPopup(popup).togglePopup();
+
     },
     methods: {
         getRoute() {
-            axios.get('/get-route')
+            axios.post('/get-route', this.requestData)
                 .then(response => {
+                    console.log(response.data);
                     this.data = response.data.routes[0];
+                    console.log("DATA",this.data);
+                    // this.displayRoute(this.data);
+                    //
+                    // let points = this.data.legs[0].points;
+                    // for (let i = 0; i < points.length; i++) {
+                    //     this.markers.push(new tt.Marker().setLngLat([points[i].latitude, points[i].longitude]));
+                    // }w
+                    // this.createRoute();
 
-                    let points = this.data.legs[0].points;
-                    for (let i = 0; i < points.length; i++) {
-                        this.markers.push(new tt.Marker().setLngLat([points[i].latitude, points[i].longitude]).addTo(this.map));
-                    }
                 })
                 .catch((error) => {
                     console.log(error);
@@ -55,22 +76,18 @@ export default {
         createRoute() {
             let routeOptions = {
                 key: '3rey3b2DT5N5ej6KQEKgYzaGwnlXjG2m',
-                locations: [],
+                locations: '4.8786,52.3679:4.8798,52.3679',
                 travelMode: 'car'
             }
-            console.log(this.markers[0].getLngLat());
-            for (let i = 0; i < this.markers.length; i++) {
 
-                routeOptions.locations.push(this.markers[i].getLngLat());
-            }
 
-            tt.services.calculateRoute(routeOptions).go()
-                .then((response) => {
-                    console.log(response);
-                    let geo = response.toGeoJson();
-                    console.log(geo);
-                    this.displayRoute(geo);
-                });
+            // tt.services.calculateRoute(routeOptions).go()
+            //     .then((response) => {
+            //         console.log(response);
+            //         let geo = response.toGeoJson();
+            //         console.log(geo);
+            //         this.displayRoute(geo);
+            //     });
         },
         displayRoute(geo) {
             this.routeOptions = {
