@@ -69,4 +69,11 @@ class DocsController extends Controller
         return $response->body();
     }
 
+    public function getFileLink(Request $request)
+    {
+
+        $response = Http::post($this->apiURL("admin/getfilelink"), $request->request->all());
+        return $response->body();
+    }
+
 }
