@@ -81,7 +81,7 @@
 
         <div class="flex col-12 col-md-12">
           <div class="container form-docs">
-            <ul>
+            <ul style="max-height: 800px; overflow-y: scroll;">
               <li v-for="(proces,index) in processes" :key="index"><a :href="`/documents?q=${proces.name}`"> {{proces.name}} </a></li>
             </ul>
           </div>
