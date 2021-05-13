@@ -22,10 +22,40 @@
         background: url(/images/svg/search.svg) no-repeat 96% 50%;
     }
 }
-.search-docs::after{
-    border-radius: 50px;
-
+.complet-docs{
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 0.9rem;
+    border-radius: 34px;
+    position: relative;
+    background-size: 18px;
+    padding-left: 30px;
+    box-shadow: 0px 3px 3px #b8b2b2;
+    @include mq(medium)
+    {
+        font-size: 1.5rem;
+    }
 }
+.caz-docs{
+    background-color: #f6f6f6;
+    color: rgb(0, 0, 0);
+    font-size: 0.9rem;
+    border-radius: 34px;
+    position: relative;
+    background: url(/images/svg/arrow.svg) no-repeat 92% 50%;
+    background-size: 18px;
+    padding-left: 30px;
+    box-shadow: 0px 3px 3px #b8b2b2;
+    @include mq(medium)
+    {
+        font-size: 1.5rem;
+        background: url(/images/svg/arrow.svg) no-repeat 96% 50%;
+    }
+}
+.complet-docs::after, .search-docs::after, .caz-docs::after{
+    border-radius: 50px;
+}
+
 .docs-section-title{
     background-color: #f6f6f6;
     color: #4643ad;
