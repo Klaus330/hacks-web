@@ -26,7 +26,7 @@ export default {
   created() {
     axios.get("/get-reviews").then((response) => {
       this.reviews = response.data.reviews;
-     
+
     });
   },
   methods:{
@@ -45,13 +45,14 @@ export default {
             }
           })
       },
-      computed: {
+  },
+
+    computed: {
         reviewsArray() {
-          return reviews.filter((review)=>{
-            return review;
-          })
+            return reviews.filter((review)=>{
+                return review;
+            })
         }
-}
-  }
+    }
 };
 </script>

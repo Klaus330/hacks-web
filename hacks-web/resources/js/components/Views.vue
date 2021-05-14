@@ -1,5 +1,8 @@
 <template>
+    <div>
+        <h2>{{labelString}}</h2>
     <bar :data="chartData" :options="options"></bar>
+    </div>
 </template>
 
 <script>
@@ -10,7 +13,18 @@ import Bar from "./Bar.js";
 export default {
     name: 'Views',
     components: {Bar},
-    props:['data'],
+    props:['data', 'institution'],
+    computed:{
+        labelString(){
+            if(this.institution.length === 0){
+                return 'Website Views';
+            }else{
+                let institutionName = this.institution[0].name;
+
+                return `${institutionName} page views`;
+            }
+        }
+    },
     data() {
         return {
             options: {
