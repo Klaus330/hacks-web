@@ -55,7 +55,7 @@ export default {
         .get(`/get-institution-by-name?i=${this.institutionsName}`)
         .then((response) => {
           this.institutionsData = response.data;
-         
+
         });
     },
 
@@ -68,7 +68,7 @@ export default {
       }).then((result) => {
         if (result.isConfirmed) {
           axios
-            .delete("/delete-admin", {
+            .post("/delete-admin", {
               email: this.email,
               institution: this.institutionsData.id,
             })
@@ -82,7 +82,7 @@ export default {
               });
             })
             .catch(({response}) => {
-                
+
               console.log(response.data);
               Swal.fire({
                 title: "Oops...",
