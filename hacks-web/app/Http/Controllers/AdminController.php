@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redis;
 use App\Http\Trait\ApiCommunication;
-use Illuminate\Support\Facades\Http;
 
 class AdminController extends Controller
 {
@@ -19,7 +18,6 @@ class AdminController extends Controller
 
         $views = $this->getViews();
 
-        //dd(session()->get("user"));
         return view("admin.dashboard", compact("views"));
     }
 
@@ -40,7 +38,7 @@ class AdminController extends Controller
         }else{
             $id = session()->get("user")->institutions[0]->id;
             $date = Carbon::today()->subDays(2)->toDateString();
-            
+
             $views = [
                 Carbon::today()->subDays(2)->toDateString() => $redis->get(sprintf("%s-%s",$id,$date)) ?? 0,
                 Carbon::today()->subDays(3)->toDateString() => $redis->get(sprintf("%s-%s",$id,Carbon::today()->subDays(3)->toDateString())) ?? 0,
@@ -57,7 +55,7 @@ class AdminController extends Controller
 
 
     public function invite(Request $request){
-        
+
         $response = Http::post($this->apiURL("admin/addInstitutionAdmin"), $request->request->all());
         if($response->ok()){
             return $response;
@@ -65,14 +63,14 @@ class AdminController extends Controller
         return response()->json(['error' => $response->json()], 500);
     }
     public function deleteAdmin(Request $request){
-      
+
         $response = Http::post($this->apiURL("admin/deleteInstitutionAdmin"), $request->request->all());
         if($response->ok()){
             return $response;
         }
         return response()->json(['error' => $response->json()], 500);
     }
-    
+
 
     public function refresh(){
         $response = Http::get('https://check-diff.herokuapp.com/refresh-info');

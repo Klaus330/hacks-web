@@ -54,15 +54,15 @@
                             </div>
                             <div class="dropdown-menu mr-2" aria-labelledby="dropdownMenuButton"
                                  aria-labelledby="dropdownMenuOffset">
-                                
+
                                 <a class="dropdown-item" href="/user/settings">Settings</a>
                                 <a class="dropdown-item" href="/admin/institutions">Institutii</a>
                                 <a class="dropdown-item" href="/admin/documents">Documente</a>
-                                
-                                @if(empty(auth()->institutions))
+
+                                @if(session()->get('user')->institutions == [])
                                  <a class="dropdown-item" href="/admin/invite">Invite Admin</a>
                                  <a class="dropdown-item" href="/admin/delete">Delete Admin</a>
-                                 @endif 
+                                 @endif
 
                                 <a class="dropdown-item" href="/logout">Logout</a>
 
