@@ -12,8 +12,9 @@
                     <label>
                         Caz:
                     </label>
-                    <select class="caz-docs border" style="padding: 10px 10px;">
-                        <option v-for="(item,index) in cases" :key="item" :value="index" @click="selectedCaseId=index">
+
+                    <select class="form-control border" @change="selectCase($event)">
+                        <option v-for="(item,index) in cases" :key="item" :value="index">
                             {{ item }}
                         </option>
                     </select>
@@ -198,7 +199,7 @@ export default {
     computed: {
         routeLink() {
             if (this.processName !== '') {
-                return `/route?p=${this.processName}`
+                return `/route?p=${this.processName}&c=${this.selectedCaseId}`
             }
         },
         feedbackLink() {
@@ -260,6 +261,9 @@ export default {
                     this.processData = response.data;
                     this.parseData();
                 })
+        },
+          selectCase(event){
+            this.selectedCaseId = event.target.selectedIndex;
         }
 
 
