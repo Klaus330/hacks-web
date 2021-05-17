@@ -38,7 +38,6 @@ class InstitutionsController extends Controller
     {
         if (request()->has('i')) {
             $response = Http::post($this->apiURL("user/institution/{$request->get('i')}"));
-
             $redis = Redis::Connection();
             $date = Carbon::today()->toDateString();
             $institution = $response->json()['id'];

@@ -12,8 +12,9 @@
                     <label>
                         Caz:
                     </label>
-                    <select class="form-control border">
-                        <option v-for="(item,index) in cases" :key="item" :value="index" @click="selectedCaseId=index">
+
+                    <select class="form-control border" @change="selectCase($event)">
+                        <option v-for="(item,index) in cases" :key="item" :value="index">
                             {{ item }}
                         </option>
                     </select>
@@ -130,7 +131,7 @@
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
 
                                     <li v-for="(file,index) in files" :key="index" class="dropdown-item-docs">
-                                        <input type="radio" @click="downloadFile(file)"> {{file}}
+                                        <a @click.prevent="downloadFile(file)" class="document-link"> {{file}}</a>
                                     </li>
 
                                 </ol>
@@ -200,7 +201,7 @@ export default {
     computed: {
         routeLink() {
             if (this.processName !== '') {
-                return `/route?p=${this.processName}`
+                return `/route?p=${this.processName}&c=${this.selectedCaseId}`
             }
         },
         feedbackLink() {
@@ -266,7 +267,9 @@ export default {
                             this.statisticsData = response.data;
                         })
                 })
-
+        },
+          selectCase(event){
+            this.selectedCaseId = event.target.selectedIndex;
         }
 
 

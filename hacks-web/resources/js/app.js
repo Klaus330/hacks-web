@@ -40,6 +40,10 @@ Vue.component('processes-page', require('./components/ProcessesPage.vue').defaul
 Vue.component('tom-map', require('./components/Map.vue').default);
 Vue.component('route-page', require('./components/RoutePage.vue').default);
 Vue.component('reviews-container', require('./components/ReviewsContainer.vue').default);
+Vue.component('invite-admin', require('./components/InviteAdmin.vue').default);
+Vue.component('delete-admin', require('./components/DeleteAdmin.vue').default);
+
+Vue.component('team-slider',require('./components/Team').default);
 
 Vue.component('institutions-page', require('./components/InstitutionsContainer.vue').default);
 

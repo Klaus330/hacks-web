@@ -16,6 +16,12 @@
             <span class="title-items"> Institutii </span>
         </a>
     </div>
+    <div class="p-3">
+        <a href="/admin/departments" class="d-flex flex-column align-items-center">
+            <img class="nav-image-size" src="/images/svg/schedule.png">
+            <span class="title-items"> Program Departamente </span>
+        </a>
+    </div>
 
     <div class="p-3">
         <a href="/admin/documents" class="d-flex flex-column align-items-center">

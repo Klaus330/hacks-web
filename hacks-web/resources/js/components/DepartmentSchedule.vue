@@ -34,7 +34,7 @@
                 <li v-for="(program, index) in selectedDeptProgram" :key="index"><strong>{{index}}</strong> :
 
                     <span v-for="(hour,index) in splitHours(program.open)">
-                        {{ hour}}-{{displayHour(program.close, index)}} 
+                        {{ hour}}-{{displayHour(program.close, index)}}
                     </span>
 
                 </li>
@@ -62,7 +62,7 @@ export default {
     },
     computed: {
         selectedDeptProgram() {
-            return JSON.parse(this.selectedDepartment.program);
+            return this.selectedDepartment.program;
         }
     },
     methods: {
@@ -71,7 +71,7 @@ export default {
             this.hasOption = true;
         },
         canDisplayProgram(){
-            return this.selectedDepartment.program !== JSON.stringify({});
+            return JSON.stringify(this.selectedDepartment.program) !== JSON.stringify({});
         },
 
         displayHour(hours, index){

@@ -1,9 +1,10 @@
 <template>
-    <div>
+    <div v-if="show">
         <div class="container" style="margin-top: 15rem">
             <section class="docs-section ">
                 <div style="white-space: nowrap;">
-                    <h3 class="col-sm-5 docs-section-title text-center" style="text-overflow: ellipsis;overflow: hidden;" :alt="processName">{{ processName }}</h3>
+                    <h3 class="col-sm-5 docs-section-title text-center"
+                        style="text-overflow: ellipsis;overflow: hidden;" :alt="processName">{{ processName }}</h3>
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-8">
@@ -11,27 +12,13 @@
                             <div class="dropdown show">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                    id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Documente necesare
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Documente necesare (bifeaza documentele pe care le ai deja)
 
                                 </a>
-                                <ul class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
-
-                                    <li>
-                                        <label>
-                                            <input type="checkbox"> Copie certificat nastere
-                                        </label>
+                                <ul v-for="(documents,index) in necessary[selectedCaseId]" :key="index" class="dropdown-menu docs-dropdown" style="list-style-type: none; padding:0; max-height: 300px; overflow-y: scroll; ">
+                                    <li v-for="(document,index) in documents" :key="index" class="dropdown-item-docs p-2">
+                                        <input type="checkbox" @change="selectDoc($event,document)"> {{document}}
                                     </li>
-                                    <li>
-                                        <label>
-                                            <input type="checkbox"> Timbru
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label>
-                                            <input type="checkbox"> Cartea de identitate curenta
-                                        </label>
-                                    </li>
-
                                 </ul>
                             </div>
                             <div class="dropdown show">
@@ -43,9 +30,10 @@
 
                                 <ul class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
 
-                                    <li>Programare valida</li>
-                                    <li>Carte de identitate</li>
-                                    <li>Certificat de nastere</li>
+                                    <li v-for="(info,index) in generalInfo[selectedCaseId]" :key="index"
+                                        class="panel-item">
+                                        <p>{{ info }}</p>
+                                    </li>
 
                                 </ul>
                             </div>
@@ -59,15 +47,12 @@
 
                                 <ul class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
                                     <li>
-                                        <label>
-                                            <input type="checkbox"> Politia locala
-                                        </label>
+                                        <input type="checkbox"
+                                               @change="selectInstitution($event, pageInfo.institution)" checked> {{
+                                            pageInfo.institution
+                                        }}
                                     </li>
-                                    <li>
-                                        <label>
-                                            <input type="checkbox"> Primaria
-                                        </label>
-                                    </li>
+
 
                                 </ul>
                             </div>
@@ -100,7 +85,7 @@
                 </div>
 
             </div>
-            <tom-map :generateRoute="requestMade"></tom-map>
+            <tom-map :generateRoute="requestMade" :requestData="requestData"></tom-map>
         </div>
     </div>
 </template>
@@ -113,7 +98,19 @@ export default {
     components: {Statistics},
     data() {
         return {
-            requestMade: false
+            requestMade: false,
+            pageInfo: [],
+            requestData: {
+                latitude: null,
+                longitude: null,
+                institution: '',
+                necessary:[]
+            },
+            selectedDocuments: [],
+            generalInfo: [],
+            necessary: [],
+            selectedCaseId: 0,
+            show: false
         }
     },
     computed: {
@@ -126,9 +123,67 @@ export default {
             return `/feedback?p=${this.processName}`;
         }
     },
+    mounted() {
+        this.getCurrentLocation();
+        this.fetchData();
+    },
     methods: {
         submit() {
             this.requestMade = true;
+        },
+
+        fetchData() {
+            axios.get(`/get-process-by-name?p=${this.processName}`)
+                .then((response) => {
+                    this.pageInfo = response.data;
+                    this.parseData();
+                })
+        },
+
+        parseData() {
+            this.generalInfo = this.pageInfo.generalInfo;
+            this.necessary = this.pageInfo.necessary;
+            this.requestData.necessary = [...this.necessary[this.selectedCaseId][0]];
+            axios
+                .get(`/get-institution-by-name?i=${this.pageInfo.institution}`)
+                .then((response) => {
+                    this.requestData.institution = response.data.id;
+                });
+            this.show = true;
+        },
+
+        getCurrentLocation() {
+            navigator.geolocation.getCurrentPosition(this.getLocation);
+        },
+
+        getLocation(position) {
+            this.requestData.latitude = position.coords.latitude;
+            this.requestData.longitude = position.coords.longitude;
+        },
+        selectInstitution(event, institutionName) {
+            if (event.target.checked) {
+                axios
+                    .get(`/get-institution-by-name?i=${institutionName}`)
+                    .then((response) => {
+                        this.requestData.institution = response.data.id;
+                    });
+            } else {
+                this.requestData.institution = '';
+            }
+        },
+
+        removeFromArray(array, query){
+            const index = array.indexOf(query);
+            if (index > -1) {
+                array.splice(index, 1);
+            }
+        },
+        selectDoc(event, doc) {
+            if (event.target.checked) {
+                this.removeFromArray(this.requestData.necessary, doc);
+            } else {
+                this.requestData.necessary.push(doc);
+            }
         }
     }
 }

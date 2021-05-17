@@ -31,23 +31,6 @@
                       v-model="site"></textarea>
         </div>
 
-
-        <div class="form-group" v-if="canDisplay(departments)">
-            <label for="department">Department</label>
-            <select name="department" id="department" class="form-control mb-2"
-                    style="border: 1px solid black !important;">
-                <option v-for="(item,index) in departments"
-                        :key="index" :value="index"
-                        @click="departmentId=index">{{ item.name }}
-                </option>
-            </select>
-            <label for="department-name">Department name</label>
-            <input id="department-name" type="text" class="form-control" v-model="departments[departmentId].name">
-            <label>Details</label>
-            <textarea type="text" class="form-control"
-                      v-model="departments[departmentId].program"></textarea>
-        </div>
-
         <div class="col-12 mt-3 p-0">
             <button type="submit" class="btn btn-primary">Modifica!</button>
         </div>
@@ -68,9 +51,7 @@ export default {
             address: "",
             site: "",
             email: "",
-            phone: "",
-            departmentId: 0,
-            departments: []
+            phone: ""
         };
     },
     watch: {
@@ -88,29 +69,23 @@ export default {
             }).catch((response) => {
                 console.log(response);
             });
-
         },
-
 
         praseData() {
             this.institutionName = this.institutionData.name;
             this.site = this.institutionData.url;
             this.address = this.institutionData.address;
-            this.departments = this.institutionData.departments;
             this.email = this.institutionData.email;
             this.phone = this.institutionData.phone;
-
         },
 
         canDisplay(field) {
             return (field !== undefined && field !== "" && field.length > 0);
         },
         updateData() {
-
             this.institutionData.name = this.institutionName;
             this.institutionData.address = this.address;
             this.institutionData.url = this.site;
-            this.institutionData.departaments = this.departments;
             this.institutionData.email = this.email;
             this.institutionData.phone = this.phone;
 

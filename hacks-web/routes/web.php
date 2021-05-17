@@ -44,6 +44,14 @@ Route::get('/admin/institutions', function () {
     return view('admin.institutions');
 });
 
+Route::get('/admin/invite', function () {
+    return view('admin.inviteAdmin');
+});
+
+Route::get('/admin/delete', function () {
+    return view('admin.deleteAdmin');
+});
+
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
 });
@@ -70,6 +78,10 @@ Route::get('/get-docs', [App\Http\Controllers\DocsController::class, 'getProsses
 Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'index']);
 Route::get('/get-reviews', [App\Http\Controllers\ReviewController::class, 'getReview']);
 Route::post('/delete-reviews', [App\Http\Controllers\ReviewController::class, 'deleteReview']);
+Route::get('/refresh-info' ,[App\Http\Controllers\AdminController::class,'refresh']);
+
+Route::post('/invite-admin', [App\Http\Controllers\AdminController::class, 'invite']);
+Route::post('/delete-admin', [App\Http\Controllers\AdminController::class, 'deleteAdmin']);
 
 Route::post('/forgot-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'store']);
 
@@ -77,7 +89,7 @@ Route::post('/forgot-password', [App\Http\Controllers\Auth\ForgotPasswordControl
 Route::get('/get-institutions', [\App\Http\Controllers\InstitutionsController::class, 'getInstitutionsList']);
 Route::get('/get-institution-by-name', [App\Http\Controllers\InstitutionsController::class, 'getInstitutionByName']);
 
-Route::get('/get-route', [\App\Http\Controllers\RoutesController::class, 'getRoute']);
+Route::post('/get-route', [\App\Http\Controllers\RoutesController::class, 'getRoute']);
 
 
 Route::get('/get-process-by-name', [\App\Http\Controllers\DocsController::class, 'getProcessByName']);
@@ -87,9 +99,8 @@ Route::post('/update-institution-data', [App\Http\Controllers\InstitutionsContro
 Route::post('/update-process-data', [App\Http\Controllers\DocsController::class, 'updateProcessDetails']);
 Route::post('/get-file-link', [App\Http\Controllers\DocsController::class, 'getFileLink']);
 
-//Departments
+
 Route::get('/get-department-by-institution', [App\Http\Controllers\DepartmentsController::class, 'getDepartmentByName']);
 Route::post('/updateprograms', [App\Http\Controllers\DepartmentsController::class, 'updateDepartmentsDetails']);
-
 
 Route::get('/get-statistics', [\App\Http\Controllers\StatisticsController::class, 'getStatistics']);
