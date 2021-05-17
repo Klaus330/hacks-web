@@ -131,7 +131,7 @@
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
 
                                     <li v-for="(file,index) in files" :key="index" class="dropdown-item-docs">
-                                        <input type="radio" @click="downloadFile(file)"> {{file}}
+                                        <a @click.prevent="downloadFile(file)" class="document-link"> {{file}}</a>
                                     </li>
 
                                 </ol>

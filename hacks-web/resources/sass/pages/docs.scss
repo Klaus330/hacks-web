@@ -4,6 +4,14 @@
 
 .docs-section{
     min-height: 65vh;
+
+    .document-link{
+        cursor:pointer;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
 }
 
 .search-docs{
