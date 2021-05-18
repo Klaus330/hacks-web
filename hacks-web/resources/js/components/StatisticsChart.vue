@@ -13,7 +13,7 @@ export default {
     data() {
         return {
             chartData: {
-                labels: ['Luni', 'Marti', 'Miercuri', 'Joi', 'Vineri', 'Sambata', 'Duminica'],
+                labels: ['Luni', 'Marți', 'Miercuri', 'Joi', 'Vineri', 'Sâmbătă', 'Duminică'],
                 datasets: [
                     {
                         label: "08:00-11:30",

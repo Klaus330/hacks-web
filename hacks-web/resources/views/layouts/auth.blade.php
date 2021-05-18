@@ -55,8 +55,8 @@
                             <div class="dropdown-menu mr-2" aria-labelledby="dropdownMenuButton"
                                  aria-labelledby="dropdownMenuOffset">
 
-                                <a class="dropdown-item" href="/user/settings">Settings</a>
-                                <a class="dropdown-item" href="/admin/institutions">Institutii</a>
+                                <a class="dropdown-item" href="/user/settings">Setări</a>
+                                <a class="dropdown-item" href="/admin/institutions">Instituții</a>
                                 <a class="dropdown-item" href="/admin/documents">Documente</a>
                                 <a class="dropdown-item" href="#">
                                     <form action="/refresh-info">
@@ -65,11 +65,11 @@
 
                                 </a>
                                 @if(session()->get('user')->institutions == [])
-                                 <a class="dropdown-item" href="/admin/invite">Invite Admin</a>
-                                 <a class="dropdown-item" href="/admin/delete">Delete Admin</a>
+                                 <a class="dropdown-item" href="/admin/invite">Invită admin</a>
+                                 <a class="dropdown-item" href="/admin/delete">Șterge admin</a>
                                  @endif
 
-                                <a class="dropdown-item" href="/logout">Logout</a>
+                                <a class="dropdown-item" href="/logout">Delogare</a>
 
                             </div>
 

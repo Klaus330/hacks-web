@@ -8,7 +8,7 @@
                 second-label="Departament"
                 first-url="/get-institutions"
                 second-url="/get-departments"
-                first-placeholder="Care Institutie?"
+                first-placeholder="Care Instituție?"
                 second-placeholder="Care departament?"
             ></edit-institution-page>
         </div>

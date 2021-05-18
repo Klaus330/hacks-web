@@ -23,12 +23,12 @@
             url="/get-institutions"
             filterby="name"
             v-on:optionSelected="showDetails"
-            placeholder="Alege institutitia pentru administrator"
+            placeholder="Alege institutiția pentru administrator"
           ></autocomplete-search>
         </div>
 
          <div style="margin-left: auto; margin-right: auto;">
-            <button type="submit" class="btn btn-primary">Adauga admin!</button>
+            <button type="submit" class="btn btn-primary">Adaugă administrator!</button>
         </div>
       </form>
     </section>
@@ -55,7 +55,7 @@ export default {
         .get(`/get-institution-by-name?i=${this.institutionsName}`)
         .then((response) => {
           this.institutionsData = response.data;
-         
+
         });
     },
 
@@ -82,7 +82,7 @@ export default {
               });
             })
             .catch(({response}) => {
-                
+
               console.log(response.data);
               Swal.fire({
                 title: "Oops...",

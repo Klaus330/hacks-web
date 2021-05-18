@@ -1,14 +1,14 @@
 <template>
     <form class="col-8 mt-10 mb-5" v-if="show" @submit.prevent="updateData">
         <div class="form-group col-12 p-0">
-            <label for="title">Process Name:</label>
-            <textarea id="title" class="form-control" type="text" name="process" placeholder="Process"
+            <label for="title">Numele procesului:</label>
+            <textarea id="title" class="form-control" type="text" name="process" placeholder="Proces"
                       v-model="processName"></textarea>
 
         </div>
 
         <div class="form-group">
-            <label for="cases">Cases</label>
+            <label for="cases">Cazuri</label>
             <select name="cases" id="cases" class="form-control mb-2" style="border: 1px solid black !important;">
                 <option v-for="(item,index) in cases" :key="item" :value="index" @click="selectedCaseId=index">
                     {{ item }}
@@ -18,7 +18,7 @@
         </div>
 
         <div class="form-group" v-if="canDisplay(generalInfo,selectedCaseId)">
-            <label for="info">General info</label>
+            <label for="info">Informații generale</label>
             <select name="info" id="info" class="form-control mb-2" style="border: 1px solid black !important;">
                 <option v-for="(item,index) in getGeneralInfo(selectedCaseId)" :key="index" :value="index"
                         @click="selectedInfoId=index">{{ item }}
@@ -29,7 +29,7 @@
 
 
         <div class="form-group" v-if="canDisplay(forms,selectedCaseId)">
-            <label for="forms">Forms</label>
+            <label for="forms">Formulare</label>
             <select name="forms" id="forms" class="form-control mb-2" style="border: 1px solid black !important;">
                 <option v-for="(item,index) in getForms(selectedCaseId)" :key="index" :value="index"
                         @click="selectedFormId=index">{{ item }}
@@ -40,7 +40,7 @@
 
 
         <div class="form-group" v-if="canDisplay(prices,selectedCaseId)">
-            <label for="prices">Prices</label>
+            <label for="prices">Prețuri</label>
             <select name="prices" id="prices" class="form-control mb-2" style="border: 1px solid black !important;">
                 <option v-for="(item,index) in getPrices(selectedCaseId)" :key="index" :value="index"
                         @click="selectedPriceId=index">{{ item }}
@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-group" v-if="canDisplay(necessary, selectedCaseId)">
-            <label for="necessary">Necessaries</label>
+            <label for="necessary">Necesare</label>
             <select name="necessary" id="necessary" class="form-control mb-2"
                     style="border: 1px solid black !important;">
                 <option v-for="(item,index) in getNecessary(selectedCaseId)"

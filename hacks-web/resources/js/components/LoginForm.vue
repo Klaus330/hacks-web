@@ -28,7 +28,7 @@
                 <input type="checkbox" name="remindme" class="input-form" v-model="form.remindme"/>
             </div>
             <div class=" col-9 col-md-6 p-0">
-                <label class="d-flex align-items-center text-white m-0">Remind me</label>
+                <label class="d-flex align-items-center text-white m-0">Amintește-mi</label>
             </div>
 
         </div>
@@ -36,13 +36,13 @@
         <div class="row d-flex justify-content-center align-items-center">
             <div class="auth-item mb-4 col-12 col-lg-7">
                 <vue-loading-button class="auth-button" aria-label='Login' @click.native="submitLogin"
-                                    :loading="isLoading">Login
+                                    :loading="isLoading">Logare
                 </vue-loading-button>
             </div>
         </div>
         <div class="row d-flex justify-content-center align-items-center">
             <div class="auth-item col-12 col-lg-7">
-                <a class="btn auth-button" href="/register">Create new account</a>
+                <a class="btn auth-button" href="/register">Creează cont nou</a>
             </div>
         </div>
     </form>

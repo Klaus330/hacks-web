@@ -9,7 +9,7 @@
             <login-form crsf-token="{{csrf_token()}}"></login-form>
 
             <div class="auth-link-container">
-                <a class="auth-link" href="/forgot-password">Forgot password?</a>
+                <a class="auth-link" href="/forgot-password">Ai uitat parola ?</a>
             </div>
         </div>
     </section>

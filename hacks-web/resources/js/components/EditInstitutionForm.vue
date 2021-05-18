@@ -1,21 +1,21 @@
 <template>
     <form class="col-8 mt-10 mb-5" v-if="show" @submit.prevent="updateData">
         <div class="form-group col-12 p-0">
-            <label for="title">Institution Name:</label>
-            <textarea id="title" class="form-control" type="text" name="institution" placeholder="Institution"
+            <label for="title">Numele instituției:</label>
+            <textarea id="title" class="form-control" type="text" name="institution" placeholder="instituție"
                       v-model="institutionName"></textarea>
 
         </div>
 
         <div class="form-group col-12 p-0">
-            <label for="address">Address:</label>
-            <textarea id="address" class="form-control" type="text" name="address" placeholder="Address"
+            <label for="address">Adresa:</label>
+            <textarea id="address" class="form-control" type="text" name="address" placeholder="adresa"
                       v-model="address"></textarea>
         </div>
 
         <div class="form-group col-12 p-0">
-            <label for="phone">Phone:</label>
-            <textarea id="phone" class="form-control" type="text" name="phone" placeholder="Phone"
+            <label for="phone">Telefon:</label>
+            <textarea id="phone" class="form-control" type="text" name="phone" placeholder="Telefon"
                       v-model="phone"></textarea>
         </div>
 
@@ -32,7 +32,7 @@
         </div>
 
         <div class="col-12 mt-3 p-0">
-            <button type="submit" class="btn btn-primary">Modifica!</button>
+            <button type="submit" class="btn btn-primary">Modifică!</button>
         </div>
     </form>
 </template>

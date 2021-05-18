@@ -6,30 +6,25 @@
                     <a href="/">
                         <img src="/images/home/logo.svg" alt="logo">
                     </a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores corporis deserunt
-                        error
-                        obcaecati
-                    </p>
                 </div>
                 <div class="col-md-4"></div>
                 <div class="col-md-4 d-flex justify-content-around">
                     <div class="col-6">
-                        <h5 class="mb-2">Quick Links</h5>
+                        <h5 class="mb-2">Acces rapid</h5>
                         <ul class="quick-links">
                             <li class="quick-link-item">
                                 <a href="/" class="quick-link">
-                                    Home
+                                    Acasă
                                 </a>
                             </li>
                             <li class="quick-link-item">
                                 <a href="/institution" class="quick-link">
-                                    Institutes
+                                    Instituții
                                 </a>
                             </li>
                             <li class="quick-link-item">
                                 <a href="/documents" class="quick-link">
-                                    Documents
+                                    Documente
                                 </a>
                             </li>
                         </ul>
@@ -49,6 +44,6 @@
         </div>
     </div>
     <div class="footer-copyright">
-        <p class="overflow-elipsis">Bureaucracy Hacks © 2021. Made with ❤ by B3 Group</p>
+        <p class="overflow-elipsis">Bureaucracy Hacks © 2021. Realizat de grupa B3</p>
     </div>
 </footer>

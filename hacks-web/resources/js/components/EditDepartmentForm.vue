@@ -1,7 +1,7 @@
 <template>
     <form class="col-8 mt-10 mb-5" v-if="show" @submit.prevent="updateData">
         <div class="form-group col-12 p-0">
-            <label for="title">Department Name:</label>
+            <label for="title">Nume departament:</label>
             <textarea id="title" class="form-control" type="text" name="department" placeholder="Department"
                       v-model="departmentName"></textarea>
         </div>
@@ -21,7 +21,7 @@
             </div>
             <div v-if="selectedProgramId">
                 <label>
-                    Ora de inchidere:
+                    Ora de închidere:
                 </label>
                 <input class="form-control" type="text" v-model="program[selectedProgramId].close">
             </div>
@@ -29,7 +29,7 @@
 
 
         <div class="col-12 mt-3 p-0">
-            <button type="submit" class="btn btn-primary">Modifica!</button>
+            <button type="submit" class="btn btn-primary">Modifică!</button>
         </div>
     </form>
 </template>

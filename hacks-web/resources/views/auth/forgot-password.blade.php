@@ -31,20 +31,20 @@
                         </div>
 
                         <div class="card-body">
-                            <div class="form-group"><label for="new-pass">Noua parola</label> <input
+                            <div class="form-group"><label for="new-pass">Noua parolă</label> <input
                                     class="input-form" name="newPassword" placeholder="parola" type="password" id="new-pass" required="">
                             </div>
                         </div>
 
                         <div class="card-body">
-                            <div class="form-group"><label for="confirm-new-pass">Confirma noua parola</label> <input
+                            <div class="form-group"><label for="confirm-new-pass">Confirmă noua parolă</label> <input
                                     class="input-form" name="confirmNewPassword" placeholder="confirma parola" type="password" id="confirm-new-pass" required="">
                             </div>
                         </div>
 
                         <div class="card-footer">
-                            <button class="btn auth-button mb-3" type="submit">Schimba parola</button>
-                            <a class="btn auth-button" href="/login">Inapoi la login</a>
+                            <button class="btn auth-button mb-3" type="submit">Schimbă parola</button>
+                            <a class="btn auth-button" href="/login">Înapoi la login</a>
                         </div>
 
                     </form>

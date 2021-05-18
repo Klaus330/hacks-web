@@ -11,17 +11,17 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav justify-content-between">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Acasă <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/institution">Institutions</a>
+                    <a class="nav-link" href="/institution">Instituții</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/documents">Bureaucratic Process</a>
+                    <a class="nav-link" href="/documents">Proces birocratic</a>
                 </li>
                 @if(empty(\Illuminate\Support\Facades\Session::get('user')))
                 <li class="nav-item">
-                    <a class="btn button-accent-secondary mr-0" href="/login">Log In</a>
+                    <a class="btn button-accent-secondary mr-0" href="/login">Logare</a>
                 </li>
                 @else
                     <li class="nav-item">
@@ -31,11 +31,11 @@
                                 {{session()->get('user')->name}}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="/user/settings">Settings</a>
+                                <a class="dropdown-item" href="/user/settings">Setări</a>
                                 @if(session()->get('user')->is_admin)
-                                    <a class="dropdown-item" href="/admin/dashboard">Dashboard</a>
+                                    <a class="dropdown-item" href="/admin/dashboard">Setări administrator</a>
                                 @endif
-                                <a class="dropdown-item" href="/logout">Logout</a>
+                                <a class="dropdown-item" href="/logout">Delogare</a>
                             </div>
                         </div>
                     </li>

@@ -8,7 +8,7 @@
         <div class="auth-content ">
             <register-form :csrf-token="{{csrf_token()}}"></register-form>
             <div class="auth-link-container">
-                <a class="auth-link" href="/login">I already have an account</a>
+                <a class="auth-link" href="/login">Deja sunt înregistrat</a>
             </div>
         </div>
     </section>
