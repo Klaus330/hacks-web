@@ -26,13 +26,12 @@ class ReviewController extends Controller
 
     public function deleteReview(Request $request)
     {
-        $response = Http::post($this->apiURL("admine/deletecomment"), $request->request->all());
+        $response = Http::post($this->apiURL("admin/deleteReview"), $request->request->all());
         if($response->ok())
         {
              return $response->json();
         }
-        return ["Error"=>$response->json()];
-
+        return response()->json(['error' => $response->json()], 500);
     }
 
 

@@ -66,7 +66,7 @@ class AdminController extends Controller
 
         $response = Http::post($this->apiURL("admin/deleteInstitutionAdmin"), $request->request->all());
         if($response->ok()){
-            return $response;
+            return $response->json();
         }
         return response()->json(['error' => $response->json()], 500);
     }
