@@ -60,8 +60,15 @@ export default {
             this.requestData.longitude = this.currentLatitude;
             axios.post('/get-route', this.requestData)
                 .then(response => {
+
                     this.data = response.data;
+                    var coords = this.data.features[this.data.features.length-2].geometry.coordinates;
+
+                    this.initialMarker = new tt.Marker().setLngLat([coords[0],coords[1]]).addTo(this.map);
+                    var popup = new tt.Popup({offset: this.popupOffsets}).setHTML(`<b>Destinatie</b> `);
+                    this.initialMarker.setPopup(popup).togglePopup();
                     this.displayRoute(this.data);
+
                 })
                 .catch((response) => {
                     Swal.fire({
