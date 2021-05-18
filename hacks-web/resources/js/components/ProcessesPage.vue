@@ -150,7 +150,7 @@
             <div class="p-5">
                 <div class="align-feedback">
                     <h2>Gata de drum?</h2>
-                    <a :href="routeLink" class="btn button-accent-secondary">Genereaza traseu</a>
+                    <a :href="routeLink" class="btn button-accent-secondary">Generează traseu</a>
                 </div>
             </div>
         </div>
@@ -158,7 +158,7 @@
             <div class="row">
 
                 <div class="flex align-items-center col-12 col-md-12 mt-5">
-                    <h2 class="text-center text-color-blue mb-3"> Timpul mediu de asteptare</h2>
+                    <h2 class="text-center text-color-blue mb-3"> Timpul mediu de așteptare</h2>
                 </div>
             </div>
 

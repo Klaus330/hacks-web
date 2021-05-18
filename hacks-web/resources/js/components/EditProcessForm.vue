@@ -63,7 +63,7 @@
         </div>
 
         <div class="col-12 mt-3 p-0">
-            <button type="submit" class="btn btn-primary">Modifica!</button>
+            <button type="submit" class="btn btn-primary">Modifică!</button>
         </div>
     </form>
 </template>
