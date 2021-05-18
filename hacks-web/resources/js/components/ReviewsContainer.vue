@@ -4,7 +4,7 @@
       <div class="feedback-name-admin"><span>{{ review.username }}</span></div>
       <div class="feedback-info-admin">
         <p class="feedback-text" id="feedback-text">
-          {{ review.comment.substring(1,150) }}...
+          {{ review.comment.substring(0,150) }}...
         </p>
         <p class="feedback-date-admin mr-1" id="feedback-date-admin">
           Rating: {{ review.rating }}
@@ -39,20 +39,23 @@ export default {
               denyButtonText: "delete"
           }).then((result) => {
             if(!(result.isConfirmed)){
-              axios.post("/delete-reviews", {index: index}).then((response)=>{
-                console.log(response);
+              axios.post("/delete-reviews", {id: this.reviews[index].id}).then((response)=>{
+                Swal.fire({
+                    title:response.data.message,
+                    confirmButtonText:"OK"
+                });
+                  this.removeFromArray(this.reviews,index);
               })
             }
           })
       },
-  },
 
-    computed: {
-        reviewsArray() {
-            return reviews.filter((review)=>{
-                return review;
-            })
-        }
-    }
+      removeFromArray(array, query){
+          if (query > -1) {
+              array.splice(query, 1);
+          }
+
+      }
+  }
 };
 </script>
