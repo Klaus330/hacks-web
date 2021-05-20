@@ -15,12 +15,23 @@ class ReviewController extends Controller
         return view('admin/dashboard.index');
     }
 
-
     public function getReview()
     {
 
         $response = Http::get($this->apiURL("user/viewreviews"));
         return $response->json();
+
+    }
+
+    public function getReviewByInstitution(Request $request)
+    {
+
+        if (request()->has('i')) {
+            $response = Http::post($this->apiURL("user/{$request->get('i')}/viewInstitutionFeedbacks"));
+            return $response->json();
+        } 
+
+        return response()->json(['error' => $response->json()], 500);
 
     }
 

@@ -5,7 +5,7 @@
 
     <views v-bind:data="{{ json_encode($views) }}" v-bind:institution="{{json_encode(session()->get('user')->institutions)}}"></views>
 
-    <reviews-container></reviews-container>
+    <reviews-container :user-type="{{ json_encode(session()->get('user')) }}"></reviews-container>
 
 </div>
 @endsection
