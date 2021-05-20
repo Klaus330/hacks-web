@@ -7,7 +7,7 @@
                 <form action="/feedback" method="POST">
                     @csrf
                     <div class="mt-5" style="white-space: nowrap;">
-                    
+
                         <h2 class="font-weight-bolder text-xl display-4 mt-10"
                             style="text-overflow: ellipsis;overflow: hidden;" title="{{request()->get('p')}}" > {{request()->get('p')}}</h2>
                     </div>
@@ -20,7 +20,7 @@
 
                     <div class="form-group mt-10">
                         <h5>Informațiile oferite de site-ul nostru v-au fost de folos în vederea finalizării procesului
-                            birocratic dorit ?</h5>
+                            birocratic dorit? *</h5>
                         <div class="answers">
                             <label class="radio-inline mr-4">
                                 <input type="radio"  class="option-input radio" name="q1" value=true>DA
@@ -35,7 +35,7 @@
 
                     <div class="form-group">
                         <h5>Cum evaluați calitatea îndrumărilor oferite de personalul instituțiilor cu care ați
-                            interacționat?</h5>
+                            interacționat? *</h5>
                         <div class="answers">
                             <div class="form-check form-check-inline">
                                 <input type="radio" class="form-check-input option-input radio" id="q2-a1" name="q2" value=1>
@@ -66,7 +66,7 @@
 
                     <div class="form-group">
                         <h5>Care a fost timpul mediu de așteptare în decursul desfășurării întregului proces
-                            biroctratic</h5>
+                            biroctratic? *</h5>
                         <div class="feedback-answer">
                             <div class="answers">
                                 <div class="form-check form-check-inline">
@@ -99,7 +99,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5>În ce zi a săptămânii ați efectuat procesul birocratic ? </h5>
+                        <h5>În ce zi a săptămânii ați efectuat procesul birocratic? * </h5>
                         <div class="answers">
                             <div class="form-check form-check-inline">
                                 <input type="radio" class="form-check-input option-input radio" id="q4-a1" name="day" value="Luni">
@@ -136,7 +136,7 @@
 
                     <div class="form-group mt-5">
                         <div class="feedback-process-rating">
-                            <h5>Evaluează întreaga experiență</h5>
+                            <h5>Evaluează întreaga experiență *</h5>
                             <div class="star-rating mt-5"><input type="radio" name="q4" value="5" id="5">
                                 <label for="5"></label>
                                 <input type="radio" name="q4" value=4 id="4">
@@ -157,11 +157,19 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"
                                   name="comment"></textarea>
                     </div>
+
+                    <div class="form-group mt-5">
+                        <div class="feedback-process-rating">
+                            <p>* întrebări cu răspuns obligatoriu</p>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <div class="form-group">
                             <button class="btn button-accent-secondary">Oferă feedback</button>
                         </div>
                     </div>
+
                 </form>
             </div>
         </section>
