@@ -34,15 +34,12 @@ class DepartmentsController extends Controller
 
             foreach ($departments as $department) {
                 if ($department["titlu"] == $request->get('d')) {
-                    $response = $department;
-                    break;
+                    return $department;
                 }
             }
         } else {
             return [];
         }
-
-        return $response;
     }
 
     public function updateDepartmentsDetails(Request $request)
