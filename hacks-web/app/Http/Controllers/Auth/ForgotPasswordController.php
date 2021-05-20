@@ -26,8 +26,7 @@ class ForgotPasswordController extends Controller
     {
         $request->validate([
             "email" => "required|email",
-            "newPassword" => "required|min:5",
-            "confirmNewPassword" => "required|min:5"
+            "newPassword" => "required|min:5|confirmed"
         ]);
 
         $response = Http::post($this->apiURL("changepassword"), $request->request->all());
