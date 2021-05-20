@@ -7,8 +7,9 @@
                 <form action="/feedback" method="POST">
                     @csrf
                     <div class="mt-5" style="white-space: nowrap;">
-                        <h2 class="font-weight-bolder text-xl display-4"
-                            style="text-overflow: ellipsis;overflow: hidden;">{{request()->get('p')}}</h2>
+                    
+                        <h2 class="font-weight-bolder text-xl display-4 mt-10"
+                            style="text-overflow: ellipsis;overflow: hidden;" title="{{request()->get('p')}}" > {{request()->get('p')}}</h2>
                     </div>
                     <input type="hidden" name="process" value="{{request()->get('p')}}">
                     <div class="form-group">

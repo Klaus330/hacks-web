@@ -47,7 +47,7 @@
 
         <div class="row d-flex justify-content-center align-items-center">
             <div class="mb-4 col-12 col-lg-7 ">
-                <input type="checkbox" name="terms" required><span class="text-white ml-2" v-model="form.terms">I agree to the terms & conditions</span>
+                <input type="checkbox" name="terms" required v-model="form.terms"><p class="text-white ml-2">I agree to the terms & conditions</p>
             </div>
         </div>
 
