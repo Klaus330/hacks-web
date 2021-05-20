@@ -24,7 +24,6 @@ class FeedbackController extends Controller
     {
         $request->validate([
             "username"=>'required',
-            "comment"=>'required',
             "q1"=>'required',
             "q2"=>'required',
             "q3"=>'required',
@@ -39,7 +38,6 @@ class FeedbackController extends Controller
             return redirect('/');
         }
 
-        dd($body);
         return back()->withErrors($body->message);
     }
 
