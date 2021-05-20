@@ -17,7 +17,7 @@ class CheckIfAuthenticated
     public function handle(Request $request, Closure $next)
     {
         if(empty($request->session()->get('user'))) {
-            return redirect(route('home'));
+            return redirect("/register");
         }
         return $next($request);
     }
