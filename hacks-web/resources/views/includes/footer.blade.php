@@ -7,9 +7,7 @@
                         <img src="/images/home/logo.svg" alt="logo">
                     </a>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores corporis deserunt
-                        error
-                        obcaecati
+                        Help with bureaucratic processes and complicated paperwork
                     </p>
                 </div>
                 <div class="col-md-4"></div>
@@ -36,12 +34,12 @@
                     </div>
                     <div class="col-6">
                         <div class="col-md-12 d-flex justify-content-around mb-3">
-                            <a href=""><img src="/images/home/fb.svg" alt=""></a>
-                            <a href=""><img src="/images/home/yt.svg" alt=""></a>
+                            <a href="https://www.facebook.com/FacultateaDeInformaticaUAICIasi/"><img src="/images/home/fb.svg" alt=""></a>
+                            <a href="https://www.youtube.com/user/InfoUAIC"><img src="/images/home/yt.svg" alt=""></a>
                         </div>
                         <div class="col-md-12 d-flex justify-content-around">
-                            <a href=""><img src="/images/home/insta.svg" alt=""></a>
-                            <a href=""><img src="/images/home/twitter.svg" alt=""></a>
+                            <a href="https://www.instagram.com/explore/locations/319981468100147/facultatea-de-informatica-iasi/"><img src="/images/home/insta.svg" alt=""></a>
+                            <a href="https://twitter.com/fiistudent"><img src="/images/home/twitter.svg" alt=""></a>
                         </div>
                     </div>
                 </div>

@@ -17,16 +17,16 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="firstname">Firstname</label>
-                                <input type="text" id="firstname" class="form-control" placeholder="Firstname"/>
+                                <input type="text" id="firstname" class="form-control" placeholder="" value={{session()->get("user")->surname}} />
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="lastname">Lastname</label>
-                                <input type="text" id="lastname" class="form-control" placeholder="Lastname"/>
+                                <input type="text" id="lastname" class="form-control" placeholder="Lastname" value={{session()->get("user")->name}} />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="email@gmail.com"/>
+                            <input type="email" class="form-control" id="inputEmail4" placeholder="email@gmail.com" value={{session()->get("user")->email}} />
                         </div>
                         <button type="submit" class="btn btn-primary">Save Change</button>
                     </form>
@@ -51,9 +51,9 @@
                             </div>
                             <div class="col-md-6">
                                 <p class="mb-2">Password requirements</p>
-                                <p class="small text-muted mb-2">To create a new password, you have to meet all of the
+                                <p class="mb-2">To create a new password, you have to meet all of the
                                     following requirements:</p>
-                                <ul class="small text-muted pl-4 mb-0">
+                                <ul class="pl-4 mb-0">
                                     <li>Minimum 8 character</li>
                                     <li>At least one special character</li>
                                     <li>At least one number</li>

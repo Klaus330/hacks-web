@@ -11,7 +11,9 @@
       </div>
       <div class="feedback-info-admin">
         <p class="feedback-text" id="feedback-text">
+
           {{ review.comment.substring(0, 150) }}...
+
         </p>
         <p class="feedback-date-admin mr-1" id="feedback-date-admin">
           Rating: {{ review.rating }}
