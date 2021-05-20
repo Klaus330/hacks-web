@@ -51,12 +51,33 @@ class InstitutionsController extends Controller
 
     public function updateInstitutionDetails(Request $request)
     {
-        $response1 = Http::post($this->apiURL("admin/updateinstitutions"), $request->request->all());
-        $response2 = Http::post($this->apiURL("admin/updatedepartments"), $request->request->all());
-        if ($response1->ok() && $response2->ok()) {
-            return ["message" => "Datele au fost actualizate!"];
+        $institutionsJson = Http::get($this->apiURL("admin/updateinstitutionsrequest"));
+
+        if($institutionsJson->ok()){
+            $institutionsJson = $institutionsJson->json();
+
+            $index = null;
+            for($i=0; $i < count($institutionsJson); $i++){
+                if($institutionsJson[$i]['name'] == $request->get('name')){
+                    $index = $i;
+                    break;
+                }
+            }
+
+            $institutionsJson[$index]['name']= $request->get('name');
+            $institutionsJson[$index]['phone'] = $request->get('phone');
+            $institutionsJson[$index]['site'] = $request->get('url');
+            $institutionsJson[$index]['address'] = $request->get('address');
+            $institutionsJson[$index]['email']= $request->get('email');
+
+            $response = Http::post($this->apiURL("admin/updateinstitutions"), $institutionsJson);
+            if ($response->ok()) {
+                return ["message" => "Datele au fost actualizate!"];
+            }
         }
-        return ["message" => "Ups, a aparut o eroare!"];
+
+
+        return response()->json(['message' => $response->json()], 500);
     }
 
 
