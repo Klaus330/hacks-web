@@ -45,7 +45,7 @@ export default {
             key: '3rey3b2DT5N5ej6KQEKgYzaGwnlXjG2m',
             container: 'map-div',
             style: "tomtom://vector/1/basic-main",
-            zoom: 15,
+            zoom: 10,
             center: [this.currentLongitude, this.currentLatitude]
         });
 
@@ -58,22 +58,31 @@ export default {
         getRoute() {
             this.requestData.latitude =  this.currentLongitude;
             this.requestData.longitude = this.currentLatitude;
+            console.log(this.requestData);
             axios.post('/get-route', this.requestData)
                 .then(response => {
-
                     this.data = response.data;
-                    var coords = this.data.features[this.data.features.length-2].geometry.coordinates;
+                    var coords = this.data.features[this.data.features.length-3].geometry.coordinates;
+
 
                     this.initialMarker = new tt.Marker().setLngLat([coords[0],coords[1]]).addTo(this.map);
                     var popup = new tt.Popup({offset: this.popupOffsets}).setHTML(`<b>Destinatie</b> `);
                     this.initialMarker.setPopup(popup).togglePopup();
+
+                    for(let i=1; i<this.data.features.length-3; i++){
+                        var coords2 = this.data.features[i].geometry.coordinates;
+                        let marker = new tt.Marker().setLngLat([coords2[0],coords2[1]]).addTo(this.map);
+                        var popup = new tt.Popup({offset: this.popupOffsets}).setHTML(`<b>Oprire</b> `);
+                        marker.setPopup(popup).togglePopup();
+                    }
+
                     this.displayRoute(this.data);
 
                 })
                 .catch((response) => {
                     Swal.fire({
                         title: "Oops...",
-                        text: response.data.message,
+                        text: "A aparut o eroare",
                         confirmButtonText: "Ok"
                     })
                 });
