@@ -51,9 +51,9 @@
                             </div>
                             <div class="col-md-6">
                                 <p class="mb-2">Password requirements</p>
-                                <p class="small text-muted mb-2">To create a new password, you have to meet all of the
+                                <p class="mb-2">To create a new password, you have to meet all of the
                                     following requirements:</p>
-                                <ul class="small text-muted pl-4 mb-0">
+                                <ul class="pl-4 mb-0">
                                     <li>Minimum 8 character</li>
                                     <li>At least one special character</li>
                                     <li>At least one number</li>
