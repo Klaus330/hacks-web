@@ -49,6 +49,7 @@
             <div class="mb-4 col-12 col-lg-7 ">
 
                 <input type="checkbox" name="terms" required><span class="text-white ml-2" v-model="form.terms">Sunt de acord cu termenii și condițiile</span>
+            </div>
         </div>
 
         <div class="row d-flex justify-content-center align-items-center">
