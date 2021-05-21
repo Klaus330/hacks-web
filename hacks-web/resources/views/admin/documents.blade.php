@@ -8,7 +8,7 @@
                 second-label="Proces birocratic"
                 first-url="/get-institutions"
                 second-url="/get-docs"
-                first-placeholder="Care Institutie?"
+                first-placeholder="Care Instituție?"
                 second-placeholder="Care proces?"
             ></edit-process-page>
         </div>

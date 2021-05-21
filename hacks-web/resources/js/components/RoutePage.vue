@@ -24,7 +24,7 @@
                             <div class="dropdown show">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                    id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Conditii generale
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Condiții generale
 
                                 </a>
 
@@ -40,8 +40,8 @@
                             <div class="dropdown show">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                    id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Instiutiile care
-                                    elibereaza
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Instiuțiile care
+                                    eliberează
 
                                 </a>
 
@@ -58,7 +58,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-md-9 mt-3">
-                            <button type="button" class="btn btn-route" @click="submit">Creeaza ruta</button>
+                            <button type="button" class="btn btn-route" @click="submit">Creează ruta</button>
                         </div>
                     </div>
                     <div class="col-md-4 sm-hidden ">
@@ -72,7 +72,7 @@
             <div class="p-5">
                 <div class="align-feedback">
                     <h2>Feedback-ul tau conteaza !</h2>
-                    <a :href="feedbackLink" class="btn button-accent-secondary">Ofera feedback</a>
+                    <a :href="feedbackLink" class="btn button-accent-secondary">Oferă feedback</a>
                 </div>
             </div>
         </div>

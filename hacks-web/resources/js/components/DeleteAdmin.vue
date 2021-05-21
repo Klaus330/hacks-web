@@ -23,12 +23,12 @@
             url="/get-institutions"
             filterby="name"
             v-on:optionSelected="showDetails"
-            placeholder="Alege institutitia pentru administrator"
+            placeholder="Alege institutiția pentru administrator"
           ></autocomplete-search>
         </div>
 
         <div style="margin-left: auto; margin-right: auto;">
-            <button type="submit" class="btn btn-primary">Sterge admin!</button>
+            <button type="submit" class="btn btn-primary">Șterge administrator!</button>
         </div>
       </form>
     </section>

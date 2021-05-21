@@ -74,7 +74,7 @@ export default {
                 sunday: 0
             },
             chartData: {
-                labels: ['Luni', 'Marti', 'Miercuri', 'Joi', 'Vineri', 'Sambata', 'Duminica'],
+                labels: ['Luni', 'Marți', 'Miercuri', 'Joi', 'Vineri', 'Sâmbătă', 'Duminică'],
                 datasets: [
                     {
                         label: 'Interval de asteptare',

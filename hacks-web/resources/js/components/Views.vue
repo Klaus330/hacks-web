@@ -17,11 +17,11 @@ export default {
     computed:{
         labelString(){
             if(this.institution.length === 0){
-                return 'Website Views';
+                return 'Vizionările site-ului';
             }else{
                 let institutionName = this.institution[0].name;
 
-                return `${institutionName} page views`;
+                return `${institutionName} pagini vizionate`;
             }
         }
     },
@@ -34,7 +34,7 @@ export default {
                     yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: 'Nr of views'
+                            labelString: 'Numărul de vizualizări'
                         }
                     }]
                 }
@@ -44,7 +44,7 @@ export default {
                 labels: Object.keys(this.data),
                 datasets: [
                     {
-                        label:"views",
+                        label:"Vizualizări",
                         backgroundColor: '#4883ca',
                         data: Object.values(this.data)
                     }

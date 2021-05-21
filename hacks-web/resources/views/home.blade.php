@@ -12,11 +12,11 @@
 <div class="container">
     <div class="row justify-content-center align-items-center home-section mb-5">
         <div class="col-md-6 px-4">
-            <h2 class="font-weight-bolder text-xl display-4"> Provides you with the best Solutions</h2>
+            <h2 class="font-weight-bolder text-xl display-4"> Vă oferim cele mai bune soluții</h2>
             <p class="">
-                Help with bureaucratic processes and complicated paperwork
+                Ajutor pentru procesele birocratice și documentele necesare
             </p>
-            <a href="/documents" class="btn btn-accent-primary mt-4">Get stared</a>
+            <a href="/documents" class="btn btn-accent-primary mt-4">Începe</a>
         </div>
         <div class="col-md-6">
             <img src="{{ asset('/images/home/ilustration.svg') }}" alt="Path" class="home-section-image">
@@ -27,8 +27,8 @@
 <div class="container-fluid container-fluid-background mt-5">
     <div class="p-5">
         <div class="align-feedback">
-            <h2>Feedback-ul tau conteaza !</h2>
-            <a href="/contact" class="btn button-accent-secondary">Ofera feedback</a>
+            <h2>Feedback-ul tău conteaza !</h2>
+            <a href="/contact" class="btn button-accent-secondary">Oferă feedback</a>
         </div>
     </div>
 </div>
@@ -36,8 +36,8 @@
 <div class="container">
     <div class="row home-section d-flex justify-content-center align-items-center mb-5">
         <div class="col-12 d-flex justify-content-center align-items-center flex-column mx-2">
-            <span class="section-category">Our Services</span>
-            <h2 class="text-center text-dark">We Provide Best Quality Service</h2>
+            <span class="section-category">Serviciile noastre</span>
+            <h2 class="text-center text-dark">Oferim servicii de înaltă calitate</h2>
         </div>
         <div class="row">
             <div class="col-md-4 mb-4">
@@ -47,11 +47,8 @@
                     </div>
                     <div class="row">
                         <div class=" home-card-body">
-                            <h4 class="home-card-title">Institutions</h4>
-                            <p class="home-card-description">
-                                More
-                            </p>
-                            <a href="/institution" class="home-card-link button-accent-secondary">Read More</a>
+                            <h4 class="home-card-title">Instituții</h4>
+                            <a href="/institution" class="home-card-link button-accent-secondary">Mai mult</a>
                         </div>
                     </div>
                 </div>
@@ -63,11 +60,8 @@
                     </div>
                     <div class="row">
                         <div class=" home-card-body">
-                            <h4 class="home-card-title">Documents</h4>
-                            <p class="home-card-description">
-                                More
-                            </p>
-                            <a href="/documents" class="home-card-link button-accent-secondary">Read More</a>
+                            <h4 class="home-card-title">Documente</h4>
+                            <a href="/documents" class="home-card-link button-accent-secondary">Mai mult</a>
                         </div>
                     </div>
                 </div>
@@ -79,11 +73,8 @@
                     </div>
                     <div class="row">
                         <div class=" home-card-body">
-                            <h4 class="home-card-title">Guides</h4>
-                            <p class="home-card-description">
-                                More
-                            </p>
-                            <a href="/documents" class="home-card-link button-accent-secondary">Read More</a>
+                            <h4 class="home-card-title">Ghidare</h4>
+                            <a href="/documents" class="home-card-link button-accent-secondary">Mai mult</a>
                         </div>
                     </div>
                 </div>
@@ -116,7 +107,7 @@
 <div class="home-carousel mt-10">
     <div id="carousel2" class="carousel slide text-center container mt-5" data-ride="carouse2">
         <div class="col-12 d-flex flex-column justify-content-center">
-            <span class="section-category text-center">Echipa</span>
+            <span class="section-category text-center">Echipa noastră</span>
             <h2 class="text-dark text-center">Bureaucracy Hacks</h2>
         </div>
         <!-- Wrapper for slides -->

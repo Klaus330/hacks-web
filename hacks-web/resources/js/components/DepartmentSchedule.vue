@@ -39,7 +39,6 @@
 
                 </li>
             </ul>
-
             <p v-else> Nu avem date despre program.</p>
         </div>
     </div>

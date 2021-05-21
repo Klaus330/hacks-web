@@ -10,7 +10,7 @@
             url="/get-institutions"
             filterby="name"
             v-on:optionSelected="showDetails"
-            placeholder="Ce institutie te intereseaza?"
+            placeholder="Ce instituție te interesează?"
           ></autocomplete-search>
         </div>
       </section>
@@ -63,9 +63,9 @@
     <div class="container-fluid container-fluid-background mt-5" v-if="hasOption">
       <div class="p-5">
         <div class="align-feedback">
-          <h2>Feedback-ul tau conteaza !</h2>
+          <h2>Feedback-ul tău contează !</h2>
           <a href="/contact" class="btn button-accent-secondary"
-            >Ofera feedback</a
+            >Oferă feedback</a
           >
         </div>
       </div>
@@ -75,7 +75,7 @@
       <div class="row">
         <div class="flex align-items-center col-12 col-md-12 mt-5">
           <h2 class="text-center text-color-blue mb-3">
-            Procese birocratice desfasurate la aceasta institutie
+            Procese birocratice desfășurate la această instituție
           </h2>
         </div>
 

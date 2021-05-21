@@ -201,7 +201,7 @@
                     </div>
                     <div class="form-group">
                         <div class="form-group">
-                            <button class="btn button-accent-secondary">Ofera feedback</button>
+                            <button class="btn button-accent-secondary">Oferă feedback</button>
                         </div>
                     </div>
                 </form>

@@ -5,7 +5,7 @@
                 <div class="col-12">
                     <autocomplete-search url="/get-docs" filterby="name"
                                          v-on:optionSelected="showDetails"
-                                         placeholder="Ce proces birocratic te intereseaza?"></autocomplete-search>
+                                         placeholder="Ce proces birocratic te interesează?"></autocomplete-search>
                 </div>
 
                 <div class="col-12 mt-fix-large case-container" v-show="canDisplay(cases)">
@@ -39,8 +39,8 @@
         <div class="container-fluid container-fluid-background mb-5 mt-10" v-if="hasOption">
             <div class="p-5">
                 <div class="align-feedback">
-                    <h2>Feedback-ul tau conteaza !</h2>
-                    <a :href="feedbackLink" class="btn button-accent-secondary">Ofera feedback</a>
+                    <h2>Feedback-ul tău conteaza !</h2>
+                    <a :href="feedbackLink" class="btn button-accent-secondary">Oferă feedback</a>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
                                  class="dropdown show">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                    id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Conditii generale
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Condiții generale
 
                                 </a>
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
@@ -112,7 +112,7 @@
                             <div v-if="canDisplay(prices[selectedCaseId])" class="dropdown show">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                    id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Preturi
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Prețuri
                                 </a>
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
                                     <li v-for="(priceList,index) in prices[selectedCaseId]" :key="index"
@@ -150,7 +150,7 @@
             <div class="p-5">
                 <div class="align-feedback">
                     <h2>Gata de drum?</h2>
-                    <a :href="routeLink" class="btn button-accent-secondary">Genereaza traseu</a>
+                    <a :href="routeLink" class="btn button-accent-secondary">Generează traseu</a>
                 </div>
             </div>
         </div>
@@ -158,7 +158,7 @@
             <div class="row">
 
                 <div class="flex align-items-center col-12 col-md-12 mt-5">
-                    <h2 class="text-center text-color-blue mb-3"> Timpul mediu de asteptare</h2>
+                    <h2 class="text-center text-color-blue mb-3"> Timpul mediu de așteptare</h2>
                 </div>
             </div>
 

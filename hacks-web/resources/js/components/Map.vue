@@ -35,7 +35,7 @@ export default {
           this.map.setCenter([this.currentLongitude, this.currentLatitude]);
           this.initialMarker.remove();
           this.initialMarker  = new tt.Marker().setLngLat([this.currentLongitude,this.currentLatitude]).addTo(this.map);
-          var popup = new tt.Popup({offset: this.popupOffsets}).setHTML("<b>Pozitia ta actuala</b> ");
+          var popup = new tt.Popup({offset: this.popupOffsets}).setHTML("<b>Poziția ta actuală</b> ");
           this.initialMarker .setPopup(popup).togglePopup();
           this.getRoute();
       }

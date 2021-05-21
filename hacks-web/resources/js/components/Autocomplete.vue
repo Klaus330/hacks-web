@@ -5,7 +5,7 @@
                    class="form-control search-docs input" @focusin="toggleVisibility=true">
             <div class="options" v-show="toggleVisibility">
                 <ul class="options-list">
-                    <li v-show="noItems" class="options-list-item" disabled>Niciun proces gasit</li>
+                    <li v-show="noItems" class="options-list-item" disabled>Niciun proces găsit</li>
                     <li :key="item.name" v-for="item in matches" @click="selected(item.name)" class="options-list-item">
                         {{ item.name }}
                     </li>

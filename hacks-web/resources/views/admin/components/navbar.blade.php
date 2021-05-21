@@ -13,7 +13,7 @@
     <div class="p-3">
         <a href="/admin/institutions" class="d-flex flex-column align-items-center">
             <img class="nav-image-size" src='/images/svg/birocratick.svg'>
-            <span class="title-items"> Institutii </span>
+            <span class="title-items"> Instituții </span>
         </a>
     </div>
     <div class="p-3">
@@ -33,7 +33,7 @@
     <div class="p-3">
         <a href="/logout" class="d-flex flex-column align-items-center">
             <img class="nav-image-size" src='/images/svg/close.svg'>
-            <span class="title-items"> Logout </span>
+            <span class="title-items"> Delogare </span>
         </a>
     </div>
 </div>
