@@ -1,5 +1,8 @@
 <template>
-    <form class="col-8 mt-10 mb-5" v-if="show" @submit.prevent="updateData">
+    <div v-if="!showForm">
+        No data found
+    </div>
+    <form class="col-8 mt-10 mb-5" v-else-if="showForm" @submit.prevent="updateData">
         <div class="form-group col-12 p-0">
             <label for="title">Nume departament:</label>
             <textarea id="title" class="form-control" type="text" name="department" placeholder="Department"
@@ -54,7 +57,15 @@ export default {
     watch: {
         secondOption: function () {
             this.fetchData();
-        }
+        },
+    },
+    computed:{
+      showForm(){
+          if(this.show && this.departmentData != ""){
+              return true;
+          }
+          return false;
+      }
     },
     methods: {
         fetchData() {
@@ -72,7 +83,6 @@ export default {
         },
 
         praseData() {
-
             this.departmentName = this.departmentData.titlu;
             this.program =this.departmentData.program;
             this.selectedPRogramId =  Object.keys(this.program)[0];

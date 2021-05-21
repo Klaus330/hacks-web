@@ -21,23 +21,23 @@ class ContactController extends Controller
         return view("contact");
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
-            "username"=>"required",
-            "comment"=>"required",
-            "rating"=>"required|integer"
+            "username" => "required",
+            "comment" => "required",
+            "rating" => "required|integer"
         ]);
 
-        $response = Http::post($this->apiURL("user/contact"),$request->request->all());
+        $response = Http::post($this->apiURL("user/contact"), $request->request->all());
 
-        if($response->status()==200){
-            session()->flash("succes","Feedback-ul tau a fost inregistrat");
+        if ($response->status() == 200) {
+            session()->flash("succes", "Feedback-ul tau a fost inregistrat");
             return redirect('/');
         }
-        $body=json_decode($response->body());
+        $body = json_decode($response->body());
         return back()->withErrors($body->message);
     }
-
 
 
 }

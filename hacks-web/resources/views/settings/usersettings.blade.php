@@ -16,17 +16,18 @@
                     <form>
                         <div class="form-row">
                             <div class="form-group col-md-6">
+
                                 <label for="firstname">Prenume</label>
-                                <input type="text" id="firstname" class="form-control" placeholder="Prenume"/>
+                                <input type="text" id="firstname" class="form-control" placeholder="" value={{session()->get("user")->surname}} />
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="lastname">Nume</label>
-                                <input type="text" id="lastname" class="form-control" placeholder="Nume"/>
+                                <input type="text" id="lastname" class="form-control" placeholder="Lastname" value={{session()->get("user")->name}} />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="email@gmail.com"/>
+                            <input type="email" class="form-control" id="inputEmail4" placeholder="email@gmail.com" value={{session()->get("user")->email}} />
                         </div>
                         <button type="submit" class="btn btn-primary">Salvează schimbările</button>
                     </form>

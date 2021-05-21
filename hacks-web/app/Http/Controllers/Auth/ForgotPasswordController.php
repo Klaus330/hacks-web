@@ -26,14 +26,13 @@ class ForgotPasswordController extends Controller
     {
         $request->validate([
             "email" => "required|email",
-            "newPassword" => "required|min:5",
-            "confirmNewPassword" => "required|min:5"
+            "newPassword" => "required|min:5|confirmed"
         ]);
 
         $response = Http::post($this->apiURL("changepassword"), $request->request->all());
 
         if ($response->successful()) {
-            session()->flash("succes", "Parola dumneavoastra a fost resetata!");
+            session()->flash("succes", "Mesajul de confirmare a fost trimis pe mail pentru a schimba parola!");
             return redirect("/");
         }
 

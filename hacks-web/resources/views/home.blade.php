@@ -90,7 +90,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-12 mobile-icon-container p-0">
-                <a href="/" class="mobile-icon">
+                <a href="https://play.google.com/store/apps" class="mobile-icon">
                     <img src="{{ asset('/images/home/google.png') }}" alt="Google Play">
                 </a>
             </div>

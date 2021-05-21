@@ -97,7 +97,7 @@ export default {
             }).then((result) => {
                 if (result.isConfirmed) {
                     axios.post("/update-institution-data", this.institutionData)
-                        .then(() => {
+                        .then((response) => {
                             Swal.fire({
                                 title: "Datele despre institutie au fost modificate",
                                 confirmButtonText: "Ok"

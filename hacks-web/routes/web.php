@@ -88,6 +88,7 @@ Route::post('/forgot-password', [App\Http\Controllers\Auth\ForgotPasswordControl
 // Institutions
 Route::get('/get-institutions', [\App\Http\Controllers\InstitutionsController::class, 'getInstitutionsList']);
 Route::get('/get-institution-by-name', [App\Http\Controllers\InstitutionsController::class, 'getInstitutionByName']);
+Route::get('/get-reviews-by-institution', [App\Http\Controllers\ReviewController::class, 'getReviewByInstitution']);
 
 Route::post('/get-route', [\App\Http\Controllers\RoutesController::class, 'getRoute']);
 
@@ -103,3 +104,4 @@ Route::post('/get-file-link', [App\Http\Controllers\DocsController::class, 'getF
 Route::get('/get-department-by-institution', [App\Http\Controllers\DepartmentsController::class, 'getDepartmentByName']);
 Route::post('/updateprograms', [App\Http\Controllers\DepartmentsController::class, 'updateDepartmentsDetails']);
 
+Route::get('/get-statistics', [\App\Http\Controllers\StatisticsController::class, 'getStatistics']);
