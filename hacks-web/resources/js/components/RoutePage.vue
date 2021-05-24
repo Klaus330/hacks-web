@@ -12,12 +12,24 @@
                             <div class="dropdown show">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                    id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Documente necesare (bifeaza documentele pe care le ai deja)
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="white-space: normal;"> Documente necesare (bifeaza documentele pe care le ai deja)
 
                                 </a>
                                 <ul v-for="(documents,index) in necessary[selectedCaseId]" :key="index" class="dropdown-menu docs-dropdown" style="list-style-type: none; padding:0; max-height: 300px; overflow-y: scroll; ">
                                     <li v-for="(document,index) in documents" :key="index" class="dropdown-item-docs p-2">
-                                        <input type="checkbox" @change="selectDoc($event,document)"> {{document}}
+                                        <input type="checkbox" @change="selectDoc($event,document)">{{document}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="dropdown show" v-if="hasFiles">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                   id="dropdownMenuLink"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="white-space: normal;">Documente care pot fi descarcate
+
+                                </a>
+                                <ul  class="dropdown-menu docs-dropdown" style="list-style-type: none; padding:0; max-height: 300px; overflow-y: scroll; ">
+                                    <li  v-for="(document,index) in files" :key="index" class="dropdown-item-docs p-2">
+                                        <a @click.prevent="downloadFile(document)" style="cursor: pointer" class="quick-link">{{document}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -92,6 +104,7 @@
 
 <script>
 import Statistics from "./StatisticsChart";
+import Swal from "sweetalert2";
 
 export default {
     name: "RoutePage",
@@ -110,7 +123,9 @@ export default {
             generalInfo: [],
             necessary: [],
             selectedCaseId: 0,
-            show: false
+            show: false,
+            files:[],
+            acceptDownloading:false
         }
     },
     computed: {
@@ -121,7 +136,11 @@ export default {
         },
         feedbackLink() {
             return `/feedback?p=${this.processName}`;
+        },
+        hasFiles(){
+            return (this.files!==undefined && this.files !== [] && this.files.length > 0);
         }
+
     },
     mounted() {
         this.getCurrentLocation();
@@ -144,12 +163,34 @@ export default {
             this.generalInfo = this.pageInfo.generalInfo;
             this.necessary = this.pageInfo.necessary;
             this.requestData.necessary = [...this.necessary[this.selectedCaseId][0]];
+            this.files = this.pageInfo.files;
             axios
                 .get(`/get-institution-by-name?i=${this.pageInfo.institution}`)
                 .then((response) => {
                     this.requestData.institution = response.data.id;
                 });
-            this.show = true;
+            this.show = true;   
+        },
+
+        downloadFile(file){
+            axios.post("/get-file-link", {fileName: `${this.pageInfo.institution}_${file}`}).then((response) => {
+                if (!this.acceptDownloading) {
+                    Swal.fire({
+                        title: "Atentie!",
+                        text: `Urmeaza sa descarci un fisier. Doresti sa faci asta? Trebuie sa activezi permisiunea de a deschide pop-ups.`,
+                        showDenyButton: true,
+                        confirmButtonText: "da",
+                        denyButtonText: "nu"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.open(response.data, "_blank");
+                            this.acceptDownloading = true;
+                        }
+                    })
+                } else {
+                    window.open(response.data, "_blank");
+                }
+            })
         },
 
         getCurrentLocation() {
