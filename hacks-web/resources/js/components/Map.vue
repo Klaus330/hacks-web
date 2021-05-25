@@ -5,87 +5,104 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
+
 export default {
     name: "Map",
-    props:['generateRoute'],
+    props: ['generateRoute', 'requestData'],
+    components: {Swal},
     data() {
         return {
             map: [],
             data: {},
             routeOptions: {},
-            markers: []
+            initialMarker: [],
+            currentLatitude: 47.17,
+            currentLongitude: 27.57,
+            popupOffsets: {
+                top: [0, 0],
+                bottom: [0, -70],
+                'bottom-right': [0, -70],
+                'bottom-left': [0, -70],
+                left: [25, -35],
+                right: [-25, -35]
+            }
         };
     },
-    watch:{
-      generateRoute: function(){
-          this.createRoute();
-      }
+    watch: {
+        generateRoute: function () {
+            this.currentLatitude = this.requestData.latitude;
+            this.currentLongitude = this.requestData.longitude;
+            this.map.setCenter([this.currentLongitude, this.currentLatitude]);
+            this.initialMarker.remove();
+            this.initialMarker = new tt.Marker().setLngLat([this.currentLongitude, this.currentLatitude]).addTo(this.map);
+            var popup = new tt.Popup({offset: this.popupOffsets}).setHTML("<b>Poziția ta actuală</b> ");
+            this.initialMarker.setPopup(popup).togglePopup();
+            this.getRoute();
+        }
     },
     mounted() {
         this.map = tt.map({
             key: '3rey3b2DT5N5ej6KQEKgYzaGwnlXjG2m',
             container: 'map-div',
             style: "tomtom://vector/1/basic-main",
-            zoom: 15,
-            center: [27.58207, 47.14356]
+            zoom: 10,
+            center: [this.currentLongitude, this.currentLatitude]
         });
 
-        this.map.on('click', (event) => {
-            console.log(event.lngLat);
-            this.markers.push(new tt.Marker().setLngLat(event.lngLat).addTo(this.map));
-        });
-        this.getRoute();
+        this.initialMarker = new tt.Marker().setLngLat([this.currentLongitude, this.currentLatitude]).addTo(this.map);
+        var popup = new tt.Popup({offset: this.popupOffsets}).setHTML("<b>Iasi</b> ");
+        this.initialMarker.setPopup(popup).togglePopup();
+
     },
     methods: {
         getRoute() {
-            axios.get('/get-route')
+            this.requestData.latitude = this.currentLongitude;
+            this.requestData.longitude = this.currentLatitude;
+            console.log(this.requestData);
+            axios.post('/get-route', this.requestData)
                 .then(response => {
-                    this.data = response.data.routes[0];
+                    this.data = response.data;
+                    var coords = this.data.features[this.data.features.length - 3].geometry.coordinates;
 
-                    let points = this.data.legs[0].points;
-                    for (let i = 0; i < points.length; i++) {
-                        this.markers.push(new tt.Marker().setLngLat([points[i].latitude, points[i].longitude]).addTo(this.map));
+
+
+
+                    for (let i = 1; i < this.data.features.length-1; i++) {
+
+                        if (this.data.features[i].geometry.type == "Point") {
+                            if( this.data.features[i+1].geometry.type != "LineString"){
+                                let point = this.data.features[i];
+                                var coords2 = this.data.features[i].geometry.coordinates;
+                                let marker = new tt.Marker().setLngLat([coords2[0], coords2[1]]).addTo(this.map);
+                                var popup = new tt.Popup({offset: this.popupOffsets}).setHTML(`<b>${point.properties.name}</b> `);
+                                marker.setPopup(popup).togglePopup();
+                            }else{
+                                let point = this.data.features[i];
+                                this.initialMarker = new tt.Marker().setLngLat([coords[0], coords[1]]).addTo(this.map);
+                                var popup = new tt.Popup({offset: this.popupOffsets}).setHTML(`<b>${point.properties.name}</b> `);
+                                this.initialMarker.setPopup(popup).togglePopup();
+                            }
+                        }
                     }
+
+                    this.displayRoute(this.data);
+
                 })
-                .catch((error) => {
-                    console.log(error);
-                });
-        },
-
-        createRoute() {
-            let routeOptions = {
-                key: '3rey3b2DT5N5ej6KQEKgYzaGwnlXjG2m',
-                locations: [],
-                travelMode: 'car'
-            }
-            console.log(this.markers[0].getLngLat());
-            for (let i = 0; i < this.markers.length; i++) {
-
-                routeOptions.locations.push(this.markers[i].getLngLat());
-            }
-
-            tt.services.calculateRoute(routeOptions).go()
-                .then((response) => {
+                .catch((response) => {
                     console.log(response);
-                    let geo = response.toGeoJson();
-                    console.log(geo);
-                    this.displayRoute(geo);
+                    Swal.fire({
+                        title: "Oops...",
+                        text: "A aparut o eroare",
+                        confirmButtonText: "Ok"
+                    })
                 });
         },
+
         displayRoute(geo) {
-            this.routeOptions = {
-                'id': 'route',
-                'type': 'line',
-                'source': {
-                    'type': 'geojson',
-                    'data': geo
-                },
-                'paint': {
-                    'line-color': 'red',
-                    'line-width': 10
-                }
-            };
-            let routeLayer = this.map.addLayer({
+            console.log("geo");
+            this.$emit("routeCreated", geo);
+            this.map.addLayer({
                 'id': 'route',
                 'type': 'line',
                 'source': {

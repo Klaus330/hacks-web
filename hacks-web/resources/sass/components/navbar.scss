@@ -52,14 +52,22 @@
 }
 
 .navbar-brand{
-    width: 75%;
+    width: 60%;
+    display: flex;
+    align-items: center;
     @include mq(medium){
         width: 20%;
     }
     img{
-        width: 70%;
+        width: 60%;
         @include mq(medium){
             width: 100%;
+        }
+    }
+    .navbar-brand-title{
+        display: none;
+        @include mq(medium){
+            display: block;
         }
     }
 }

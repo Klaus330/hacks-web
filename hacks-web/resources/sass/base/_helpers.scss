@@ -6,9 +6,9 @@
  * Clear inner floats
  */
 .clearfix::after {
-  clear: both;
-  content: '';
-  display: table;
+    clear: both;
+    content: '';
+    display: table;
 }
 
 /**
@@ -18,11 +18,11 @@
  * 3. Leave some space on the edges, especially valuable on small screens
  */
 .container {
-  max-width: $max-width; /* 1 */
-  margin-left: auto; /* 2 */
-  margin-right: auto; /* 2 */
-  padding: 0 20px; /* 3 */
-  width: 100%; /* 1 */
+    max-width: $max-width; /* 1 */
+    margin-left: auto; /* 2 */
+    margin-right: auto; /* 2 */
+    padding: 0 20px; /* 3 */
+    width: 100%; /* 1 */
 }
 
 /**
@@ -31,10 +31,10 @@
  *    See: https://code.google.com/p/chromium/issues/detail?id=457146
  */
 .hide-text {
-  overflow: hidden;
-  padding: 0; /* 1 */
-  text-indent: 101%;
-  white-space: nowrap;
+    overflow: hidden;
+    padding: 0; /* 1 */
+    text-indent: 101%;
+    white-space: nowrap;
 }
 
 /**
@@ -43,63 +43,83 @@
  * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
  */
 .visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
 
-.display-4{
+.display-4 {
     color: rgb(83, 77, 77);
 }
 
-.text-primary{
+.text-primary {
     color: rgb(70, 66, 242) !important;
 }
 
-.bg-primary-accent{
+.bg-primary-accent {
     background: $primary-accent-color;
 }
-.overflow-elipsis{
+
+.overflow-elipsis {
     text-overflow: ellipsis;
 }
 
-.sm-hidden{
+.sm-hidden {
     display: none;
-    @include mq(medium){
+    @include mq(medium) {
         display: block;
     }
 }
 
 .mt-10 {
-  margin-top: 6rem;
+    margin-top: 6rem;
+}
+
+.mt-fix-large {
+    margin-top: -28rem;
+}
+
+.mt-fix-medium {
+
+    margin-top: -16rem;
+}
+
+.mt-fix-small {
+    margin-top: -8rem;
 }
 
 .text-color-blue {
-  color : #020e43;
+    color: #020e43;
 }
 
 .text-color-white {
-    color : #fff;
+    color: #fff;
 }
 
-.text-color-black{
-    h5{
-        color:black;
+.text-color-black {
+    h5 {
+        color: black;
     }
 }
 
-.pl-2rem{
+.pl-2rem {
     padding-left: 2rem;
 }
 
-.md-hidden{
-  display: none;
-  @include mq(xlarge){
-      display: block;
-  }
+.md-hidden {
+    display: none;
+    @include mq(xlarge) {
+        display: block;
+    }
+}
+
+.content-desktop {
+    @media screen and (min-width: 1280px) {
+        display: none;
+    }
 }

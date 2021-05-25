@@ -18,13 +18,13 @@ if (App::environment('production')) {
     URL::forceScheme('https');
 }
 
-Route::get('/user/settings',[\App\Http\Controllers\UserController::class, 'settings']);
+Route::get('/user/settings', [\App\Http\Controllers\UserController::class, 'settings']);
 
-Route::get('/route',function(){
+Route::get('/route', function () {
     return view('routes.index');
 });
 
-Route::get('/institution',function(){
+Route::get('/institution', function () {
     return view('institution.institution');
 });
 
@@ -36,14 +36,25 @@ Route::get('/admin/documents', function () {
     return view('admin.documents');
 });
 
+Route::get('/admin/departments', function () {
+    return view('admin.departments');
+});
+
 Route::get('/admin/institutions', function () {
     return view('admin.institutions');
+});
+
+Route::get('/admin/invite', function () {
+    return view('admin.inviteAdmin');
+});
+
+Route::get('/admin/delete', function () {
+    return view('admin.deleteAdmin');
 });
 
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
 });
-
 
 
 Route::get('/', [\App\Http\Controllers\PagesController::class, 'index'])->name('home');
@@ -56,7 +67,7 @@ Route::post('/register', [App\Http\Controllers\UserRegisterController::class, 'c
 Route::get('/documents', [App\Http\Controllers\DocsController::class, 'index']);
 
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index']);
-Route::post('/contact',[App\Http\Controllers\ContactController::class, 'store']);
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'store']);
 
 Route::get('/feedback', [App\Http\Controllers\FeedbackController::class, 'index']);
 Route::post('/feedback', [App\Http\Controllers\FeedbackController::class, 'store']);
@@ -65,18 +76,34 @@ Route::get('/get-departments', [App\Http\Controllers\InstitutionsController::cla
 Route::get('/get-docs', [App\Http\Controllers\DocsController::class, 'getProssesList']);
 
 Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'index']);
-Route::get('/get-reviews', [App\Http\Controllers\ReviewController::class, 'getReview']);//am adaugat
+Route::get('/get-reviews', [App\Http\Controllers\ReviewController::class, 'getReview']);
+Route::post('/delete-reviews', [App\Http\Controllers\ReviewController::class, 'deleteReview']);
+Route::get('/refresh-info' ,[App\Http\Controllers\AdminController::class,'refresh']);
+
+Route::post('/invite-admin', [App\Http\Controllers\AdminController::class, 'invite']);
+Route::post('/delete-admin', [App\Http\Controllers\AdminController::class, 'deleteAdmin']);
 
 Route::post('/forgot-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'store']);
 
 // Institutions
 Route::get('/get-institutions', [\App\Http\Controllers\InstitutionsController::class, 'getInstitutionsList']);
-Route::get('/get-route', [\App\Http\Controllers\RoutesController::class, 'getRoute']);
+Route::get('/get-institution-by-name', [App\Http\Controllers\InstitutionsController::class, 'getInstitutionByName']);
+Route::get('/get-reviews-by-institution', [App\Http\Controllers\ReviewController::class, 'getReviewByInstitution']);
+
+Route::post('/get-route', [\App\Http\Controllers\RoutesController::class, 'getRoute']);
 
 
-Route::get('/get-process-by-name',[\App\Http\Controllers\DocsController::class,'getProcessByName']);
+Route::get('/get-process-by-name', [\App\Http\Controllers\DocsController::class, 'getProcessByName']);
 
 Route::get('/get-process-by-institution', [App\Http\Controllers\DocsController::class, 'getProcessDetailsByInstitution']);
+Route::post('/update-institution-data', [App\Http\Controllers\InstitutionsController::class, 'updateInstitutionDetails']);
 Route::post('/update-process-data', [App\Http\Controllers\DocsController::class, 'updateProcessDetails']);
+Route::post('/get-file-link', [App\Http\Controllers\DocsController::class, 'getFileLink']);
 
+
+Route::get('/get-department-by-institution', [App\Http\Controllers\DepartmentsController::class, 'getDepartmentByName']);
+Route::post('/updateprograms', [App\Http\Controllers\DepartmentsController::class, 'updateDepartmentsDetails']);
+
+Route::get('/get-statistics', [\App\Http\Controllers\StatisticsController::class, 'getStatistics']);
+Route::post('/user/updatePersonalData', [App\Http\Controllers\UserController::class, 'updatePersonalData']);
 

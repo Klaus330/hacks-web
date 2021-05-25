@@ -5,7 +5,7 @@
                    class="form-control search-docs input" @focusin="toggleVisibility=true">
             <div class="options" v-show="toggleVisibility">
                 <ul class="options-list">
-                    <li v-show="noItems" class="options-list-item" disabled>Niciun proces gasit</li>
+                    <li v-show="noItems" class="options-list-item" disabled>Niciun proces găsit</li>
                     <li :key="item.name" v-for="item in matches" @click="selected(item.name)" class="options-list-item">
                         {{ item.name }}
                     </li>
@@ -28,6 +28,7 @@ export default {
     },
     mounted() {
         this.getData();
+        this.checkIfHasQueryParams();
     },
     watch:{
         url:function () {
@@ -39,6 +40,7 @@ export default {
             if (this.query === '') {
                 return this.items;
             }
+
             let word = ".*"+this.query+".*";
             return this.items.filter((item) => item.name.search(new RegExp(word, "i")) === 0);
         },
@@ -58,7 +60,15 @@ export default {
             this.query = process;
             this.toggleVisibility = false;
             this.$emit("optionSelected", process);
-        }
+        },
+         checkIfHasQueryParams(){
+            let params = new URLSearchParams(window.location.search);
+            let query = params.get('q');
+            if(query !== null && query !== undefined && query!==""){
+                this.query=query;
+                this.$emit("optionSelected", query);
+            }
+         }
     }
 }
 </script>

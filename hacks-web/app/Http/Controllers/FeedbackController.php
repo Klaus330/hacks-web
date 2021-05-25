@@ -24,7 +24,6 @@ class FeedbackController extends Controller
     {
         $request->validate([
             "username"=>'required',
-            "comment"=>'required',
             "q1"=>'required',
             "q2"=>'required',
             "q3"=>'required',
@@ -35,11 +34,10 @@ class FeedbackController extends Controller
         $body = json_decode($response->body());
 
         if($response->ok()){
-            session()->flash('success', $body->message);
+            session()->flash('success', "Feedbackul a fost inregistrat!");
             return redirect('/');
         }
 
-        dd($body);
         return back()->withErrors($body->message);
     }
 

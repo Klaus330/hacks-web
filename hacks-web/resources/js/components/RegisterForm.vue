@@ -47,14 +47,15 @@
 
         <div class="row d-flex justify-content-center align-items-center">
             <div class="mb-4 col-12 col-lg-7 ">
-                <input type="checkbox" name="terms" required><span class="text-white ml-2" v-model="form.terms">I agree to the terms & conditions</span>
+
+                <input type="checkbox" name="terms" required><span class="text-white ml-2" v-model="form.terms">Sunt de acord cu termenii și condițiile</span>
             </div>
         </div>
 
         <div class="row d-flex justify-content-center align-items-center">
             <div class="auth-item mb-4 col-12 col-lg-7">
                 <vue-loading-button class="auth-button" aria-label='Create account' @click.native="submitRegister"
-                                    :loading="isLoading">Create account
+                                    :loading="isLoading">Creează cont
                 </vue-loading-button>
             </div>
         </div>

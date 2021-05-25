@@ -1,14 +1,14 @@
 <template>
     <form class="col-8 mt-10 mb-5" v-if="show" @submit.prevent="updateData">
         <div class="form-group col-12 p-0">
-            <label for="title">Process Name:</label>
-            <textarea  id="title" class="form-control" type="text" name="process" placeholder="Process"
-                   v-model="processName"></textarea>
+            <label for="title">Numele procesului:</label>
+            <textarea id="title" class="form-control" type="text" name="process" placeholder="Proces"
+                      v-model="processName"></textarea>
 
         </div>
 
         <div class="form-group">
-            <label for="cases">Cases</label>
+            <label for="cases">Cazuri</label>
             <select name="cases" id="cases" class="form-control mb-2" style="border: 1px solid black !important;">
                 <option v-for="(item,index) in cases" :key="item" :value="index" @click="selectedCaseId=index">
                     {{ item }}
@@ -18,7 +18,7 @@
         </div>
 
         <div class="form-group" v-if="canDisplay(generalInfo,selectedCaseId)">
-            <label for="info">General info</label>
+            <label for="info">Informații generale</label>
             <select name="info" id="info" class="form-control mb-2" style="border: 1px solid black !important;">
                 <option v-for="(item,index) in getGeneralInfo(selectedCaseId)" :key="index" :value="index"
                         @click="selectedInfoId=index">{{ item }}
@@ -29,7 +29,7 @@
 
 
         <div class="form-group" v-if="canDisplay(forms,selectedCaseId)">
-            <label for="forms">Forms</label>
+            <label for="forms">Formulare</label>
             <select name="forms" id="forms" class="form-control mb-2" style="border: 1px solid black !important;">
                 <option v-for="(item,index) in getForms(selectedCaseId)" :key="index" :value="index"
                         @click="selectedFormId=index">{{ item }}
@@ -40,7 +40,7 @@
 
 
         <div class="form-group" v-if="canDisplay(prices,selectedCaseId)">
-            <label for="prices">Prices</label>
+            <label for="prices">Prețuri</label>
             <select name="prices" id="prices" class="form-control mb-2" style="border: 1px solid black !important;">
                 <option v-for="(item,index) in getPrices(selectedCaseId)" :key="index" :value="index"
                         @click="selectedPriceId=index">{{ item }}
@@ -50,8 +50,9 @@
         </div>
 
         <div class="form-group" v-if="canDisplay(necessary, selectedCaseId)">
-            <label for="necessary">Necessaries</label>
-            <select name="necessary" id="necessary" class="form-control mb-2" style="border: 1px solid black !important;">
+            <label for="necessary">Necesare</label>
+            <select name="necessary" id="necessary" class="form-control mb-2"
+                    style="border: 1px solid black !important;">
                 <option v-for="(item,index) in getNecessary(selectedCaseId)"
                         :key="index" :value="index"
                         @click="selectedNecessaryId=index">{{ item }}
@@ -62,7 +63,7 @@
         </div>
 
         <div class="col-12 mt-3 p-0">
-            <button type="submit" class="btn btn-primary">Modifica!</button>
+            <button type="submit" class="btn btn-primary">Modifică!</button>
         </div>
     </form>
 </template>
@@ -140,12 +141,15 @@ export default {
             return (field !== "");
         },
         updateData() {
-            for (let i = 0; i < this.necessary.length; i++) {
-                this.necessary[i] = this.necessary[i].map((array) => {
-                    console.log(array);
-                    return array.split('\n');
-                })
+            if (Array.isArray(this.necessary)) {
+                for (let i = 0; i < this.necessary.length; i++) {
+                        this.necessary[i]= this.necessary[i].map((array) => {
+                            console.log(array);
+                            return array.split('\n');
+                        })
+                }
             }
+
             this.processData.necessary = this.necessary;
             this.processData.prices = this.prices;
             this.processData.forms = this.forms;
@@ -153,22 +157,39 @@ export default {
             this.processData.cases = this.cases;
             this.processData.process = this.processName;
 
-            axios.post("/update-process-data", this.processData)
-                .then(() => {
-                    Swal.fire({
-                        title: "Procesul a fost modificat",
-                        confirmButtonText: "Ok"
-                    }).then(() => {
-                        window.location = "/admin/documents";
-                    })
-                }).catch((response) => {
-                this.processName = [];
-                this.cases = [];
-                this.generalInfo = [];
-                this.forms = [];
-                this.prices = [];
-                this.necessary = [];
+            Swal.fire({
+                title: "Esti sigur ca vrei sa modifici?",
+                showDenyButton: true,
+                confirmButtonText: "da",
+                denyButtonText: "nu"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.post("/update-process-data", this.processData)
+                        .then(() => {
+                            Swal.fire({
+                                title: "Procesul a fost modificat",
+                                confirmButtonText: "Ok"
+                            }).then(() => {
+                                window.location = "/admin/documents";
+                            })
+                        }).catch((response) => {
+                        Swal.fire({
+                            title: "Oops...",
+                            text: response.data.message,
+                            confirmButtonText: "Ok"
+                        })
+                    });
+                }
+                else
+                {
+                    for (let i = 0; i < this.necessary.length; i++) {
+                        this.necessary[i] = this.necessary[i].map((array) => {
+                            return array.join('\n');
+                        })
+                    }
+                }
             });
+
         }
     }
 
