@@ -105,3 +105,5 @@ Route::get('/get-department-by-institution', [App\Http\Controllers\DepartmentsCo
 Route::post('/updateprograms', [App\Http\Controllers\DepartmentsController::class, 'updateDepartmentsDetails']);
 
 Route::get('/get-statistics', [\App\Http\Controllers\StatisticsController::class, 'getStatistics']);
+Route::post('/user/updatePersonalData', [App\Http\Controllers\UserController::class, 'updatePersonalData']);
+
