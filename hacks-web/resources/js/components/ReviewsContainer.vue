@@ -76,8 +76,9 @@ export default {
           denyButtonText: "delete",
         }).then((result) => {
           if (!result.isConfirmed) {
-            axios.post("/delete-reviews", { index: index }).then((response) => {
+            axios.post("/delete-reviews", { id: this.reviews[index].id }).then((response) => {
               console.log(response);
+              this.removeFromArray(this.reviews, index);
             });
           }
         });
@@ -88,8 +89,13 @@ export default {
           confirmButtonText: "gata",
         });
       }
-    }
+    },
+  
+  removeFromArray(array, index) {
+                array.splice(index, 1);
+        },
   },
+
 
   computed: {
     isGlobalAdmin() {
