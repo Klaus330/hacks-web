@@ -56,8 +56,9 @@
                                  aria-labelledby="dropdownMenuOffset">
 
                                 <a class="dropdown-item" href="/user/settings">Setări</a>
-                                <a class="dropdown-item" href="/admin/institutions">Instituții</a>
-                                <a class="dropdown-item" href="/admin/documents">Documente</a>
+                                <a class="dropdown-item content-desktop" href="/admin/institutions">Instituții</a>
+                                <a class="dropdown-item content-desktop" href="/admin/documents">Documente</a>
+                                <a class="dropdown-item content-desktop" href="/admin/departments">Departamente</a>
                                 <a class="dropdown-item" href="#">
                                     <form action="/refresh-info">
                                         <button class="dropdown-item p-0">Actualizează informații</button>
@@ -65,9 +66,9 @@
 
                                 </a>
                                 @if(session()->get('user')->institutions == [])
-                                 <a class="dropdown-item" href="/admin/invite">Invită admin</a>
-                                 <a class="dropdown-item" href="/admin/delete">Șterge admin</a>
-                                 @endif
+                                    <a class="dropdown-item" href="/admin/invite">Invită admin</a>
+                                    <a class="dropdown-item" href="/admin/delete">Șterge admin</a>
+                                @endif
 
                                 <a class="dropdown-item" href="/logout">Delogare</a>
 
