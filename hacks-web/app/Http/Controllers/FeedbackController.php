@@ -34,7 +34,7 @@ class FeedbackController extends Controller
         $body = json_decode($response->body());
 
         if($response->ok()){
-            session()->flash('success', $body->message);
+            session()->flash('success', "Feedbackul a fost inregistrat!");
             return redirect('/');
         }
 
