@@ -72,13 +72,15 @@ export default {
 
                         if (this.data.features[i].geometry.type == "Point") {
                             if( this.data.features[i+1].geometry.type != "LineString"){
+                                let point = this.data.features[i];
                                 var coords2 = this.data.features[i].geometry.coordinates;
                                 let marker = new tt.Marker().setLngLat([coords2[0], coords2[1]]).addTo(this.map);
-                                var popup = new tt.Popup({offset: this.popupOffsets}).setHTML(`<b>Oprire</b> `);
+                                var popup = new tt.Popup({offset: this.popupOffsets}).setHTML(`<b>${point.properties.name}</b> `);
                                 marker.setPopup(popup).togglePopup();
                             }else{
+                                let point = this.data.features[i];
                                 this.initialMarker = new tt.Marker().setLngLat([coords[0], coords[1]]).addTo(this.map);
-                                var popup = new tt.Popup({offset: this.popupOffsets}).setHTML(`<b>Destinatie</b> `);
+                                var popup = new tt.Popup({offset: this.popupOffsets}).setHTML(`<b>${point.properties.name}</b> `);
                                 this.initialMarker.setPopup(popup).togglePopup();
                             }
                         }
@@ -98,6 +100,8 @@ export default {
         },
 
         displayRoute(geo) {
+            console.log("geo");
+            this.$emit("routeCreated", geo);
             this.map.addLayer({
                 'id': 'route',
                 'type': 'line',
