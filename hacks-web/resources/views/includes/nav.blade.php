@@ -24,7 +24,7 @@
                     <a class="btn button-accent-secondary mr-0" href="/login">Logare</a>
                 </li>
                 @else
-                    <li class="nav-item">
+                    <li class="nav-item only-large">
 {{--                        <a class="nav-link text-bold" href="/logout">{{json_decode(session()->get('user'))->name}}</a>--}}
                         <div class="dropdown">
                             <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
