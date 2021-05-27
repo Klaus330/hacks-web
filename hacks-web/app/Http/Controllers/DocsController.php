@@ -109,7 +109,7 @@ class DocsController extends Controller
             return $response->body();
         }
 
-        return response()->json(['error' => $response->json() ?? "NOT FOUND"], 500);
+        return response()->json(['error' => $response->json() ?? "NOT FOUND"], $response->status());
     }
 
 }
