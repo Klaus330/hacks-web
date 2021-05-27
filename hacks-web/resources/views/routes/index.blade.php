@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 
-    <route-page></route-page>
+    <route-page :user-data="{{json_encode(session()->get('user') ?? null)}}"></route-page>
 @endsection
 
 
