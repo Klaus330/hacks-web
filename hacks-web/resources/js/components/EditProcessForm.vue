@@ -9,9 +9,9 @@
 
         <div class="form-group">
             <label for="cases">Cazuri</label>
-            <select name="cases" id="cases" class="form-control mb-2" style="border: 1px solid black !important;" @change="addSelectedCaseId($event)">
+            <select name="cases" id="cases" class="form-control mb-2 caz-docs" style="border: 1px solid black !important;" @change="addSelectedCaseId($event)">
                 <option v-for="(item,index) in cases" :key="item" :value="index">
-                    {{ item }}
+                    {{ item.substring(0,50) }}...
                 </option>
             </select>
             <textarea type="text" class="form-control" v-model="cases[selectedCaseId]"></textarea>
@@ -19,8 +19,8 @@
 
         <div class="form-group" v-if="canDisplay(generalInfo,selectedCaseId)">
             <label for="info">Informații generale</label>
-            <select name="info" id="info" class="form-control mb-2" style="border: 1px solid black !important;" @change="addSelectedInfoId($event)">
-                <option v-for="(item,index) in getGeneralInfo(selectedCaseId)" :key="index" :value="index">{{ item }}
+            <select name="info" id="info" class="form-control mb-2 caz-docs" style="border: 1px solid black !important;" @change="addSelectedInfoId($event)">
+                <option v-for="(item,index) in getGeneralInfo(selectedCaseId)" :key="index" :value="index">{{ item.substring(0,50) }}...
                 </option>
             </select>
             <textarea type="text" class="form-control" v-model="generalInfo[selectedCaseId][selectedInfoId]"></textarea>
@@ -29,8 +29,8 @@
 
         <div class="form-group" v-if="canDisplay(forms,selectedCaseId)" >
             <label for="forms">Formulare</label>
-            <select name="forms" id="forms" class="form-control mb-2" style="border: 1px solid black !important;" @change="addSelectedFormId($event)">
-                <option v-for="(item,index) in getForms(selectedCaseId)" :key="index" :value="index">{{ item }}
+            <select name="forms" id="forms" class="form-control mb-2 caz-docs" style="border: 1px solid black !important;" @change="addSelectedFormId($event)">
+                <option v-for="(item,index) in getForms(selectedCaseId)" :key="index" :value="index">{{ item.substring(0,50) }}...
                 </option>
             </select>
             <textarea type="text" class="form-control" v-model="forms[selectedCaseId][selectedFormId]"></textarea>
@@ -39,9 +39,9 @@
 
         <div class="form-group" v-if="canDisplay(prices,selectedCaseId)">
             <label for="prices">Prețuri</label>
-            <select name="prices" id="prices" class="form-control mb-2" style="border: 1px solid black !important;" @change="addSelectedPriceId($event)">
+            <select name="prices" id="prices" class="form-control mb-2 caz-docs" style="border: 1px solid black !important;" @change="addSelectedPriceId($event)">
                 <option v-for="(item,index) in getPrices(selectedCaseId)" :key="index" :value="index"
-                        >{{ item }}
+                        >{{ item.substring(0,50) }}...
                 </option>
             </select>
             <textarea type="text" class="form-control" v-model="prices[selectedCaseId][selectedPriceId]"></textarea>
@@ -49,11 +49,11 @@
 
         <div class="form-group" v-if="canDisplay(necessary, selectedCaseId)">
             <label for="necessary">Necesare</label>
-            <select name="necessary" id="necessary" class="form-control mb-2"
+            <select name="necessary" id="necessary" class="form-control mb-2 caz-docs"
                     style="border: 1px solid black !important;" @change="addSelectedNecessaryId($event)">
                 <option v-for="(item,index) in getNecessary(selectedCaseId)"
                         :key="index" :value="index"
-                       >{{ item }}
+                       >{{ item.substring(0,50) }}...
                 </option>
             </select>
             <textarea type="text" class="form-control"
