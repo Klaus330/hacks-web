@@ -4029,7 +4029,7 @@ __webpack_require__.r(__webpack_exports__);
           confirmButtonText: "gata",
           denyButtonText: "delete"
         }).then(function (result) {
-          if (!result.isConfirmed) {
+          if (result.isDenied) {
             axios.post("/delete-reviews", {
               id: _this2.reviews[index].id
             }).then(function (response) {
@@ -4291,7 +4291,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   methods: {
     submit: function submit() {
-      this.requestMade = false;
       this.requestMade = true;
     },
     addRouteItinerary: function addRouteItinerary(geo) {
@@ -4754,7 +4753,6 @@ __webpack_require__.r(__webpack_exports__);
         return 'Vizionările site-ului';
       } else {
         var institutionName = this.institution[0].name;
-        console.log(this.chartData);
         return "".concat(institutionName, " pagini vizionate");
       }
     }
@@ -83381,7 +83379,7 @@ var render = function() {
       _c(
         "a",
         {
-          staticClass: "btn btn-secondary dropdown-toggle",
+          staticClass: "btn btn-secondary dropdown-toggle caz-docs",
           attrs: {
             href: "#",
             role: "button",
@@ -83446,7 +83444,7 @@ var render = function() {
                         hour,
                         index
                       ) {
-                        return _c("span", [
+                        return _c("span", { key: index }, [
                           _vm._v(
                             "\n                    " +
                               _vm._s(hour) +
@@ -84224,7 +84222,7 @@ var render = function() {
             _c(
               "select",
               {
-                staticClass: "form-control mb-2",
+                staticClass: "form-control mb-2 caz-docs",
                 staticStyle: { border: "1px solid black !important" },
                 attrs: { name: "cases", id: "cases" },
                 on: {
@@ -84235,7 +84233,11 @@ var render = function() {
               },
               _vm._l(_vm.cases, function(item, index) {
                 return _c("option", { key: item, domProps: { value: index } }, [
-                  _vm._v("\n                " + _vm._s(item) + "\n            ")
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(item.substring(0, 50)) +
+                      "...\n            "
+                  )
                 ])
               }),
               0
@@ -84273,7 +84275,7 @@ var render = function() {
                 _c(
                   "select",
                   {
-                    staticClass: "form-control mb-2",
+                    staticClass: "form-control mb-2 caz-docs",
                     staticStyle: { border: "1px solid black !important" },
                     attrs: { name: "info", id: "info" },
                     on: {
@@ -84289,7 +84291,11 @@ var render = function() {
                     return _c(
                       "option",
                       { key: index, domProps: { value: index } },
-                      [_vm._v(_vm._s(item) + "\n            ")]
+                      [
+                        _vm._v(
+                          _vm._s(item.substring(0, 50)) + "...\n            "
+                        )
+                      ]
                     )
                   }),
                   0
@@ -84334,7 +84340,7 @@ var render = function() {
                 _c(
                   "select",
                   {
-                    staticClass: "form-control mb-2",
+                    staticClass: "form-control mb-2 caz-docs",
                     staticStyle: { border: "1px solid black !important" },
                     attrs: { name: "forms", id: "forms" },
                     on: {
@@ -84350,7 +84356,11 @@ var render = function() {
                     return _c(
                       "option",
                       { key: index, domProps: { value: index } },
-                      [_vm._v(_vm._s(item) + "\n            ")]
+                      [
+                        _vm._v(
+                          _vm._s(item.substring(0, 50)) + "...\n            "
+                        )
+                      ]
                     )
                   }),
                   0
@@ -84393,7 +84403,7 @@ var render = function() {
                 _c(
                   "select",
                   {
-                    staticClass: "form-control mb-2",
+                    staticClass: "form-control mb-2 caz-docs",
                     staticStyle: { border: "1px solid black !important" },
                     attrs: { name: "prices", id: "prices" },
                     on: {
@@ -84409,7 +84419,11 @@ var render = function() {
                     return _c(
                       "option",
                       { key: index, domProps: { value: index } },
-                      [_vm._v(_vm._s(item) + "\n            ")]
+                      [
+                        _vm._v(
+                          _vm._s(item.substring(0, 50)) + "...\n            "
+                        )
+                      ]
                     )
                   }),
                   0
@@ -84455,7 +84469,7 @@ var render = function() {
                 _c(
                   "select",
                   {
-                    staticClass: "form-control mb-2",
+                    staticClass: "form-control mb-2 caz-docs",
                     staticStyle: { border: "1px solid black !important" },
                     attrs: { name: "necessary", id: "necessary" },
                     on: {
@@ -84471,7 +84485,11 @@ var render = function() {
                     return _c(
                       "option",
                       { key: index, domProps: { value: index } },
-                      [_vm._v(_vm._s(item) + "\n            ")]
+                      [
+                        _vm._v(
+                          _vm._s(item.substring(0, 50)) + "...\n            "
+                        )
+                      ]
                     )
                   }),
                   0
@@ -85253,7 +85271,7 @@ var render = function() {
               _c(
                 "select",
                 {
-                  staticClass: "form-control border",
+                  staticClass: "form-control border caz-docs",
                   on: {
                     change: function($event) {
                       return _vm.selectCase($event)
@@ -85282,7 +85300,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _vm.canDisplay(_vm.generalInfo[_vm.selectedCaseId])
-      ? _c("div", { staticClass: "container mb-5 mt-fix-medium" }, [
+      ? _c("div", { staticClass: "container mb-5 mt-fix-medium " }, [
           _vm._m(0),
           _vm._v(" "),
           _c("div", { staticClass: "col-12" }, [
@@ -85365,7 +85383,8 @@ var render = function() {
                         _c(
                           "a",
                           {
-                            staticClass: "btn btn-secondary dropdown-toggle",
+                            staticClass:
+                              "btn btn-secondary dropdown-toggle caz-docs",
                             attrs: {
                               href: "#",
                               role: "button",
@@ -85397,7 +85416,7 @@ var render = function() {
                               { key: index, staticClass: "dropdown-item-docs" },
                               _vm._l(documents, function(document, index) {
                                 return _c("p", { key: index }, [
-                                  _vm._v("-" + _vm._s(document))
+                                  _vm._v("- " + _vm._s(document))
                                 ])
                               }),
                               0
@@ -85414,7 +85433,8 @@ var render = function() {
                         _c(
                           "a",
                           {
-                            staticClass: "btn btn-secondary dropdown-toggle",
+                            staticClass:
+                              "btn btn-secondary dropdown-toggle caz-docs",
                             attrs: {
                               href: "#",
                               role: "button",
@@ -85491,7 +85511,8 @@ var render = function() {
                     _c(
                       "a",
                       {
-                        staticClass: "btn btn-secondary dropdown-toggle",
+                        staticClass:
+                          "btn btn-secondary dropdown-toggle caz-docs",
                         attrs: {
                           href: "#",
                           role: "button",
@@ -85517,7 +85538,8 @@ var render = function() {
                       [
                         _c("li", { staticClass: "dropdown-item-docs" }, [
                           _vm._v(
-                            _vm._s(_vm.processData.institution) +
+                            "- " +
+                              _vm._s(_vm.processData.institution) +
                               "\n                                "
                           )
                         ])
@@ -85530,7 +85552,8 @@ var render = function() {
                         _c(
                           "a",
                           {
-                            staticClass: "btn btn-secondary dropdown-toggle",
+                            staticClass:
+                              "btn btn-secondary dropdown-toggle caz-docs",
                             attrs: {
                               href: "#",
                               role: "button",
@@ -85558,7 +85581,7 @@ var render = function() {
                               { key: index, staticClass: "dropdown-item-docs" },
                               [
                                 _vm._v(
-                                  "\n                                    " +
+                                  "\n                                    - " +
                                     _vm._s(priceList) +
                                     "\n                                "
                                 )
@@ -85575,7 +85598,8 @@ var render = function() {
                         _c(
                           "a",
                           {
-                            staticClass: "btn btn-secondary dropdown-toggle",
+                            staticClass:
+                              "btn btn-secondary dropdown-toggle caz-docs",
                             attrs: {
                               href: "#",
                               role: "button",
@@ -85610,7 +85634,7 @@ var render = function() {
                                       }
                                     }
                                   },
-                                  [_vm._v(" " + _vm._s(file))]
+                                  [_vm._v("- " + _vm._s(file))]
                                 )
                               ]
                             )
@@ -86209,7 +86233,8 @@ var render = function() {
                         _c(
                           "a",
                           {
-                            staticClass: "btn btn-secondary dropdown-toggle",
+                            staticClass:
+                              "btn btn-secondary dropdown-toggle caz-docs",
                             staticStyle: { "white-space": "normal" },
                             attrs: {
                               href: "#",
@@ -86260,7 +86285,8 @@ var render = function() {
                                     }
                                   }),
                                   _vm._v(
-                                    _vm._s(document) +
+                                    "  " +
+                                      _vm._s(document) +
                                       "\n                                "
                                   )
                                 ]
@@ -86278,7 +86304,8 @@ var render = function() {
                           _c(
                             "a",
                             {
-                              staticClass: "btn btn-secondary dropdown-toggle",
+                              staticClass:
+                                "btn btn-secondary dropdown-toggle caz-docs",
                               staticStyle: { "white-space": "normal" },
                               attrs: {
                                 href: "#",
@@ -86327,7 +86354,7 @@ var render = function() {
                                         }
                                       }
                                     },
-                                    [_vm._v(_vm._s(document))]
+                                    [_vm._v("  " + _vm._s(document))]
                                   )
                                 ]
                               )
@@ -86341,7 +86368,8 @@ var render = function() {
                       _c(
                         "a",
                         {
-                          staticClass: "btn btn-secondary dropdown-toggle",
+                          staticClass:
+                            "btn btn-secondary dropdown-toggle caz-docs",
                           attrs: {
                             href: "#",
                             role: "button",
@@ -86371,7 +86399,7 @@ var render = function() {
                           return _c(
                             "li",
                             { key: index, staticClass: "panel-item" },
-                            [_c("p", [_vm._v(_vm._s(info))])]
+                            [_c("p", [_vm._v("  " + _vm._s(info))])]
                           )
                         }),
                         0
@@ -86382,7 +86410,8 @@ var render = function() {
                       _c(
                         "a",
                         {
-                          staticClass: "btn btn-secondary dropdown-toggle",
+                          staticClass:
+                            "btn btn-secondary dropdown-toggle caz-docs",
                           attrs: {
                             href: "#",
                             role: "button",
@@ -86419,7 +86448,7 @@ var render = function() {
                               }
                             }),
                             _vm._v(
-                              " " +
+                              "  " +
                                 _vm._s(_vm.pageInfo.institution) +
                                 "\n                                "
                             )
