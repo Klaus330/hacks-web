@@ -176,6 +176,7 @@ import Swal from 'sweetalert2';
 export default {
     name: "ProcessesPage",
     components: {Autocomplete, Statistics, Swal},
+    props:['userData'],
     data() {
         return {
             hasOption: false,
@@ -229,21 +230,51 @@ export default {
             return (field !== "" && field !== undefined && field.length !== 0);
         },
         downloadFile(file) {
-            axios.post("/get-file-link", {fileName: `${this.processData.institution}_${file}`}).then((response) => {
+            axios.post("/get-file-link", {fileName: `${this.processData.institution}_${file.trim()}`}).then((response) => {
+                if(this.userData != null){
+
+                    let payload = {
+                        nume: this.userData.name,
+                        prenume: this.userData.surname,
+                        dataNastere: this.userData.dataNastere,
+                        judet: this.userData.judet,
+                        localitate: this.userData.localitate,
+                        telefon: this.userData.phone,
+                        email: this.userData.email,
+                        adresa: this.userData.address,
+                        cnp: this.userData.cnp,
+                        serie: this.userData.serieBuletin,
+                        numar_buletin: this.userData.numarBuletin,
+                        url: response.data
+                    };
+
+
+                    axios.post('/get-autocompleted-file',payload).then((response)=>{
+                        window.open(response.data, "_blank");
+                    }).catch((response)=>{
+                        Swal.fire({
+                            title: "Oops...",
+                            text: "A aparut o eroare",
+                            confirmButtonText: "Ok"
+                        })
+                    });
+                    return;
+                }
                 if (!this.acceptDownloading) {
                     Swal.fire({
-                        title: "Atentie!",
-                        text: `Urmeaza sa descarci un fisier. Doresti sa faci asta? Trebuie sa activezi permisiunea de a deschide pop-ups.`,
-                        showDenyButton: true,
-                        confirmButtonText: "da",
-                        denyButtonText: "nu"
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.open(response.data, "_blank");
-                            this.acceptDownloading = true;
-                        }
-                    })
-                } else {
+                                title: "Atentie!",
+                                text: `Urmeaza sa descarci un fisier. Doresti sa faci asta? Trebuie sa activezi permisiunea de a deschide pop-ups.`,
+                                showDenyButton: true,
+                                confirmButtonText: "da",
+                                denyButtonText: "nu"
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.open(response.data, "_blank");
+                                    this.acceptDownloading = true;
+                                }
+                            })
+
+                }else {
                     window.open(response.data, "_blank");
                 }
             })

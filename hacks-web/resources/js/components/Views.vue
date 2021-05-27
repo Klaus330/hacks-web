@@ -1,6 +1,8 @@
 <template>
     <div>
-        <h2>{{labelString}}</h2>
+        <div class="ml-5 mb-5">
+            <h2>{{labelString}}</h2>
+        </div>
     <bar :data="chartData" :options="options"></bar>
     </div>
 </template>

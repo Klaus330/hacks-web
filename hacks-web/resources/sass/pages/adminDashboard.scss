@@ -75,6 +75,12 @@
 .dropdown-menu {
     font-size: 14px;
     transform: translate3d(-130px, 42px, 0px) !important;
+    .dropdown-item{
+        font-size: small;
+        @include mq(medium){
+            font-size: inherit;
+        }
+    }
 }
 .dropdown-toggle::after {
     display: none !important;

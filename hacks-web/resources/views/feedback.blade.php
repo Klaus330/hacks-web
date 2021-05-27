@@ -21,15 +21,17 @@
                     <div class="form-group mt-10">
                         <h5>Informațiile oferite de site-ul nostru v-au fost de folos în vederea finalizării procesului
                             birocratic dorit? *</h5>
-                        <div class="answers mt-2">
-                            <label class="radio-inline mr-4">
-                                <input type="radio"  class="option-input radio" name="q1" value=true>DA
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" class="option-input radio" name="q1" value=false>NU
-                            </label>
-                        </div>
+                        <div class="answers">
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="option-input radio" id="q1-a1" name="q1" value=true>
+                                <label class="form-check-label" for="q1-a1">DA</label>
+                            </div>
 
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="option-input radio" id="q1-a2" name="q1" value=false>
+                                <label class="form-check-label" for="q1-a2">NU</label>
+                            </div>
+                        </div>
                     </div>
 
 
@@ -152,11 +154,14 @@
                     </div>
 
 
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Așteptăm părerea ta pentru a ne îmbunătăți calitatea serviciilor oferite</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"
-                                  name="comment"></textarea>
+                    <div class="textarea-feedback">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Așteptăm părerea ta pentru a ne îmbunătăți calitatea serviciilor oferite</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"
+                                      name="comment"></textarea>
+                        </div>
                     </div>
+
 
                     <div class="form-group mt-5">
                         <div class="feedback-process-rating">

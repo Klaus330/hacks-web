@@ -125,7 +125,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div>
+                    <div v-if="hasDownloadables">
                         <h6>III.Documente care pot fi descarcate</h6>
                         <ul class="list">
                             <li v-for="(document,index) in files" :key="index">
@@ -146,6 +146,7 @@ import Swal from "sweetalert2";
 export default {
     name: "RoutePage",
     components: {Statistics},
+    props:['userData'],
     data() {
         return {
             requestMade: false,
@@ -180,6 +181,9 @@ export default {
         },
         hasLocations() {
             return (this.locations !== undefined && this.locations.length > 0);
+        },
+        hasDownloadables(){
+            return (this.files !== undefined && this.files.length > 0);
         }
 
     },
@@ -229,7 +233,36 @@ export default {
         },
 
         downloadFile(file) {
-            axios.post("/get-file-link", {fileName: `${this.pageInfo.institution}_${file}`}).then((response) => {
+            axios.post("/get-file-link", {fileName: `${this.pageInfo.institution}_${file.trim()}`}).then((response) => {
+                if(this.userData != null){
+                    console.log(this.userData);
+                    let payload = {
+                        nume: this.userData.name,
+                        prenume: this.userData.surname,
+                        dataNastere: this.userData.dataNastere,
+                        judet: this.userData.judet,
+                        localitate: this.userData.localitate,
+                        telefon: this.userData.phone,
+                        email: this.userData.email,
+                        adresa: this.userData.address,
+                        cnp: this.userData.cnp,
+                        serie: this.userData.serieBuletin,
+                        numar_buletin: this.userData.numarBuletin,
+                        url: response.data
+                    };
+
+
+                    axios.post('/get-autocompleted-file',payload).then((response)=>{
+                        window.open(response.data, "_blank");
+                    }).catch((response)=>{
+                        Swal.fire({
+                            title: "Oops...",
+                            text: "A aparut o eroare",
+                            confirmButtonText: "Ok"
+                        })
+                    });
+                    return;
+                }
                 if (!this.acceptDownloading) {
                     Swal.fire({
                         title: "Atentie!",

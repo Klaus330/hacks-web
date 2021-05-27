@@ -112,37 +112,7 @@
 
                         <button type="submit" class="btn btn-primary">Salvează schimbările</button>
                     </form>
-
-                    <form class="mt-5">
-                        <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                   aria-controls="home" aria-selected="false">Schimbă parola</a>
-                            </li>
-                        </ul>
-                        <div class="row mb-4">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="inputPassword5">Parolă nouă</label>
-                                    <input type="password" class="form-control" id="inputPassword5"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPassword6">Confirmă parola</label>
-                                    <input type="password" class="form-control" id="inputPassword6"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <p class="mb-2">Cerințele parolei</p>
-                                <p class="mb-2">Pentru a crea o nouă parolă, trebuie să respecți următoarele cerințe : </p>
-                                <ul class="pl-4 mb-0">
-                                    <li>Minim 8 caractere</li>
-                                    <li>Cel puțin un caracter special</li>
-                                    <li>Cel puțin un număr</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Schimbă parola</button>
-                    </form>
+                    
                 </div>
             </div>
         </div>
