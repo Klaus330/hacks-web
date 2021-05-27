@@ -37,6 +37,19 @@ class UserController extends Controller
             'numarBuletin' => 'required|min:6'
         ]);
 
+
+        session()->get('user')->address = $request->get("address");
+        session()->get('user')->phone = $request->get("phone");
+        session()->get('user')->serieBuletin = $request->get("serieBuletin");
+        session()->get('user')->localitate = $request->get("localitate");
+        session()->get('user')->judet = $request->get("judet");
+        session()->get('user')->dataNastere = $request->get("dataNastere");
+        session()->get('user')->cnp = $request->get("cnp");
+        session()->get('user')->numarBuletin = $request->get("numarBuletin");
+        session()->get('user')->judet = $request->get("judet");
+
+
+
         $response = Http::post($this->apiUrl("user/updatePersonalData"), $request->request->all());
         $body = $response->json();
         if ($response->status(302)) {
