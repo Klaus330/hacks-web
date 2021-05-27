@@ -107,3 +107,6 @@ Route::post('/updateprograms', [App\Http\Controllers\DepartmentsController::clas
 Route::get('/get-statistics', [\App\Http\Controllers\StatisticsController::class, 'getStatistics']);
 Route::post('/user/updatePersonalData', [App\Http\Controllers\UserController::class, 'updatePersonalData']);
 
+
+Route::post('/get-autocompleted-file', [\App\Http\Controllers\DocsController::class,'getAutocompletedFile']);
+
