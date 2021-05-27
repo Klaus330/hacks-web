@@ -13,7 +13,7 @@
                         Caz:
                     </label>
 
-                    <select class="form-control border" @change="selectCase($event)">
+                    <select class="form-control border caz-docs" @change="selectCase($event)">
                         <option v-for="(item,index) in cases" :key="item" :value="index">
                             {{ item }}
                         </option>
@@ -21,7 +21,7 @@
                 </div>
             </section>
         </div>
-        <div class="container mb-5 mt-fix-medium" v-if="canDisplay(generalInfo[selectedCaseId])">
+        <div class="container mb-5 mt-fix-medium " v-if="canDisplay(generalInfo[selectedCaseId])">
             <div class="warning-container docs-section-title-warning text-center col-sm-4">
                 <img src="/images/svg/alert.svg"/>
                 <h3>Atenție</h3>
@@ -55,7 +55,7 @@
                         <div class="docs-info-container">
 
                             <div v-if="canDisplay(necessary[selectedCaseId])" class="dropdown show">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                <a class="btn btn-secondary dropdown-toggle caz-docs" href="#" role="button"
                                    id="dropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Documente necesare
 
@@ -64,7 +64,7 @@
 
                                     <li v-for="(documents,index) in necessary[selectedCaseId]" :key="index"
                                         class="dropdown-item-docs">
-                                        <p v-for="(document,index) in documents" :key="index">-{{document}}</p>
+                                        <p v-for="(document,index) in documents" :key="index">- {{document}}</p>
                                     </li>
 
                                 </ol>
@@ -72,7 +72,7 @@
 
                             <div v-if="canDisplay(forms[selectedCaseId]) || canDisplay(departaments[selectedCaseId])"
                                  class="dropdown show">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                <a class="btn btn-secondary dropdown-toggle caz-docs" href="#" role="button"
                                    id="dropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Condiții generale
 
@@ -95,7 +95,7 @@
                                 </ol>
                             </div>
                             <div class="dropdown show">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                <a class="btn btn-secondary dropdown-toggle caz-docs" href="#" role="button"
                                    id="dropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Instituția care
                                     eliberează
@@ -103,27 +103,27 @@
 
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
 
-                                    <li class="dropdown-item-docs">{{ processData.institution }}
+                                    <li class="dropdown-item-docs">- {{ processData.institution }}
                                     </li>
 
                                 </ol>
                             </div>
 
                             <div v-if="canDisplay(prices[selectedCaseId])" class="dropdown show">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                <a class="btn btn-secondary dropdown-toggle caz-docs" href="#" role="button"
                                    id="dropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Prețuri
                                 </a>
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
                                     <li v-for="(priceList,index) in prices[selectedCaseId]" :key="index"
                                         class="dropdown-item-docs">
-                                        {{ priceList }}
+                                        - {{ priceList }}
                                     </li>
                                 </ol>
                             </div>
 
                             <div v-if="canDisplay(files[selectedCaseId])" class="dropdown show">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                <a class="btn btn-secondary dropdown-toggle caz-docs" href="#" role="button"
                                    id="dropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Anexe
                                 </a>
@@ -131,7 +131,7 @@
                                 <ol class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
 
                                     <li v-for="(file,index) in files" :key="index" class="dropdown-item-docs">
-                                        <a @click.prevent="downloadFile(file)" class="document-link"> {{file}}</a>
+                                        <a @click.prevent="downloadFile(file)" class="document-link">- {{file}}</a>
                                     </li>
 
                                 </ol>
