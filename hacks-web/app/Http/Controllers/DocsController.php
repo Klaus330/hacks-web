@@ -93,12 +93,12 @@ class DocsController extends Controller
             "dataNastere" => "required",
             "judet" => "required",
             "localitate" => "required",
-            "phone" => "required",
+            "telefon" => "required",
             "email" => "required|email",
-            "address" => "required",
+            "adresa" => "required",
             "cnp" => "required|min:13",
             "serie" => "required|min:2",
-            "nrBuletin" => "required|min:6",
+            "numar_buletin" => "required|min:6",
             "url" => "required",
         ]);
 

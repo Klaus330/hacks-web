@@ -230,14 +230,13 @@ export default {
             return (field !== "" && field !== undefined && field.length !== 0);
         },
         downloadFile(file) {
-            axios.post("/get-file-link", {fileName: `${this.processData.institution}_${file}`}).then((response) => {
+            axios.post("/get-file-link", {fileName: `${this.processData.institution}_${file.trim()}`}).then((response) => {
                 if(this.userData != null){
 
                     let payload = {
                         nume: this.userData.name,
                         prenume: this.userData.surname,
                         dataNastere: this.userData.dataNastere,
-                        ziCurenta: "",
                         judet: this.userData.judet,
                         localitate: this.userData.localitate,
                         telefon: this.userData.phone,
