@@ -4267,6 +4267,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
     hasLocations: function hasLocations() {
       return this.locations !== undefined && this.locations.length > 0;
+    },
+    hasDownloadables: function hasDownloadables() {
+      return this.files !== undefined && this.files.length > 0;
     }
   },
   mounted: function mounted() {
@@ -86540,33 +86543,37 @@ var render = function() {
                   2
                 ),
                 _vm._v(" "),
-                _c("div", [
-                  _c("h6", [_vm._v("III.Documente care pot fi descarcate")]),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    { staticClass: "list" },
-                    _vm._l(_vm.files, function(document, index) {
-                      return _c("li", { key: index }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "quick-link",
-                            staticStyle: { cursor: "pointer" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.downloadFile(document)
-                              }
-                            }
-                          },
-                          [_vm._v(_vm._s(document))]
-                        )
-                      ])
-                    }),
-                    0
-                  )
-                ])
+                _vm.hasDownloadables
+                  ? _c("div", [
+                      _c("h6", [
+                        _vm._v("III.Documente care pot fi descarcate")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "ul",
+                        { staticClass: "list" },
+                        _vm._l(_vm.files, function(document, index) {
+                          return _c("li", { key: index }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "quick-link",
+                                staticStyle: { cursor: "pointer" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.downloadFile(document)
+                                  }
+                                }
+                              },
+                              [_vm._v(_vm._s(document))]
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ])
+                  : _vm._e()
               ])
             ],
             1

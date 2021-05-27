@@ -125,7 +125,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div>
+                    <div v-if="hasDownloadables">
                         <h6>III.Documente care pot fi descarcate</h6>
                         <ul class="list">
                             <li v-for="(document,index) in files" :key="index">
@@ -181,6 +181,9 @@ export default {
         },
         hasLocations() {
             return (this.locations !== undefined && this.locations.length > 0);
+        },
+        hasDownloadables(){
+            return (this.files !== undefined && this.files.length > 0);
         }
 
     },
