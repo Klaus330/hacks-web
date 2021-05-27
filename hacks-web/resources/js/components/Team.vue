@@ -40,7 +40,7 @@ export default {
                 {
                     name : "Cezar Andrei Todirisca",
                     description : "Backend Team Lead",
-                    image : "https://scontent.fclj1-2.fna.fbcdn.net/v/t1.6435-9/148577536_2390087264471406_48715920890472558_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=oVMUAJOaK94AX9ya-eG&_nc_ht=scontent.fclj1-2.fna&oh=9ab54d7cdfcebfcdd25907eb2b5034d7&oe=60AE4E3C"
+                    image : "https://cdn.discordapp.com/avatars/331812066178367498/a1abb5044fb60a3255dcd65e22ccccd0.png?size=256"
                 },
                 {
                     name : "Eusebiu Gabriel Agachi",
@@ -50,7 +50,7 @@ export default {
                 {
                     name : "Gabriela Murariu",
                     description : "API Team Leader",
-                    image : "https://scontent.fclj1-2.fna.fbcdn.net/v/t1.6435-9/148654087_3545847932192399_7528511697023032777_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=Rq8VnSkqpmcAX_pj2-k&_nc_ht=scontent.fclj1-2.fna&oh=32fe33b22bd2169b591be73898856159&oe=60AEAB51"
+                    image : "https://cdn.discordapp.com/avatars/688678555315732490/3afbe1473fcd14b7d2121bc84b863c46.png?size=512"
                 },
                 {
                     name : "Catalin Puricoi",
