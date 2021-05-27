@@ -11092,12 +11092,12 @@ h6 {
 }
 
 .sm-hidden {
-  display: none;
+  display: none !important;
 }
 
 @media screen and (min-width: 768px) {
   .sm-hidden {
-    display: block;
+    display: block !important;
   }
 }
 
@@ -11140,6 +11140,32 @@ h6 {
 @media screen and (min-width: 1280px) {
   .md-hidden {
     display: block;
+  }
+}
+
+.only-large {
+  display: none !important;
+}
+
+@media screen and (min-width: 1280px) {
+  .only-large {
+    display: inherit !important;
+  }
+}
+
+.hidden-lg {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .hidden-lg {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .content-desktop {
+    display: none;
   }
 }
 
@@ -11367,6 +11393,7 @@ h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: start;
 }
 
 .dropdown-menu {
@@ -11586,6 +11613,28 @@ h6 {
 .simple-form {
   padding: 2rem 2rem;
   margin: 0 auto;
+}
+
+.itinerary {
+  padding: 20px;
+  background: #f8f8f8;
+}
+
+@media screen and (min-width: 1024px) {
+  .itinerary {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 30px;
+    width: 35%;
+  }
+}
+
+.itinerary .list {
+  max-height: 100px;
+  overflow-y: scroll;
+  list-style-type: none;
+  padding: 0.2rem;
 }
 
 select {
@@ -11976,6 +12025,7 @@ select {
 
 .docs-section {
   min-height: 65vh;
+  margin-left: 20px;
 }
 
 .docs-section .document-link {
@@ -12590,6 +12640,16 @@ select {
   transform: translate3d(-130px, 42px, 0px) !important;
 }
 
+.dropdown-menu .dropdown-item {
+  font-size: small;
+}
+
+@media screen and (min-width: 768px) {
+  .dropdown-menu .dropdown-item {
+    font-size: inherit;
+  }
+}
+
 .dropdown-toggle::after {
   display: none !important;
 }
@@ -12713,7 +12773,6 @@ select {
 }
 
 .form-group .answers {
-  display: flex;
   justify-content: flex-start;
 }
 
@@ -12724,6 +12783,7 @@ select {
 
 @media screen and (min-width: 768px) {
   .form-group .answers label {
+    display: flex;
     font-size: large;
   }
 }
@@ -12788,6 +12848,10 @@ select {
 
 .form-group .option-input.radio::after {
   border-radius: 50%;
+}
+
+.textarea-feedback textarea {
+  resize: none;
 }
 
 .docs-section-title-warning {
