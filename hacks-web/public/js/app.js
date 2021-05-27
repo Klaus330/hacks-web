@@ -3881,19 +3881,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "RegisterForm",
   components: {
     Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
   },
+  props: ['csrf'],
   data: function data() {
     return {
-      csrfToken: '',
       isLoading: false,
       form: {
-        _token: '',
+        _token: this.csrf,
         name: '',
         surname: '',
         email: '',
@@ -85741,11 +85740,6 @@ var render = function() {
       attrs: { action: "/register", method: "post" }
     },
     [
-      _c("input", {
-        attrs: { type: "hidden", name: "_token" },
-        domProps: { value: _vm.csrfToken }
-      }),
-      _vm._v(" "),
       _vm.hasErrors()
         ? _c(
             "div",

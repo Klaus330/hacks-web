@@ -6,7 +6,7 @@
             <div class="auth-image"></div>
         </div>
         <div class="auth-content ">
-            <register-form :csrf-token="{{csrf_token()}}"></register-form>
+            <register-form csrf="{{ csrf_token() }}"></register-form>
             <div class="auth-link-container">
                 <a class="auth-link" href="/login">Deja sunt înregistrat</a>
             </div>

@@ -1,6 +1,5 @@
 <template>
     <form class="login-form simple-form" action="/register" method="post">
-        <input type="hidden" name="_token" v-bind:value="csrfToken">
         <div class="row d-flex justify-content-center align-items-center" v-if="hasErrors()">
             <div class="alert alert-danger col-12 col-lg-7">
                 <ul v-for="error in errors" :key="error[0]">
@@ -65,14 +64,14 @@
 <script>
 import Swal from 'sweetalert2';
 export default {
-name: "RegisterForm",
+    name: "RegisterForm",
     components: {Swal},
+    props:['csrf'],
     data() {
         return {
-            csrfToken: '',
             isLoading: false,
             form: {
-                _token: '',
+                _token: this.csrf,
                 name:'',
                 surname:'',
                 email: '',
