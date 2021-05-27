@@ -70,9 +70,9 @@
 }
 
 .sm-hidden {
-    display: none;
+    display: none!important;
     @include mq(medium) {
-        display: block;
+        display: block !important;
     }
 }
 
@@ -119,13 +119,19 @@
 }
 
 
+.only-large{
+    display: none !important;
+    @include mq(xlarge){
+        display: inherit !important;
+    }
+}
+
 .hidden-lg{
     display: block;
     @include mq(medium){
         display: none !important;
     }
 }
-
 .content-desktop {
     @media screen and (min-width: 1280px) {
         display: none;
