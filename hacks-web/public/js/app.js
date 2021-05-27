@@ -2746,8 +2746,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "EditForm",
@@ -2786,6 +2784,22 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.praseData();
       });
+    },
+    addSelectedInfoId: function addSelectedInfoId(event) {
+      var index = event.target.selectedOptions[0].value;
+      this.selectedInfoId = index;
+    },
+    addSelectedFormId: function addSelectedFormId(event) {
+      this.selectedFormId = event.target.selectedOptions[0].value;
+    },
+    addSelectedCaseId: function addSelectedCaseId(event) {
+      this.selectedCaseId = event.target.selectedOptions[0].value;
+    },
+    addSelectedPriceId: function addSelectedPriceId(event) {
+      this.selectedPriceId = event.target.selectedOptions[0].value;
+    },
+    addSelectedNecessaryId: function addSelectedNecessaryId(event) {
+      this.selectedNecessaryId = event.target.selectedOptions[0].value;
     },
     getPrices: function getPrices(index) {
       return this.processData.prices[index] === undefined ? this.processData.prices.push([]) : this.processData.prices[index];
@@ -4278,6 +4292,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   methods: {
     submit: function submit() {
+      this.requestMade = false;
       this.requestMade = true;
     },
     addRouteItinerary: function addRouteItinerary(geo) {
@@ -4740,6 +4755,7 @@ __webpack_require__.r(__webpack_exports__);
         return 'Vizionările site-ului';
       } else {
         var institutionName = this.institution[0].name;
+        console.log(this.chartData);
         return "".concat(institutionName, " pagini vizionate");
       }
     }
@@ -84211,26 +84227,17 @@ var render = function() {
               {
                 staticClass: "form-control mb-2",
                 staticStyle: { border: "1px solid black !important" },
-                attrs: { name: "cases", id: "cases" }
+                attrs: { name: "cases", id: "cases" },
+                on: {
+                  change: function($event) {
+                    return _vm.addSelectedCaseId($event)
+                  }
+                }
               },
               _vm._l(_vm.cases, function(item, index) {
-                return _c(
-                  "option",
-                  {
-                    key: item,
-                    domProps: { value: index },
-                    on: {
-                      click: function($event) {
-                        _vm.selectedCaseId = index
-                      }
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\n                " + _vm._s(item) + "\n            "
-                    )
-                  ]
-                )
+                return _c("option", { key: item, domProps: { value: index } }, [
+                  _vm._v("\n                " + _vm._s(item) + "\n            ")
+                ])
               }),
               0
             ),
@@ -84269,7 +84276,12 @@ var render = function() {
                   {
                     staticClass: "form-control mb-2",
                     staticStyle: { border: "1px solid black !important" },
-                    attrs: { name: "info", id: "info" }
+                    attrs: { name: "info", id: "info" },
+                    on: {
+                      change: function($event) {
+                        return _vm.addSelectedInfoId($event)
+                      }
+                    }
                   },
                   _vm._l(_vm.getGeneralInfo(_vm.selectedCaseId), function(
                     item,
@@ -84277,15 +84289,7 @@ var render = function() {
                   ) {
                     return _c(
                       "option",
-                      {
-                        key: index,
-                        domProps: { value: index },
-                        on: {
-                          click: function($event) {
-                            _vm.selectedInfoId = index
-                          }
-                        }
-                      },
+                      { key: index, domProps: { value: index } },
                       [_vm._v(_vm._s(item) + "\n            ")]
                     )
                   }),
@@ -84333,7 +84337,12 @@ var render = function() {
                   {
                     staticClass: "form-control mb-2",
                     staticStyle: { border: "1px solid black !important" },
-                    attrs: { name: "forms", id: "forms" }
+                    attrs: { name: "forms", id: "forms" },
+                    on: {
+                      change: function($event) {
+                        return _vm.addSelectedFormId($event)
+                      }
+                    }
                   },
                   _vm._l(_vm.getForms(_vm.selectedCaseId), function(
                     item,
@@ -84341,15 +84350,7 @@ var render = function() {
                   ) {
                     return _c(
                       "option",
-                      {
-                        key: index,
-                        domProps: { value: index },
-                        on: {
-                          click: function($event) {
-                            _vm.selectedFormId = index
-                          }
-                        }
-                      },
+                      { key: index, domProps: { value: index } },
                       [_vm._v(_vm._s(item) + "\n            ")]
                     )
                   }),
@@ -84395,7 +84396,12 @@ var render = function() {
                   {
                     staticClass: "form-control mb-2",
                     staticStyle: { border: "1px solid black !important" },
-                    attrs: { name: "prices", id: "prices" }
+                    attrs: { name: "prices", id: "prices" },
+                    on: {
+                      change: function($event) {
+                        return _vm.addSelectedPriceId($event)
+                      }
+                    }
                   },
                   _vm._l(_vm.getPrices(_vm.selectedCaseId), function(
                     item,
@@ -84403,15 +84409,7 @@ var render = function() {
                   ) {
                     return _c(
                       "option",
-                      {
-                        key: index,
-                        domProps: { value: index },
-                        on: {
-                          click: function($event) {
-                            _vm.selectedPriceId = index
-                          }
-                        }
-                      },
+                      { key: index, domProps: { value: index } },
                       [_vm._v(_vm._s(item) + "\n            ")]
                     )
                   }),
@@ -84460,7 +84458,12 @@ var render = function() {
                   {
                     staticClass: "form-control mb-2",
                     staticStyle: { border: "1px solid black !important" },
-                    attrs: { name: "necessary", id: "necessary" }
+                    attrs: { name: "necessary", id: "necessary" },
+                    on: {
+                      change: function($event) {
+                        return _vm.addSelectedNecessaryId($event)
+                      }
+                    }
                   },
                   _vm._l(_vm.getNecessary(_vm.selectedCaseId), function(
                     item,
@@ -84468,15 +84471,7 @@ var render = function() {
                   ) {
                     return _c(
                       "option",
-                      {
-                        key: index,
-                        domProps: { value: index },
-                        on: {
-                          click: function($event) {
-                            _vm.selectedNecessaryId = index
-                          }
-                        }
-                      },
+                      { key: index, domProps: { value: index } },
                       [_vm._v(_vm._s(item) + "\n            ")]
                     )
                   }),
