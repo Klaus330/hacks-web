@@ -90,7 +90,7 @@ export default {
                     yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: 'Nivel de aglomerare'
+                            labelString: 'Nivel de aglomerare (min)'
                         }
                     }]
                 }

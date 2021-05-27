@@ -24,13 +24,13 @@
                     <a class="btn button-accent-secondary mr-0" href="/login">Logare</a>
                 </li>
                 @else
-                    <li class="nav-item">
+                    <li class="nav-item only-large">
 {{--                        <a class="nav-link text-bold" href="/logout">{{json_decode(session()->get('user'))->name}}</a>--}}
-                        <div class="dropdown">
+                        <div class="dropright  sm-hidden">
                             <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{session()->get('user')->name}}
                             </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-menu user-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="/user/settings">Setări</a>
                                 @if(session()->get('user')->is_admin)
                                     <a class="dropdown-item" href="/admin/dashboard">Setări administrator</a>
@@ -39,6 +39,18 @@
                             </div>
                         </div>
                     </li>
+
+
+                        <li class="nav-item hidden-lg">
+                            <a class="nav-link" href="/user/settings">Setări</a>
+                        </li>
+                        <li class="nav-item hidden-lg">
+                            <a class="nav-link" href="/admin/dashboard">Setări administrator</a>
+                        </li>
+                        <li class="nav-item hidden-lg">
+                            <a class="nav-link" href="/logout">Delogare</a>
+                        </li>
+
                 @endif
             </ul>
         </div>

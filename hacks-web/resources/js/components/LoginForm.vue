@@ -23,15 +23,6 @@
             </div>
         </div>
 
-        <div class="row d-flex justify-content-center align-items-center mb-4">
-            <div class="col-2 col-md-1 p-0">
-                <input type="checkbox" name="remindme" class="input-form" v-model="form.remindme"/>
-            </div>
-            <div class=" col-9 col-md-6 p-0">
-                <label class="d-flex align-items-center text-white m-0">Amintește-mi</label>
-            </div>
-
-        </div>
 
         <div class="row d-flex justify-content-center align-items-center">
             <div class="auth-item mb-4 col-12 col-lg-7">
@@ -61,8 +52,7 @@ export default {
             form: {
                 _token: '',
                 email: '',
-                password: '',
-                remindme: false,
+                password: ''
             },
             errors: {}
         };

@@ -58,12 +58,11 @@
 
 .form-group {
     .answers {
-        display: flex;
         justify-content: flex-start;
-
         label {
             font-size: small;
             @include mq(medium){
+                display: flex;
                 font-size: large;
             }
             font-weight: bold;
@@ -133,6 +132,12 @@
 
     .option-input.radio::after {
         border-radius: 50%;
+    }
+}
+
+.textarea-feedback{
+    textarea{
+        resize: none;
     }
 }
 
