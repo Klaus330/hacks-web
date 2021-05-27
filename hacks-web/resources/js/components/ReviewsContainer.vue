@@ -75,7 +75,7 @@ export default {
           confirmButtonText: "gata",
           denyButtonText: "delete",
         }).then((result) => {
-          if (!result.isConfirmed) {
+          if (result.isDenied) {
             axios.post("/delete-reviews", { id: this.reviews[index].id }).then((response) => {
               console.log(response);
               this.removeFromArray(this.reviews, index);

@@ -69,7 +69,7 @@
     display: flex;
     flex-wrap: wrap;
     @include mq(large) {
-        justify-content: space-between;
+        justify-content: space-around;
     }
 }
 .dropdown-menu {

@@ -2,7 +2,7 @@
     <div>
         <div class="dropdown show mb-4">
             <a
-                class="btn btn-secondary dropdown-toggle"
+                class="btn btn-secondary dropdown-toggle caz-docs"
                 href="#"
                 role="button"
                 id="dropdownMenuLink"
@@ -33,7 +33,7 @@
             <ul v-if="canDisplayProgram()">
                 <li v-for="(program, index) in selectedDeptProgram" :key="index"><strong>{{index}}</strong> :
 
-                    <span v-for="(hour,index) in splitHours(program.open)">
+                    <span v-for="(hour,index) in splitHours(program.open)" :key="index">
                         {{ hour}}-{{displayHour(program.close, index)}}
                     </span>
 

@@ -21,7 +21,7 @@
                     <div class="form-group mt-10">
                         <h5>Informațiile oferite de site-ul nostru v-au fost de folos în vederea finalizării procesului
                             birocratic dorit? *</h5>
-                        <div class="answers">
+                        <div class="answers mt-2">
                             <label class="radio-inline mr-4">
                                 <input type="radio"  class="option-input radio" name="q1" value=true>DA
                             </label>
@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <h5>Cum evaluați calitatea îndrumărilor oferite de personalul instituțiilor cu care ați
                             interacționat? *</h5>
-                        <div class="answers">
+                        <div class="answers mt-2">
                             <div class="form-check form-check-inline">
                                 <input type="radio" class="form-check-input option-input radio" id="q2-a1" name="q2" value=1>
                                 <label class="form-check-label" for="a2-a1">Foarte slaba</label>
@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <h5>Care a fost timpul mediu de așteptare în decursul desfășurării întregului proces
                             biroctratic? *</h5>
-                        <div class="feedback-answer">
+                        <div class="feedback-answer mt-2">
                             <div class="answers">
                                 <div class="form-check form-check-inline">
                                     <input type="radio" class="form-check-input option-input radio" id="q3-a1" name="q3" value="0-30">
@@ -100,7 +100,7 @@
 
                     <div class="form-group">
                         <h5>În ce zi a săptămânii ați efectuat procesul birocratic? * </h5>
-                        <div class="answers">
+                        <div class="answers mt-2">
                             <div class="form-check form-check-inline">
                                 <input type="radio" class="form-check-input option-input radio" id="q4-a1" name="day" value="Luni">
                                 <label class="form-check-label" for="a4-a1">Luni</label>

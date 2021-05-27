@@ -10,7 +10,7 @@
                     <div class="col-12 col-md-8">
                         <div class="docs-info-container">
                             <div class="dropdown show">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                <a class="btn btn-secondary dropdown-toggle caz-docs" href="#" role="button"
                                    id="dropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                    style="white-space: normal;"> Documente necesare (bifeaza documentele pe care le ai
@@ -22,12 +22,12 @@
                                     style="list-style-type: none; padding:0; max-height: 300px; overflow-y: scroll; ">
                                     <li v-for="(document,index) in documents" :key="index"
                                         class="dropdown-item-docs p-2">
-                                        <input type="checkbox" @change="selectDoc($event,document)">{{document}}
+                                        <input type="checkbox" @change="selectDoc($event,document)">  {{document}}
                                     </li>
                                 </ul>
                             </div>
                             <div class="dropdown show" v-if="hasFiles">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                <a class="btn btn-secondary dropdown-toggle caz-docs" href="#" role="button"
                                    id="dropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                    style="white-space: normal;">Documente care pot fi descarcate
@@ -37,12 +37,12 @@
                                     style="list-style-type: none; padding:0; max-height: 300px; overflow-y: scroll; ">
                                     <li v-for="(document,index) in files" :key="index" class="dropdown-item-docs p-2">
                                         <a @click.prevent="downloadFile(document)" style="cursor: pointer"
-                                           class="quick-link">{{document}}</a>
+                                           class="quick-link">  {{document}}</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="dropdown show">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                <a class="btn btn-secondary dropdown-toggle caz-docs" href="#" role="button"
                                    id="dropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Condiții generale
 
@@ -52,13 +52,13 @@
 
                                     <li v-for="(info,index) in generalInfo[selectedCaseId]" :key="index"
                                         class="panel-item">
-                                        <p>{{ info }}</p>
+                                        <p>  {{ info }}</p>
                                     </li>
 
                                 </ul>
                             </div>
                             <div class="dropdown show">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                <a class="btn btn-secondary dropdown-toggle caz-docs" href="#" role="button"
                                    id="dropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Instiuțiile care
                                     eliberează
@@ -68,7 +68,7 @@
                                 <ul class="dropdown-menu docs-dropdown col-12" aria-labelledby="dropdownMenuLink">
                                     <li>
                                         <input type="checkbox"
-                                               @change="selectInstitution($event, pageInfo.institution)" checked> {{
+                                               @change="selectInstitution($event, pageInfo.institution)" checked>  {{
                                         pageInfo.institution
                                         }}
                                     </li>

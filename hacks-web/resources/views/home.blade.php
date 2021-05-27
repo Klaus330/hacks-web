@@ -47,8 +47,8 @@
                     </div>
                     <div class="row">
                         <div class=" home-card-body">
-                            <h4 class="home-card-title">Instituții</h4>
-                            <a href="/institution" class="home-card-link button-accent-secondary">Mai mult</a>
+                            <h4 class="home-card-link">Instituții</h4>
+                            <a href="/institution" class="home-card-link button-accent-secondary mt-3">Mai mult</a>
                         </div>
                     </div>
                 </div>
@@ -60,8 +60,8 @@
                     </div>
                     <div class="row">
                         <div class=" home-card-body">
-                            <h4 class="home-card-title">Documente</h4>
-                            <a href="/documents" class="home-card-link button-accent-secondary">Mai mult</a>
+                            <h4 class="home-card-link">Documente</h4>
+                            <a href="/documents" class="home-card-link button-accent-secondary mt-3">Mai mult</a>
                         </div>
                     </div>
                 </div>
@@ -73,8 +73,8 @@
                     </div>
                     <div class="row">
                         <div class=" home-card-body">
-                            <h4 class="home-card-title">Ghidare</h4>
-                            <a href="/documents" class="home-card-link button-accent-secondary">Mai mult</a>
+                            <h4 class="home-card-link">Ghidare</h4>
+                            <a href="/documents" class="home-card-link button-accent-secondary mt-3">Mai mult</a>
                         </div>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
 </div>
 
 <!-- Carousel -->
-<div class="home-carousel mt-10">
+<div class="home-carousel mt-10" style="margin-bottom:3rem">
     <div id="carousel2" class="carousel slide text-center container mt-5" data-ride="carouse2">
         <div class="col-12 d-flex flex-column justify-content-center">
             <span class="section-category text-center">Echipa noastră</span>
